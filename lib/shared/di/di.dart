@@ -3,12 +3,13 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:piiicks/configs/app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../application/categories_bloc/category_bloc.dart';
 import '../../data/data_sources/local/category_local_data_source.dart';
 import '../../data/data_sources/remote/category_remote_data_source.dart';
-import '../../data/repositories/category_repository_impl.dart';
+import '../../data/repositories/categories_repository_impl.dart';
 
 import '../../domain/repositories/category_repository.dart';
 import '../../domain/usecases/category/filter_category_usecase.dart';
@@ -53,6 +54,7 @@ Future<void> init() async {
   ///! Core
   /// sl.registerLazySingleton(() => InputConverter());
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
+
 
   ///! External
   final sharedPreferences = await SharedPreferences.getInstance();

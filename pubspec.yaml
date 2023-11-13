@@ -41,11 +41,12 @@ dependencies:
   http:
   internet_connection_checker:
   flutter_bloc:
-  flutter_easyloading:
   get_it:
   flutter_secure_storage:
   shimmer:
   cached_network_image:
+  flutter_svg:
+  dots_indicator:
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +71,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/svg/
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

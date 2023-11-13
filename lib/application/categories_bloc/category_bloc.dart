@@ -1,6 +1,8 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
+//import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import '../../domain/entities/category/category.dart';
 import '../../domain/usecases/category/filter_category_usecase.dart';
@@ -53,7 +55,7 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
         )),
       );
     } catch (e) {
-      EasyLoading.showError(e.toString());
+      log(e.toString());
       emit(CategoryError(
         categories: state.categories,
         failure: ExceptionFailure(),
