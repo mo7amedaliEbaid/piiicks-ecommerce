@@ -8,3 +8,16 @@
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/615681d6a96af15e9c3e195cf55ebfce0818192b/screenshots/Screenshot_20231114_042630.jpg" width="170" />
 
 </p>
+
+Done:
+- Products.
+- Categories.
+- Splash.
+- home.
+
+ToDo:
+- Auth.
+- Cart.
+- Orders.
+- Delivery.
+- Product Details.
