@@ -7,7 +7,6 @@ import '../di/di.dart' as di;
 
 import 'package:piiicks/presentation/screens/root.dart';
 
-
 import '../../application/categories_bloc/category_bloc.dart';
 import '../router/app_router.dart';
 import '../constant/colors.dart';
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) =>
-          di.sl<CategoryBloc>()..add(const GetCategories()),
+              di.sl<CategoryBloc>()..add(const GetCategories()),
         ),
         BlocProvider(
           create: (context) => di.sl<ProductBloc>()
@@ -35,8 +34,14 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: AppRouter.onGenerateRoute,
         theme: ThemeData.light().copyWith(
             canvasColor: AppColors.CommonBlue,
-            iconTheme: IconThemeData(color: AppColors.CommonBlue, size: 30)),
-        initialRoute: AppRouter.mainscreen,
+            elevatedButtonTheme: ElevatedButtonThemeData(
+                style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(AppColors.CommonBlue),
+              minimumSize: MaterialStateProperty.all(const Size(170, 50)),
+            )),
+            iconTheme:
+                const IconThemeData(color: AppColors.CommonBlue, size: 30)),
+        initialRoute: AppRouter.splash,
       ),
     );
   }

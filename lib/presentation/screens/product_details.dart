@@ -15,7 +15,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   final PageController _pageController = PageController();
 
   // Controller for ListView
-  final ScrollController _listController = ScrollController();
+  final PageController _listController = PageController();
+
   @override
   void initState() {
     super.initState();
@@ -23,13 +24,13 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
     // Add a listener to the PageController
     _pageController.addListener(() {
       // When the page changes, scroll the Horizontal ListView to the corresponding index
-      _listController.jumpTo(_pageController.page!);
+      _listController.jumpToPage(_pageController.page!.round());
     });
 
     // Add a listener to the Horizontal ListView controller
     _listController.addListener(() {
       // When the Horizontal ListView scrolls, update the PageView index
-      _pageController.jumpTo(_listController.offset );
+      _pageController.jumpToPage((_listController.page!.round()));
     });
   }
 
@@ -52,12 +53,14 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             SizedBox(
               height: 300,
               width: 300,
-              child: PageView.builder(
-                  itemCount: widget.product.images.length,
-                  controller: _pageController,
-                  itemBuilder: (context, index) {
-                    return Image.network(widget.product.images[index]);
-                  }),
+              child: Expanded(
+                child: PageView.builder(
+                    itemCount: widget.product.images.length,
+                    controller: _pageController,
+                    itemBuilder: (context, index) {
+                      return Image.network(widget.product.images[index]);
+                    }),
+              ),
             ),
             SizedBox(
               height: 200,
