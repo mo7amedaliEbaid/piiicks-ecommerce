@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:piiicks/configs/app.dart';
 import 'package:piiicks/configs/app_dimensions.dart';
+import 'package:piiicks/configs/app_typography.dart';
 import 'package:piiicks/presentation/screens/categories.dart';
 import 'package:piiicks/presentation/screens/home.dart';
 
@@ -41,20 +42,20 @@ class _RootScreenState extends State<RootScreen> {
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.business),
+              icon: Icon(Icons.category),
               label: 'Categories',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.school),
+              icon: Icon(Icons.headphones),
               label: 'Products',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.school),
-              label: 'Products',
+              icon: Icon(Icons.shopping_cart),
+              label: 'Cart',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.school),
-              label: 'Products',
+              icon: Icon(Icons.person),
+              label: 'Profile',
             ),
           ],
           currentIndex: _selectedIndex,
@@ -62,6 +63,8 @@ class _RootScreenState extends State<RootScreen> {
           unselectedItemColor: Colors.white,
           onTap: _onItemTapped,
           iconSize: AppDimensions.normalize(12),
+          selectedLabelStyle: AppText.b2b,
+          unselectedLabelStyle: AppText.b2,
         ),
       ),
       body: Center(
