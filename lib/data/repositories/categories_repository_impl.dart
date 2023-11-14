@@ -2,9 +2,9 @@ import 'package:dartz/dartz.dart';
 
 import '../../domain/entities/category/category.dart';
 import '../../domain/repositories/category_repository.dart';
-import '../../shared/error/exceptions.dart';
-import '../../shared/error/failures.dart';
-import '../../shared/network/network_info.dart';
+import '../../core/error/exceptions.dart';
+import '../../core/error/failures.dart';
+import '../../core/networkchecker/network_info.dart';
 import '../data_sources/local/category_local_data_source.dart';
 import '../data_sources/remote/category_remote_data_source.dart';
 

@@ -4,8 +4,8 @@ import 'package:piiicks/configs/app.dart';
 import 'package:piiicks/configs/app_dimensions.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/presentation/widgets/lading_shimmer.dart';
-import 'package:piiicks/shared/constant/colors.dart';
 
+import '../../core/constant/colors.dart';
 import '../../domain/entities/category/category.dart';
 
 class RectangularCategoryItem extends StatelessWidget {

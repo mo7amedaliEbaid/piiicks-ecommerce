@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:piiicks/configs/configs.dart';
-import 'package:piiicks/shared/constant/assets.dart';
-import 'package:piiicks/shared/constant/colors.dart';
+
 import 'package:shimmer/shimmer.dart';
 
 import '../../application/products_bloc/product_bloc.dart';
 import '../../configs/app_dimensions.dart';
-import '../../shared/error/failures.dart';
+import '../../core/constant/assets.dart';
+import '../../core/constant/colors.dart';
+import '../../core/error/failures.dart';
 import '../widgets/product_item.dart';
 
 class ProductsListScreen extends StatefulWidget {
   const ProductsListScreen({super.key});
+
 
   @override
   State<ProductsListScreen> createState() => _ProductsListScreenState();

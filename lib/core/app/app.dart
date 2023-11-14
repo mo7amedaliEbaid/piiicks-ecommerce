@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../application/products_bloc/product_bloc.dart';
-import '../domain/usecases/product/get_product_usecase.dart';
-import '../shared/di/di.dart' as di;
+import '../../application/products_bloc/product_bloc.dart';
+import '../../domain/usecases/product/get_product_usecase.dart';
+import '../di/di.dart' as di;
 
 import 'package:piiicks/presentation/screens/root.dart';
-import 'package:piiicks/shared/constant/colors.dart';
-import 'package:piiicks/shared/constant/strings.dart';
 
-import '../application/categories_bloc/category_bloc.dart';
+
+import '../../application/categories_bloc/category_bloc.dart';
+import '../router/app_router.dart';
+import '../constant/colors.dart';
+import '../constant/strings.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -30,10 +32,11 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: appTitle,
+        onGenerateRoute: AppRouter.onGenerateRoute,
         theme: ThemeData.light().copyWith(
             canvasColor: AppColors.CommonBlue,
             iconTheme: IconThemeData(color: AppColors.CommonBlue, size: 30)),
-        home: const RootScreen(),
+        initialRoute: AppRouter.mainscreen,
       ),
     );
   }

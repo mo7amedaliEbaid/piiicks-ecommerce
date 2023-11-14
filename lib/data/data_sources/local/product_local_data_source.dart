@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../shared/error/exceptions.dart';
+import '../../../core/error/exceptions.dart';
 import '../../models/product/product_response_model.dart';
 
 abstract class ProductLocalDataSource {

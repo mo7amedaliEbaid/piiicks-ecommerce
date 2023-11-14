@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../configs/app_dimensions.dart';
 import '../../configs/space.dart';
-import '../../shared/constant/assets.dart';
+import '../../core/constant/assets.dart';
 
 Widget TopRow({required bool isFromHome}) {
   return SizedBox(

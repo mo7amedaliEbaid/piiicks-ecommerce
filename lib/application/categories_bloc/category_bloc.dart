@@ -8,8 +8,8 @@ import '../../domain/entities/category/category.dart';
 import '../../domain/usecases/category/filter_category_usecase.dart';
 import '../../domain/usecases/category/get_cached_category_usecase.dart';
 import '../../domain/usecases/category/get_remote_category_usecase.dart';
-import '../../shared/error/failures.dart';
-import '../../shared/usecases/usecase.dart';
+import '../../core/error/failures.dart';
+import '../../core/usecases/usecase.dart';
 
 part 'category_event.dart';
 part 'category_state.dart';

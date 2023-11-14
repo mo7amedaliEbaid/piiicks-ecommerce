@@ -3,9 +3,9 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 
+import '../../../core/constant/api.dart';
 import '../../../domain/usecases/product/get_product_usecase.dart';
-import '../../../shared/constant/api.dart';
-import '../../../shared/error/exceptions.dart';
+import '../../../core/error/exceptions.dart';
 import '../../models/product/product_response_model.dart';
 
 abstract class ProductRemoteDataSource {

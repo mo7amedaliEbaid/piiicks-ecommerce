@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../shared/error/failures.dart';
+import '../../../core/error/failures.dart';
 import '../../models/category/category_model.dart';
 
 abstract class CategoryLocalDataSource {

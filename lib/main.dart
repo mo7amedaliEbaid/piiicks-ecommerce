@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'core/app.dart';
+import 'core/app/app.dart';
 
-import 'core/bloc_observer.dart';
-import 'shared/di/di.dart' as di;
+import 'core/observer/bloc_observer.dart';
+import 'core/di/di.dart' as di;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

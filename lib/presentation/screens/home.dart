@@ -5,10 +5,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:piiicks/configs/app.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/presentation/widgets/top_row.dart';
-import 'package:piiicks/shared/constant/assets.dart';
-import 'package:piiicks/shared/constant/colors.dart';
+
 
 import '../../application/categories_bloc/category_bloc.dart';
+import '../../core/constant/assets.dart';
+import '../../core/constant/colors.dart';
 import '../widgets/square_category_item.dart';
 
 class HomeScreen extends StatefulWidget {
