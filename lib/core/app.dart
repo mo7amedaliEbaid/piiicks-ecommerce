@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../application/products_bloc/product_bloc.dart';
+import '../domain/usecases/product/get_product_usecase.dart';
 import '../shared/di/di.dart' as di;
 
 import 'package:piiicks/presentation/screens/root.dart';
@@ -19,6 +21,10 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) =>
           di.sl<CategoryBloc>()..add(const GetCategories()),
+        ),
+        BlocProvider(
+          create: (context) => di.sl<ProductBloc>()
+            ..add(const GetProducts(FilterProductParams())),
         ),
       ],
       child: MaterialApp(

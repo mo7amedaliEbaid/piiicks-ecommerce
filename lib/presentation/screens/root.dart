@@ -4,6 +4,7 @@ import 'package:piiicks/configs/app_dimensions.dart';
 import 'package:piiicks/configs/app_typography.dart';
 import 'package:piiicks/presentation/screens/categories.dart';
 import 'package:piiicks/presentation/screens/home.dart';
+import 'package:piiicks/presentation/screens/products_list.dart';
 
 class RootScreen extends StatefulWidget {
   const RootScreen({super.key});
@@ -18,7 +19,7 @@ class _RootScreenState extends State<RootScreen> {
   final List<Widget> _screens =<Widget>[
     const HomeScreen(),
     const CategoriesScreen(),
-    const CategoriesScreen(),
+    const ProductsListScreen(),
     const CategoriesScreen(),
     const CategoriesScreen(),
   ];
@@ -50,7 +51,7 @@ class _RootScreenState extends State<RootScreen> {
               label: 'Products',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart),
+              icon: Icon(Icons.shopping_basket_outlined),
               label: 'Cart',
             ),
             BottomNavigationBarItem(

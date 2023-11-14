@@ -42,7 +42,6 @@ dependencies:
   internet_connection_checker:
   flutter_bloc:
   get_it:
-  flutter_secure_storage:
   shimmer:
   cached_network_image:
   flutter_svg:
