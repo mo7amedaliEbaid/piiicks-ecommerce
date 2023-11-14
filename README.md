@@ -14,6 +14,8 @@ Done:
 - Categories.
 - Splash.
 - home.
+- root.
+- ads.
 
 ToDo:
 - Auth.
@@ -21,3 +23,6 @@ ToDo:
 - Orders.
 - Delivery.
 - Product Details.
+- Search.
+- Filter.
+- Payment.
