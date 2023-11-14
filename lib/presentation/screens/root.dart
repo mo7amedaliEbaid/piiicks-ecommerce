@@ -5,6 +5,7 @@ import 'package:piiicks/configs/app_typography.dart';
 import 'package:piiicks/presentation/screens/categories.dart';
 import 'package:piiicks/presentation/screens/home.dart';
 import 'package:piiicks/presentation/screens/products_list.dart';
+import 'package:piiicks/presentation/screens/signup.dart';
 
 class RootScreen extends StatefulWidget {
   const RootScreen({super.key});
@@ -21,7 +22,7 @@ class _RootScreenState extends State<RootScreen> {
     const CategoriesScreen(),
     const ProductsListScreen(),
     const CategoriesScreen(),
-    const CategoriesScreen(),
+    const SignUpScreen(),
   ];
 
   void _onItemTapped(int index) {
