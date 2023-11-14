@@ -1,16 +1,8 @@
 # piiicks
 
-A new Flutter project.
+<p float="left">
+   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/615681d6a96af15e9c3e195cf55ebfce0818192b/screenshots/Screenshot_20231114_042641.jpg" width="170" />
+   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/615681d6a96af15e9c3e195cf55ebfce0818192b/screenshots/Screenshot_20231114_042651.jpg" width="170" />
+   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/615681d6a96af15e9c3e195cf55ebfce0818192b/screenshots/Screenshot_20231114_042630.jpg" width="170" />
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+</p>
