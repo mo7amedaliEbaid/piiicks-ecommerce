@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:piiicks/configs/app_typography.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/colors.dart';
+import 'package:piiicks/presentation/widgets/custom_textfield.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -37,21 +38,83 @@ class SignUpScreen extends StatelessWidget {
                   "Full Name*",
                   style: AppText.b1b,
                 ),
+                Space.y!,
+                CustomTextField(hintText: "Enter Your Full Name"),
+                Space.yf(1.5),
+                Text(
+                  "Email Address*",
+                  style: AppText.b1b,
+                ),
+                Space.y!,
+                CustomTextField(hintText: "Enter your Email Address"),
+                Space.yf(1.5),
+                Text(
+                  "Password*",
+                  style: AppText.b1b,
+                ),
+                Space.y!,
+                CustomTextField(hintText: "Enter your Password"),
+                Space.yf(1.5),
+                Text(
+                  "Confirm Password*",
+                  style: AppText.b1b,
+                ),
+                Space.y!,
+                CustomTextField(hintText: "Enter your Password"),
+                Space.yf(1.5),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const Icon(
+                      Icons.check_box_outline_blank_outlined,
+                      color: Colors.black,
+                    ),
+                    Space.x!,
+                    Text(
+                      "I Accept All Privacy Policies And Terms & Conditions Of ",
+                      style: AppText.l1,
+                    ),
+                    Text(
+                      "Piicks!",
+                      style: AppText.b2b,
+                    )
+                  ],
+                ),
+                Space.yf(1.5),
+                ElevatedButton(
+                    onPressed: null,
+                    style: ButtonStyle(
+                      minimumSize: MaterialStatePropertyAll(
+                        Size(
+                          double.infinity,
+                          AppDimensions.normalize(20),
+                        ),
+                      ),
+                    ),
+                    child: Text(
+                      "Signup",
+                      style: AppText.h3b?.copyWith(color: Colors.white),
+                    )),
+                Space.yf(1.5),
+                Center(
+                    child: Text(
+                  "Already Have an Account?",
+                  style: AppText.b1b,
+                )),
+                Space.y1!,
                 Container(
                   height: AppDimensions.normalize(20),
-                  padding: Space.h1,
-                  decoration:
-                      BoxDecoration(border: Border.all(color: Colors.grey)),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      border:
+                          Border.all(width: 1, color: AppColors.CommonBlue)),
                   child: Center(
-                      child: TextField(
-                    cursorColor: Colors.grey,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hoverColor: Colors.grey,
-                      iconColor: Colors.grey,
-                      focusColor: Colors.grey,
+                    child: Text(
+                      "Login",
+                      style: AppText.h3b?.copyWith(color: AppColors.CommonBlue),
                     ),
-                  )),
+                  ),
                 )
               ],
             ),
