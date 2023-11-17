@@ -11,6 +11,7 @@ import '../../core/constant/assets.dart';
 import '../../core/constant/colors.dart';
 import '../../core/error/failures.dart';
 import '../../core/router/app_router.dart';
+import '../../data/models/product/filter_params_model.dart';
 import '../widgets/product_item.dart';
 
 class ProductsListScreen extends StatefulWidget {
@@ -79,7 +80,11 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
             );
           }
           return RefreshIndicator(
-            onRefresh: () async {},
+            onRefresh: () async {
+              context
+                  .read<ProductBloc>()
+                  .add(const GetProducts(FilterProductParams()));
+            },
             child: Column(
               children: [
                 Padding(
@@ -88,7 +93,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       GestureDetector(
-                          onTap: (){
+                          onTap: () {
                             Navigator.of(context).pushNamed(AppRouter.search);
                           },
                           child: const Icon(Icons.search)),
@@ -156,11 +161,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                           product: state.products[index],
                         );
                       }
-                      return Shimmer.fromColors(
-                        baseColor: Colors.grey.shade100,
-                        highlightColor: Colors.white,
-                        child: const ProductCard(),
-                      );
+                      return const ProductCard();
                     },
                   ),
                 ),

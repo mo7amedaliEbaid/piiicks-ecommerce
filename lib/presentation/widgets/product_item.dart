@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:piiicks/configs/app_dimensions.dart';
 import 'package:piiicks/configs/configs.dart';
+import 'package:piiicks/presentation/widgets/lading_shimmer.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../core/constant/colors.dart';
@@ -23,21 +24,15 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return product == null
-        ? Shimmer.fromColors(
-            baseColor: Colors.grey.shade100,
-            highlightColor: Colors.white,
-            child: buildBody(context),
-          )
+        ? LoadingShimmer(isSquare: true)
         : buildBody(context);
   }
 
   Widget buildBody(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        //if (product != null) {
-          Navigator.of(context)
-              .pushNamed(AppRouter.productDetails, arguments: product);
-      //  }
+        Navigator.of(context)
+            .pushNamed(AppRouter.productDetails, arguments: product);
       },
       child: Card(
         elevation: 3,
@@ -50,11 +45,7 @@ class ProductCard extends StatelessWidget {
               CachedNetworkImage(
                 height: AppDimensions.normalize(70),
                 imageUrl: product!.images.first,
-                placeholder: (context, url) => Shimmer.fromColors(
-                  baseColor: Colors.grey.shade300,
-                  highlightColor: Colors.white,
-                  child: Container(),
-                ),
+                placeholder: (context, url) => placeholderShimmer(),
                 errorWidget: (context, url, error) =>
                     const Center(child: Icon(Icons.error)),
               ),

@@ -5,7 +5,7 @@ import '../../../domain/entities/category/category.dart';
 import '../../data/models/product/filter_params_model.dart';
 
 class FilterCubit extends Cubit<FilterProductParams> {
-  final TextEditingController searchController = TextEditingController();
+  final TextEditingController productsSearchController = TextEditingController();
   FilterCubit() : super(const FilterProductParams());
 
   void update({

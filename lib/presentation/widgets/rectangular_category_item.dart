@@ -4,6 +4,7 @@ import 'package:piiicks/configs/app.dart';
 import 'package:piiicks/configs/app_dimensions.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/presentation/widgets/lading_shimmer.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../../core/constant/colors.dart';
 import '../../domain/entities/category/category.dart';
@@ -34,9 +35,7 @@ class RectangularCategoryItem extends StatelessWidget {
                     width: AppDimensions.normalize(60),
                     imageUrl: category!.image,
                     fit: BoxFit.cover,
-                    placeholder: (context, url) => Container(
-                      color: Colors.grey.shade100,
-                    ),
+                    placeholder: (context, url) => placeholderShimmer(),
                     errorWidget: (context, url, error) =>
                         const Center(child: Icon(Icons.error)),
                   ),

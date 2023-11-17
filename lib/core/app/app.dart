@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../application/filter_cubit/filter_cubit.dart';
 import '../../application/products_bloc/product_bloc.dart';
 import '../../data/models/product/filter_params_model.dart';
 import '../di/di.dart' as di;
@@ -24,6 +25,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => di.sl<ProductBloc>()
             ..add(const GetProducts(FilterProductParams())),
+        ),
+        BlocProvider(
+          create: (context) => FilterCubit(),
         ),
       ],
       child: MaterialApp(
