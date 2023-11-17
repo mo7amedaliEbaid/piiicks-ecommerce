@@ -17,6 +17,7 @@ Done:
 - home.
 - root.
 - ads.
+- signup ui
 
 ToDo:
 - Auth.
