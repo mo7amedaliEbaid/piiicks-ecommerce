@@ -6,7 +6,6 @@ import 'package:piiicks/configs/app.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/presentation/widgets/top_row.dart';
 
-
 import '../../application/categories_bloc/category_bloc.dart';
 import '../../core/constant/assets.dart';
 import '../../core/constant/colors.dart';
@@ -39,10 +38,10 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: Space.h1!,
           child: Column(
             children: [
-             TopRow(isFromHome: true),
+              TopRow(isFromHome: true, context: context),
               Space.yf(.2),
-               Expanded(
-                 child: SingleChildScrollView(
+              Expanded(
+                child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -78,11 +77,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: AppDimensions.normalize(15),bottom: AppDimensions.normalize(7)),
+                        padding: EdgeInsets.only(
+                            top: AppDimensions.normalize(15),
+                            bottom: AppDimensions.normalize(7)),
                         child: Text(
                           "FEATURED CATEGORIES",
-                          style:
-                              AppText.h2b?.copyWith(color: AppColors.CommonBlue),
+                          style: AppText.h2b
+                              ?.copyWith(color: AppColors.CommonBlue),
                         ),
                       ),
                       BlocBuilder<CategoryBloc, CategoryState>(
@@ -105,8 +106,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
+                ),
               ),
-               ),
             ],
           ),
         ),

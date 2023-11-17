@@ -2,29 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:piiicks/presentation/screens/ads.dart';
 import 'package:piiicks/presentation/screens/product_details.dart';
 import 'package:piiicks/presentation/screens/root.dart';
+import 'package:piiicks/presentation/screens/search.dart';
 import 'package:piiicks/presentation/screens/splash.dart';
 import '../../domain/entities/product/product.dart';
 import '../error/exceptions.dart';
 
 sealed class AppRouter {
-
   static const String splash = '/';
   static const String ads = '/ads';
   static const String mainscreen = '/mainscreen';
   static const String productDetails = '/product-details';
-
+  static const String search = '/search';
 
   static Route<dynamic> onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case splash:
-        return MaterialPageRoute(
-            builder: (_) =>const SplashScreen());
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
       case ads:
-        return MaterialPageRoute(
-            builder: (_) => AdsScreen());
+        return MaterialPageRoute(builder: (_) => const AdsScreen());
       case mainscreen:
-        return MaterialPageRoute(
-            builder: (_) =>const RootScreen());
+        return MaterialPageRoute(builder: (_) => const RootScreen());
+      case search:
+        return MaterialPageRoute(builder: (_) => const SearchScreen());
       case productDetails:
         Product product = routeSettings.arguments as Product;
         return MaterialPageRoute(

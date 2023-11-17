@@ -10,11 +10,11 @@ import '../../configs/app_dimensions.dart';
 import '../../core/constant/assets.dart';
 import '../../core/constant/colors.dart';
 import '../../core/error/failures.dart';
+import '../../core/router/app_router.dart';
 import '../widgets/product_item.dart';
 
 class ProductsListScreen extends StatefulWidget {
   const ProductsListScreen({super.key});
-
 
   @override
   State<ProductsListScreen> createState() => _ProductsListScreenState();
@@ -87,7 +87,11 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Icon(Icons.arrow_back),
+                      GestureDetector(
+                          onTap: (){
+                            Navigator.of(context).pushNamed(AppRouter.search);
+                          },
+                          child: const Icon(Icons.search)),
                       Text(
                         "All Products".toUpperCase(),
                         style: AppText.b1b?.copyWith(color: AppColors.GreyText),
@@ -138,7 +142,6 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                     itemCount: state.products.length +
                         ((state is ProductLoading) ? 10 : 0),
                     controller: scrollController,
-
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,

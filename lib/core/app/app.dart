@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/products_bloc/product_bloc.dart';
-import '../../domain/usecases/product/get_product_usecase.dart';
+import '../../data/models/product/filter_params_model.dart';
 import '../di/di.dart' as di;
-
-import 'package:piiicks/presentation/screens/root.dart';
 
 import '../../application/categories_bloc/category_bloc.dart';
 import '../router/app_router.dart';

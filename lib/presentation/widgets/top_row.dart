@@ -4,8 +4,9 @@ import 'package:flutter_svg/svg.dart';
 import '../../configs/app_dimensions.dart';
 import '../../configs/space.dart';
 import '../../core/constant/assets.dart';
+import '../../core/router/app_router.dart';
 
-Widget TopRow({required bool isFromHome}) {
+Widget TopRow({required bool isFromHome, required BuildContext context}) {
   return SizedBox(
     height: AppDimensions.normalize(20),
     child: Row(
@@ -22,7 +23,11 @@ Widget TopRow({required bool isFromHome}) {
                 children: [
                   const Icon(Icons.favorite_border),
                   Space.xf(),
-                  const Icon(Icons.search),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed(AppRouter.search);
+                      },
+                      child: const Icon(Icons.search)),
                 ],
               )
             : const SizedBox.shrink()
