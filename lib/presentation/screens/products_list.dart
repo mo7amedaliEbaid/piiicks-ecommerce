@@ -197,9 +197,20 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                             Navigator.of(context).pushNamed(AppRouter.search);
                           },
                           child: const Icon(Icons.search)),
-                      Text(
-                        "All Products".toUpperCase(),
-                        style: AppText.b1b?.copyWith(color: AppColors.GreyText),
+                      BlocBuilder<FilterCubit, FilterProductParams>(
+                        builder: (context, filterState) {
+                          return filterState.categories.length == 0
+                              ? Text(
+                                  "All Products".toUpperCase(),
+                                  style: AppText.b1b
+                                      ?.copyWith(color: AppColors.GreyText),
+                                )
+                              : Text(
+                                  filterState.categories.first.name,
+                                  style: AppText.b1b
+                                      ?.copyWith(color: AppColors.GreyText),
+                                );
+                        },
                       ),
                       SvgPicture.asset(
                         Assets.Cart,
