@@ -19,11 +19,12 @@ Done:
 - Products.
 - Categories.
 - Splash.
-- home.
+- Home.
 - Search.
-- root.
-- ads.
-- signup ui
+- Bottom NavBar.
+- Sorting.
+- Ads.
+- SignUp UI.
 
 ToDo:
 - Auth.

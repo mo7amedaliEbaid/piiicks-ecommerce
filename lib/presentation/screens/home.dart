@@ -13,6 +13,7 @@ import '../../application/categories_bloc/category_bloc.dart';
 import '../../core/constant/assets.dart';
 import '../../core/constant/colors.dart';
 import '../../core/enums/enums.dart';
+import '../widgets/dots_indicator.dart';
 import '../widgets/square_category_item.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -71,10 +72,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               bottom: AppDimensions.normalize(2),
                               left: 0,
                               right: 0,
-                              child: _dotsindicator(
-                                _pageController.hasClients
+                              child: Dotsindicator(
+                                dotsIndex: _pageController.hasClients
                                     ? _pageController.page?.round()
                                     : 1,
+                                dotsCount: 3,
                               ),
                             ),
                           ],
@@ -105,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: AppText.b2b
                                         ?.copyWith(color: AppColors.CommonBlue),
                                   ),
-                                 const Icon(
+                                  const Icon(
                                     Icons.double_arrow,
                                     size: 15,
                                   )
@@ -178,26 +180,29 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: AppText.b2b,
                                     overflow: TextOverflow.ellipsis,
                                   )
-                                : (state is ProductEmpty)?
-                            Text(
-                              "No Featured Products Available",
-                              style: AppText.b2b,
-                              overflow: TextOverflow.ellipsis,
-                            ):
-                            ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: 3,
-                                    physics: const ClampingScrollPhysics(),
-                                    itemBuilder: (context, index) =>
-                                        (state is ProductLoading)
+                                : (state is ProductEmpty)
+                                    ? Text(
+                                        "No Featured Products Available",
+                                        style: AppText.b2b,
+                                        overflow: TextOverflow.ellipsis,
+                                      )
+                                    : ListView.builder(
+                                        scrollDirection: Axis.horizontal,
+                                        itemCount: 3,
+                                        physics: const ClampingScrollPhysics(),
+                                        itemBuilder: (context, index) => (state
+                                                is ProductLoading)
                                             ? const SquareProductItem()
                                             : SquareProductItem(
                                                 product: state.products[index],
                                               ),
-                                  ),
+                                      ),
                           );
                         },
                       ),
+                      Space.y1!,
+                      Image.asset(Assets.HomePng),
+                      Space.y2!
                     ],
                   ),
                 ),
@@ -206,20 +211,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-    );
-  }
-
-  _dotsindicator(int? dotsindex) {
-    return DotsIndicator(
-      dotsCount: 3,
-      position: dotsindex!,
-      decorator: DotsDecorator(
-          color: Colors.white,
-          activeColor: Colors.black,
-          size: Size.fromRadius(
-            AppDimensions.normalize(2.5),
-          ),
-          activeSize: Size.fromRadius(AppDimensions.normalize(2.5))),
     );
   }
 }

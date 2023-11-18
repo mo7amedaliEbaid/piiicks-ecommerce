@@ -200,7 +200,11 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                         "All Products".toUpperCase(),
                         style: AppText.b1b?.copyWith(color: AppColors.GreyText),
                       ),
-                      const Icon(Icons.shopping_basket_outlined)
+                      SvgPicture.asset(
+                        Assets.Cart,
+                        color: AppColors.CommonBlue,
+                        height: AppDimensions.normalize(10),
+                      )
                     ],
                   ),
                 ),
