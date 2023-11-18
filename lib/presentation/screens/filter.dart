@@ -1,5 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:piiicks/configs/app_dimensions.dart';
+import 'package:piiicks/configs/configs.dart';
+import 'package:piiicks/core/constant/assets.dart';
 import 'package:piiicks/core/constant/colors.dart';
+
+import '../../application/categories_bloc/category_bloc.dart';
+import '../../application/filter_cubit/filter_cubit.dart';
+import '../../application/products_bloc/product_bloc.dart';
+import '../../data/models/product/filter_params_model.dart';
+import '../widgets/price_range_slider.dart';
 
 class FilterScreen extends StatefulWidget {
   const FilterScreen({super.key});
@@ -9,202 +20,227 @@ class FilterScreen extends StatefulWidget {
 }
 
 class _FilterScreenState extends State<FilterScreen> {
-  bool is_categories_list_Visible = false;
-  bool is_price_range_visible = false;
+  bool isCategorieslistVisible = false;
+  bool isPricerangeVisible = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 150),
+      appBar: PreferredSize(
+        preferredSize: Size(double.infinity, AppDimensions.normalize(22)),
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: Row(children: [
+            Space.xf(.8),
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(Icons.arrow_back),
+            ),
+            Space.xf(7),
+            Text(
+              "FILTER",
+              style: AppText.b2b?.copyWith(color: AppColors.GreyText),
+            ),
+          ]),
+        ),
+      ),
+      body: Padding(
+        padding: Space.all(1, 1.2),
+        child: SingleChildScrollView(
           child: Column(
             children: [
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    is_categories_list_Visible = !is_categories_list_Visible;
+                    isCategorieslistVisible = !isCategorieslistVisible;
                   });
                 },
                 child: Container(
-                  height: 40,
+                  padding: Space.all(1.1, 1.2),
                   color: AppColors.LightGrey,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("Category"), Icon(Icons.add)],
+                    children: [
+                      Text(
+                        "Categories",
+                        style: AppText.h3b,
+                      ),
+                      isCategorieslistVisible
+                          ? SvgPicture.asset(Assets.Minus)
+                          : SvgPicture.asset(Assets.Plus)
+                    ],
                   ),
                 ),
               ),
               Visibility(
-                  visible: is_categories_list_Visible,
-                  child: Container(
-                    height: 100,
-                    color: Colors.grey,
-                    child: Column(
-                      children: [
-                        Text("catname"),
-                        Text("catname"),
-                        Text("catname"),
-                        Text("catname"),
-                      ],
-                    ),
-                  )),
+                visible: isCategorieslistVisible,
+                child: Container(
+                  color: AppColors.LightGrey,
+                  padding: Space.hf(1.2),
+                  child: BlocBuilder<CategoryBloc, CategoryState>(
+                    builder: (context, categoryState) {
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: categoryState.categories.length,
+                        itemBuilder: (context, index) => Padding(
+                          padding: EdgeInsets.only(
+                              bottom: AppDimensions.normalize(8)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                  categoryState.categories[index].name
+                                      .toUpperCase(),
+                                  style: AppText.h3?.copyWith(
+                                    color: context
+                                            .read<FilterCubit>()
+                                            .isSelectedCategory(
+                                                categoryState.categories[index])
+                                        ? AppColors
+                                            .CommonBlue // Change color when checkbox is checked
+                                        : Colors.black,
+                                  )),
+                              BlocBuilder<FilterCubit, FilterProductParams>(
+                                builder: (context, filterState) {
+                                  return SizedBox(
+                                    height: AppDimensions.normalize(10),
+                                    width: AppDimensions.normalize(5),
+                                    child: Checkbox(
+                                      activeColor: AppColors.CommonBlue,
+                                      materialTapTargetSize:
+                                          MaterialTapTargetSize.shrinkWrap,
+                                      value: filterState.categories.contains(
+                                              categoryState
+                                                  .categories[index]) ||
+                                          filterState.categories.isEmpty,
+                                      onChanged: (bool? value) {
+                                        setState(() {});
+                                        context
+                                            .read<FilterCubit>()
+                                            .updateCategory(
+                                                category: categoryState
+                                                    .categories[index]);
+                                      },
+                                    ),
+                                  );
+                                },
+                              )
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+              Space.yf(1.5),
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    is_price_range_visible = !is_price_range_visible;
+                    isPricerangeVisible = !isPricerangeVisible;
                   });
                 },
                 child: Container(
-                  height: 40,
+                  padding: Space.all(1.1, 1.2),
                   color: AppColors.LightGrey,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [Text("Category"), Icon(Icons.add)],
+                    children: [
+                      Text(
+                        "Price",
+                        style: AppText.h3b,
+                      ),
+                      isPricerangeVisible
+                          ? SvgPicture.asset(Assets.Minus)
+                          : SvgPicture.asset(Assets.Plus)
+                    ],
                   ),
                 ),
               ),
               Visibility(
-                  visible: is_price_range_visible,
-                  child: Container(
-                    height: 100,
-                    color: Colors.grey,
-                    child: Column(
-                      children: [
-                        Text("catname"),
-                        Text("catname"),
-                        Text("catname"),
-                        Text("catname"),
-                      ],
-                    ),
-                  )),
-              Text("hhhhhhhhhhhhhhhhhhhh")
+                visible: isPricerangeVisible,
+                child: Container(
+                  color: AppColors.LightGrey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: AppDimensions.normalize(9),
+                            bottom: AppDimensions.normalize(5)),
+                        child: Text(
+                          "Dollar".toUpperCase(),
+                          style: AppText.h3b
+                              ?.copyWith(color: AppColors.CommonBlue),
+                        ),
+                      ),
+                      BlocBuilder<FilterCubit, FilterProductParams>(
+                        builder: (context, state) {
+                          return PriceRangeSlider(
+                            initMin: state.minPrice,
+                            initMax: state.maxPrice,
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        color: AppColors.LightGrey,
+        padding: Space.v1!,
+        margin: Space.v2!,
+        child: Row(
+          children: [
+            Space.xf(1.2),
+            Expanded(
+                child: GestureDetector(
+                  onTap: (){
+                    context.read<FilterCubit>().reset();
+                  },
+                 child: Container(
+                  height: AppDimensions.normalize(24),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: AppColors.CommonBlue),
+                      borderRadius: BorderRadius.circular(5)),
+                  child: Padding(
+                    padding: Space.all(2, 1.1),
+                    child: Center(
+                        child: Text(
+                      "Reset",
+                      style: AppText.h3b?.copyWith(color: AppColors.CommonBlue),
+                    )),
+                  )),
+            )),
+            Space.x!,
+            Expanded(
+                child: ElevatedButton(
+                    onPressed: (){
+                      context
+                          .read<ProductBloc>()
+                          .add(GetProducts(context
+                          .read<FilterCubit>()
+                          .state));
+                      Navigator.of(context).pop();
+                    },
+                    child: Padding(
+                      padding: Space.all(2, 1.1),
+                      child: Text(
+                        "Apply",
+                        style: AppText.h3b?.copyWith(color: Colors.white),
+                      ),
+                    ))),
+            Space.xf(1.2),
+          ],
         ),
       ),
     );
   }
 }
-/*import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../application/categories_bloc/category_bloc.dart';
-import '../../application/filter_cubit/filter_cubit.dart';
-import '../../application/products_bloc/product_bloc.dart';
-import '../../data/models/product/filter_params_model.dart';
-import '../widgets/input_form_button.dart';
-import '../widgets/range_slider.dart';
-
-
-class FilterScreen extends StatelessWidget {
-  const FilterScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Filter"),
-        actions: [
-          IconButton(
-            onPressed: () {
-              context.read<FilterCubit>().reset();
-            },
-            icon: const Icon(Icons.refresh),
-          )
-        ],
-      ),
-      body: ListView(
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(
-              left: 20,
-              top: 10,
-            ),
-            child: Text(
-              "Categories",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          BlocBuilder<CategoryBloc, CategoryState>(
-            builder: (context, categoryState) {
-              return ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: categoryState.categories.length,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 10,
-                ),
-                itemBuilder: (context, index) =>
-                    Row(
-                      children: [
-                        Text(
-                          categoryState.categories[index].name,
-                          style: const TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w500),
-                        ),
-                        const Spacer(),
-                        BlocBuilder<FilterCubit, FilterProductParams>(
-                          builder: (context, filterState) {
-                            return Checkbox(
-                              value: filterState.categories
-                                  .contains(categoryState.categories[index]) ||
-                                  filterState.categories.isEmpty,
-                              onChanged: (bool? value) {
-                                context.read<FilterCubit>().updateCategory(
-                                    category: categoryState.categories[index]);
-                              },
-                            );
-                          },
-                        )
-                      ],
-                    ),
-              );
-            },
-          ),
-          const Padding(
-            padding: EdgeInsets.only(left: 20, top: 10),
-            child: Text(
-              "Price Range",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          BlocBuilder<FilterCubit, FilterProductParams>(
-            builder: (context, state) {
-              return RangeSliderExample(
-                initMin: state.minPrice,
-                initMax: state.maxPrice,
-              );
-            },
-          )
-        ],
-      ),
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-          child: Builder(builder: (context) {
-            return InputFormButton(
-              color: Colors.black87,
-              onClick: () {
-                context
-                    .read<ProductBloc>()
-                    .add(GetProducts(context
-                    .read<FilterCubit>()
-                    .state));
-                Navigator.of(context).pop();
-              },
-              titleText: 'Continue',
-            );
-          }),
-        ),
-      ),
-    );
-  }
-}*/

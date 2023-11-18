@@ -47,6 +47,7 @@ dependencies:
   flutter_svg:
   dots_indicator:
   flutter_secure_storage:
+  syncfusion_flutter_sliders:
 
 dev_dependencies:
   flutter_test:

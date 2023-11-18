@@ -8,6 +8,10 @@ class FilterCubit extends Cubit<FilterProductParams> {
   final TextEditingController productsSearchController = TextEditingController();
   FilterCubit() : super(const FilterProductParams());
 
+  bool isSelectedCategory(Category category) {
+    return state.categories.contains(category);
+  }
+
   void update({
     String? keyword,
     List<Category>? categories,
