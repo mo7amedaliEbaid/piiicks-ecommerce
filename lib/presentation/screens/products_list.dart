@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:piiicks/configs/configs.dart';
+import 'package:piiicks/presentation/widgets/black_dot.dart';
 
 import 'package:shimmer/shimmer.dart';
 
@@ -130,6 +131,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                         Row(
                           children: [
                             SvgPicture.asset(Assets.FilterIcon),
+                         //   BlackDot(),
                             Space.x!,
                             Text("Filter",
                                 style: AppText.b1

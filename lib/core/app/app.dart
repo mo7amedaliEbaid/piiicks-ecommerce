@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
 import '../../application/filter_cubit/filter_cubit.dart';
 import '../../application/products_bloc/product_bloc.dart';
 import '../../data/models/product/filter_params_model.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(create: (context) => NavigationCubit()),
         BlocProvider(
           create: (context) =>
               di.sl<CategoryBloc>()..add(const GetCategories()),

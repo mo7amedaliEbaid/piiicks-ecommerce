@@ -2,10 +2,13 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:piiicks/application/products_bloc/product_bloc.dart';
 import 'package:piiicks/configs/app.dart';
 import 'package:piiicks/configs/configs.dart';
+import 'package:piiicks/presentation/widgets/square_product_item.dart';
 import 'package:piiicks/presentation/widgets/top_row.dart';
 
+import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
 import '../../application/categories_bloc/category_bloc.dart';
 import '../../core/constant/assets.dart';
 import '../../core/constant/colors.dart';
@@ -70,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: _dotsindicator(
                                 _pageController.hasClients
                                     ? _pageController.page?.round()
-                                    : 0,
+                                    : 1,
                               ),
                             ),
                           ],
@@ -80,10 +83,35 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: EdgeInsets.only(
                             top: AppDimensions.normalize(15),
                             bottom: AppDimensions.normalize(7)),
-                        child: Text(
-                          "FEATURED CATEGORIES",
-                          style: AppText.h2b
-                              ?.copyWith(color: AppColors.CommonBlue),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "FEATURED CATEGORIES",
+                              style: AppText.h2b
+                                  ?.copyWith(color: AppColors.CommonBlue),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                context
+                                    .read<NavigationCubit>()
+                                    .updateTab(NavigationTab.categoriesTab);
+                              },
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "VIEW ALL",
+                                    style: AppText.b2b
+                                        ?.copyWith(color: AppColors.CommonBlue),
+                                  ),
+                                  Icon(
+                                    Icons.double_arrow,
+                                    size: 15,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       BlocBuilder<CategoryBloc, CategoryState>(
@@ -101,6 +129,65 @@ class _HomeScreenState extends State<HomeScreen> {
                                           category: state.categories[index],
                                         ),
                             ),
+                          );
+                        },
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            top: AppDimensions.normalize(3.5),
+                            bottom: AppDimensions.normalize(7)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "FEATURED PRODUCTS",
+                              style: AppText.h2b
+                                  ?.copyWith(color: AppColors.CommonBlue),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                context
+                                    .read<NavigationCubit>()
+                                    .updateTab(NavigationTab.productsTap);
+                              },
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "VIEW ALL",
+                                    style: AppText.b2b
+                                        ?.copyWith(color: AppColors.CommonBlue),
+                                  ),
+                                  Icon(
+                                    Icons.double_arrow,
+                                    size: 15,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      BlocBuilder<ProductBloc, ProductState>(
+                        builder: (context, state) {
+                          return SizedBox(
+                            height: AppDimensions.normalize(100),
+                            child: (state is ProductError)
+                                ? Text(
+                                    "Error occured While Loading Products",
+                                    style: AppText.b2b,
+                                    overflow: TextOverflow.ellipsis,
+                                  )
+                                : ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: 3,
+                                    physics: const ClampingScrollPhysics(),
+                                    itemBuilder: (context, index) =>
+                                        (state is ProductLoading)
+                                            ? const SquareProductItem()
+                                            : SquareProductItem(
+                                                product: state.products[index],
+                                              ),
+                                  ),
                           );
                         },
                       ),
