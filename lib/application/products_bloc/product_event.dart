@@ -17,3 +17,12 @@ class GetMoreProducts extends ProductEvent {
   @override
   List<Object> get props => [];
 }
+
+class SortProducts extends ProductEvent {
+  final SortOrder? sortOrder;
+
+  SortProducts({this.sortOrder});
+
+  @override
+  List<Object?> get props => [sortOrder];
+}

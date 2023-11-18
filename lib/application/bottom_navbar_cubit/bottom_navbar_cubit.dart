@@ -2,7 +2,8 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-enum NavigationTab { homeTab, categoriesTab, productsTap, cartTab, profileTab }
+import '../../core/enums/enums.dart';
+
 
 class NavigationCubit extends Cubit<NavigationTab> {
   NavigationCubit() : super(NavigationTab.homeTab);

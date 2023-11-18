@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:piiicks/configs/app.dart';
-import 'package:piiicks/configs/app_dimensions.dart';
-import 'package:piiicks/configs/app_typography.dart';
 import 'package:piiicks/presentation/screens/categories.dart';
+import 'package:piiicks/presentation/screens/filter.dart';
 import 'package:piiicks/presentation/screens/home.dart';
 import 'package:piiicks/presentation/screens/products_list.dart';
 import 'package:piiicks/presentation/screens/signup.dart';
 import 'package:piiicks/presentation/widgets/bottom_navbar.dart';
 
 import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
+import '../../core/enums/enums.dart';
 
 class RootScreen extends StatelessWidget {
   const RootScreen({super.key});
@@ -30,7 +30,7 @@ class RootScreen extends StatelessWidget {
               case NavigationTab.productsTap:
                 return const ProductsListScreen();
               case NavigationTab.cartTab:
-                return const ProductsListScreen();
+                return const FilterScreen();
               case NavigationTab.profileTab:
                 return const SignUpScreen();
               default:

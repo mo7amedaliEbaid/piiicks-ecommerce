@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
 import '../../configs/app_dimensions.dart';
 import '../../configs/app_typography.dart';
+import '../../core/enums/enums.dart';
 
 class BottomNavigation extends StatelessWidget {
   @override

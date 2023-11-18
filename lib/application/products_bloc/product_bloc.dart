@@ -4,10 +4,12 @@ import 'package:equatable/equatable.dart';
 import '../../../domain/entities/product/pagination_meta_data.dart';
 import '../../../domain/entities/product/product.dart';
 import '../../../domain/usecases/product/get_product_usecase.dart';
+import '../../core/enums/enums.dart';
 import '../../core/error/failures.dart';
 import '../../data/models/product/filter_params_model.dart';
 
 part 'product_event.dart';
+
 part 'product_state.dart';
 
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
@@ -24,6 +26,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
             ))) {
     on<GetProducts>(_onLoadProducts);
     on<GetMoreProducts>(_onLoadMoreProducts);
+    on<SortProducts>(_onSortProducts);
   }
 
   void _onLoadProducts(GetProducts event, Emitter<ProductState> emit) async {
@@ -55,6 +58,36 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         params: event.params,
       ));
     }
+  }
+
+  void _onSortProducts(SortProducts event, Emitter<ProductState> emit) {
+    // Use the sort order from the event to trigger sorting
+    if (event.sortOrder != null) {
+      state.products.sort((a, b) {
+        switch (event.sortOrder!) {
+          case SortOrder.newest:
+            return b.createdAt.compareTo(a.createdAt);
+          case SortOrder.highToLow:
+            return b.priceTags.first.price.compareTo(a.priceTags.first.price);
+          case SortOrder.lowToHigh:
+            return a.priceTags.first.price.compareTo(b.priceTags.first.price);
+          case SortOrder.aToZ:
+            return a.name.compareTo(b.name);
+          case SortOrder.zToA:
+            return b.name.compareTo(a.name);
+        }
+      });
+    } else {
+      // If SortOrder is null, consider it as a request for unsorted products
+      // You can optionally log a message or handle it in a specific way
+      // For now, let's keep the products in their current order
+    }
+
+    emit(ProductLoaded(
+      metaData: state.metaData,
+      products: state.products,
+      params: state.params,
+    ));
   }
 
   void _onLoadMoreProducts(

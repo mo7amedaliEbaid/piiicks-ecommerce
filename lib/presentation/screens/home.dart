@@ -12,6 +12,7 @@ import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
 import '../../application/categories_bloc/category_bloc.dart';
 import '../../core/constant/assets.dart';
 import '../../core/constant/colors.dart';
+import '../../core/enums/enums.dart';
 import '../widgets/square_category_item.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -104,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: AppText.b2b
                                         ?.copyWith(color: AppColors.CommonBlue),
                                   ),
-                                  Icon(
+                                 const Icon(
                                     Icons.double_arrow,
                                     size: 15,
                                   )
@@ -177,7 +178,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: AppText.b2b,
                                     overflow: TextOverflow.ellipsis,
                                   )
-                                : ListView.builder(
+                                : (state is ProductEmpty)?
+                            Text(
+                              "No Featured Products Available",
+                              style: AppText.b2b,
+                              overflow: TextOverflow.ellipsis,
+                            ):
+                            ListView.builder(
                                     scrollDirection: Axis.horizontal,
                                     itemCount: 3,
                                     physics: const ClampingScrollPhysics(),
