@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
+import '../../application/delivery_info_action_cubit/delivery_info_action_cubit.dart';
+import '../../application/delivery_info_fetch_cubit/delivery_info_fetch_cubit.dart';
 import '../../application/filter_cubit/filter_cubit.dart';
 import '../../application/products_bloc/product_bloc.dart';
+import '../../application/user_bloc/user_bloc.dart';
 import '../../data/models/product/filter_params_model.dart';
 import '../di/di.dart' as di;
 
@@ -30,6 +33,16 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => FilterCubit(),
+        ),
+        BlocProvider(
+          create: (context) => di.sl<UserBloc>()..add(CheckUser()),
+        ),
+        BlocProvider(
+          create: (context) => di.sl<DeliveryInfoActionCubit>(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              di.sl<DeliveryInfoFetchCubit>()..fetchDeliveryInfo(),
         ),
       ],
       child: MaterialApp(

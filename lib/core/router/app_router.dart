@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:piiicks/presentation/screens/ads.dart';
+import 'package:piiicks/presentation/screens/filter.dart';
 import 'package:piiicks/presentation/screens/product_details.dart';
 import 'package:piiicks/presentation/screens/root.dart';
 import 'package:piiicks/presentation/screens/search.dart';
@@ -13,6 +14,7 @@ sealed class AppRouter {
   static const String mainscreen = '/mainscreen';
   static const String productDetails = '/product-details';
   static const String search = '/search';
+  static const String filter = '/filter';
 
   static Route<dynamic> onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
@@ -24,6 +26,8 @@ sealed class AppRouter {
         return MaterialPageRoute(builder: (_) => const RootScreen());
       case search:
         return MaterialPageRoute(builder: (_) => const SearchScreen());
+      case filter:
+        return MaterialPageRoute(builder: (_) => const FilterScreen());
       case productDetails:
         Product product = routeSettings.arguments as Product;
         return MaterialPageRoute(

@@ -46,6 +46,7 @@ dependencies:
   cached_network_image:
   flutter_svg:
   dots_indicator:
+  flutter_secure_storage:
 
 dev_dependencies:
   flutter_test:

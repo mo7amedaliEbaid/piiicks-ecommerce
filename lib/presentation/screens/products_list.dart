@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:piiicks/configs/configs.dart';
 
+import '../../application/filter_cubit/filter_cubit.dart';
 import '../../application/products_bloc/product_bloc.dart';
 import '../../configs/app_dimensions.dart';
 import '../../core/constant/assets.dart';
@@ -246,15 +247,22 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                           margin: Space.vf(.5),
                           color: Colors.grey.shade400,
                         ),
-                        Row(
-                          children: [
-                            SvgPicture.asset(Assets.FilterIcon),
-                            //   BlackDot(),
-                            Space.x!,
-                            Text("Filter",
-                                style: AppText.b1
-                                    ?.copyWith(color: AppColors.GreyText))
-                          ],
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).pushNamed(AppRouter.filter);
+                          },
+                          child: Row(
+                            children: [
+                              SvgPicture.asset(Assets.FilterIcon),
+                              context.read<FilterCubit>().getFiltersCount() != 0
+                                  ? BlackDot()
+                                  : const SizedBox.shrink(),
+                              Space.x!,
+                              Text("Filter",
+                                  style: AppText.b1
+                                      ?.copyWith(color: AppColors.GreyText))
+                            ],
+                          ),
                         )
                       ],
                     ),
