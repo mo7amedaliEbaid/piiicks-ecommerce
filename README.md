@@ -1,5 +1,10 @@
 # piiicks
 
+<video width="320" height="240" controls>
+  <source src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/3de22c537990b9aa3ecec0a22df667ce6646f77e/screenshots/productdetails.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 <p float="left">
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/79eb26bc2d6f8421adb22672850bbeb42c3197ce/screenshots/details.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/79eb26bc2d6f8421adb22672850bbeb42c3197ce/screenshots/details1.jpg" width="170" />
