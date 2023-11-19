@@ -281,7 +281,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       const BorderRadius.all(Radius.circular(5.0)),
                     ),
                     padding: const EdgeInsets.all(8),
-                    margin: const EdgeInsets.only(right: 7),
+                    margin: const EdgeInsets.only(right: 7,bottom: 5),
                     child: Column(
                       children: [
                         Text(priceTag.name),
