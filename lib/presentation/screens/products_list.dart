@@ -206,7 +206,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                                       ?.copyWith(color: AppColors.GreyText),
                                 )
                               : Text(
-                                  filterState.categories.first.name,
+                                  filterState.categories.first.name.toUpperCase(),
                                   style: AppText.b1b
                                       ?.copyWith(color: AppColors.GreyText),
                                 );

@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 import '../category/category.dart';
 import 'price_tag.dart';
 
+
 class Product extends Equatable {
   final String id;
   final String name;

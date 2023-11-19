@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 
-
 import '../../domain/entities/product/product_response.dart';
 import '../../domain/repositories/product_repository.dart';
 
@@ -26,7 +25,8 @@ class ProductRepositoryImpl implements ProductRepository {
   });
 
   @override
-  Future<Either<Failure, ProductResponse>> getProducts(FilterProductParams params) async {
+  Future<Either<Failure, ProductResponse>> getProducts(
+      FilterProductParams params) async {
     return await _getProduct(() {
       return remoteDataSource.getProducts(params);
     });

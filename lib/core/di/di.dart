@@ -2,6 +2,8 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:piiicks/application/favourites_cubit/favourites_cubit.dart';
+import 'package:piiicks/data/repositories/favourite_products_repo_impl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../application/categories_bloc/category_bloc.dart';
@@ -47,6 +49,12 @@ import '../networkchecker/network_info.dart';
 final sl = GetIt.instance;
 
 Future<void> init() async {
+  sl.registerLazySingleton<FavouriteProductRepository>(
+    () => FavouriteProductRepository(),
+  );
+  sl.registerFactory(
+    () => FavouritesCubit(sl()),
+  );
   sl.registerFactory(
     () => CategoryBloc(sl(), sl(), sl()),
   );
@@ -86,7 +94,7 @@ Future<void> init() async {
   );
 
   sl.registerFactory(
-        () => UserBloc(sl(), sl(), sl(), sl()),
+    () => UserBloc(sl(), sl(), sl(), sl()),
   );
   // Use cases
   sl.registerLazySingleton(() => GetCachedUserUseCase(sl()));
@@ -95,7 +103,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => SignOutUseCase(sl()));
   // Repository
   sl.registerLazySingleton<UserRepository>(
-        () => UserRepositoryImpl(
+    () => UserRepositoryImpl(
       remoteDataSource: sl(),
       localDataSource: sl(),
       networkInfo: sl(),
@@ -103,17 +111,17 @@ Future<void> init() async {
   );
   // Data sources
   sl.registerLazySingleton<UserLocalDataSource>(
-        () => UserLocalDataSourceImpl(sharedPreferences: sl(), secureStorage: sl()),
+    () => UserLocalDataSourceImpl(sharedPreferences: sl(), secureStorage: sl()),
   );
   sl.registerLazySingleton<UserRemoteDataSource>(
-        () => UserRemoteDataSourceImpl(client: sl()),
+    () => UserRemoteDataSourceImpl(client: sl()),
   );
 
   sl.registerFactory(
-        () => DeliveryInfoActionCubit(sl(), sl(), sl()),
+    () => DeliveryInfoActionCubit(sl(), sl(), sl()),
   );
   sl.registerFactory(
-        () => DeliveryInfoFetchCubit(sl(), sl(), sl(), sl()),
+    () => DeliveryInfoFetchCubit(sl(), sl(), sl(), sl()),
   );
   // Use cases
   sl.registerLazySingleton(() => GetRemoteDeliveryInfoUseCase(sl()));
@@ -125,7 +133,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => ClearLocalDeliveryInfoUseCase(sl()));
   // Repository
   sl.registerLazySingleton<DeliveryInfoRepository>(
-        () => DeliveryInfoRepositoryImpl(
+    () => DeliveryInfoRepositoryImpl(
       remoteDataSource: sl(),
       localDataSource: sl(),
       networkInfo: sl(),
@@ -134,10 +142,10 @@ Future<void> init() async {
   );
   // Data sources
   sl.registerLazySingleton<DeliveryInfoRemoteDataSource>(
-        () => DeliveryInfoRemoteDataSourceImpl(client: sl()),
+    () => DeliveryInfoRemoteDataSourceImpl(client: sl()),
   );
   sl.registerLazySingleton<DeliveryInfoLocalDataSource>(
-        () => DeliveryInfoLocalDataSourceImpl(sharedPreferences: sl()),
+    () => DeliveryInfoLocalDataSourceImpl(sharedPreferences: sl()),
   );
 
   sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));

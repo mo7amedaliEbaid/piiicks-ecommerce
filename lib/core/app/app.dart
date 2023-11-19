@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:piiicks/application/favourites_cubit/favourites_cubit.dart';
 
 import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
 import '../../application/delivery_info_action_cubit/delivery_info_action_cubit.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => NavigationCubit()),
+        BlocProvider(create: (context) => di.sl<FavouritesCubit>()),
         BlocProvider(
           create: (context) =>
               di.sl<CategoryBloc>()..add(const GetCategories()),
@@ -51,7 +53,6 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: AppRouter.onGenerateRoute,
         theme: ThemeData.light().copyWith(
             canvasColor: AppColors.CommonBlue,
-
             appBarTheme: AppBarTheme(
                 color: Theme.of(context).scaffoldBackgroundColor,
                 elevation: 0,
@@ -66,7 +67,6 @@ class MyApp extends StatelessWidget {
             )),
             iconTheme:
                 const IconThemeData(color: AppColors.CommonBlue, size: 30)),
-
         initialRoute: AppRouter.splash,
       ),
     );
