@@ -1,6 +1,9 @@
 # piiicks
 
 <p float="left">
+   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/79eb26bc2d6f8421adb22672850bbeb42c3197ce/screenshots/details.jpg" width="170" />
+   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/79eb26bc2d6f8421adb22672850bbeb42c3197ce/screenshots/details1.jpg" width="170" />
+   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/79eb26bc2d6f8421adb22672850bbeb42c3197ce/screenshots/details_photoview.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b8c8669117a69cad0aaba88e4561c1e1a9e3d9ca/screenshots/sorting.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/6c3c05ede0b14553c45f51548b1bbe9aab256064/screenshots/home2.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/716041927eec8740dbe66fee40ab58c98222acdf/screenshots/Screenshot_20231114_104239.jpg" width="170" />
@@ -21,6 +24,7 @@
 Done:
 - Products.
 - Categories.
+- Product Details.
 - Splash.
 - Home.
 - Search.
@@ -35,5 +39,4 @@ ToDo:
 - Cart.
 - Orders.
 - Delivery.
-- Product Details.
 - Payment.
