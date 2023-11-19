@@ -4,7 +4,7 @@ import '../category/category.dart';
 import 'price_tag.dart';
 
 
-class Product extends Equatable {
+class ProductEntity extends Equatable {
   final String id;
   final String name;
   final String description;
@@ -14,7 +14,7 @@ class Product extends Equatable {
   final DateTime createdAt;
   final DateTime updatedAt;
 
-  const Product({
+  const ProductEntity({
     required this.id,
     required this.name,
     required this.description,

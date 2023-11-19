@@ -13,7 +13,7 @@ import '../../core/error/failures.dart';
 import '../../core/router/app_router.dart';
 import '../../data/models/product/filter_params_model.dart';
 import '../widgets/black_dot.dart';
-import '../widgets/product_item.dart';
+import '../widgets/rectangular_product_item.dart';
 
 class ProductsListScreen extends StatefulWidget {
   const ProductsListScreen({super.key});
@@ -296,11 +296,11 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                     shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
                       if (state.products.length > index) {
-                        return ProductCard(
+                        return RectangularProductItem(
                           product: state.products[index],
                         );
                       }
-                      return const ProductCard();
+                      return const RectangularProductItem();
                     },
                   ),
                 ),

@@ -115,7 +115,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
             params: state.params,
           )),
           (productResponse) {
-            List<Product> products = state.products;
+            List<ProductEntity> products = state.products;
             products.addAll(productResponse.products);
             emit(ProductLoaded(
               metaData: state.metaData,

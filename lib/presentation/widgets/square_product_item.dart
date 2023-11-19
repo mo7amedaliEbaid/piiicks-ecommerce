@@ -8,12 +8,13 @@ import 'package:piiicks/presentation/widgets/lading_shimmer.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../core/constant/colors.dart';
+import '../../core/router/app_router.dart';
 import '../../domain/entities/category/category.dart';
 
 class SquareProductItem extends StatelessWidget {
   const SquareProductItem({super.key, this.product});
 
-  final Product? product;
+  final ProductEntity? product;
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +25,23 @@ class SquareProductItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  decoration:
-                      BoxDecoration(border: Border.all(color: Colors.grey)),
-                  child: CachedNetworkImage(
-                    height: AppDimensions.normalize(70),
-                    width: AppDimensions.normalize(70),
-                    imageUrl: product!.images.last,
-                    fit: BoxFit.cover,
-                    placeholder: (context, url) => placeholderShimmer(),
-                    errorWidget: (context, url, error) =>
-                        const Center(child: Icon(Icons.error)),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.of(context)
+                        .pushNamed(AppRouter.productDetails, arguments: product);
+                  },
+                  child: Container(
+                    decoration:
+                        BoxDecoration(border: Border.all(color: Colors.grey)),
+                    child: CachedNetworkImage(
+                      height: AppDimensions.normalize(70),
+                      width: AppDimensions.normalize(70),
+                      imageUrl: product!.images.last,
+                      fit: BoxFit.cover,
+                      placeholder: (context, url) => placeholderShimmer(),
+                      errorWidget: (context, url, error) =>
+                          const Center(child: Icon(Icons.error)),
+                    ),
                   ),
                 ),
                 Space.y1!,

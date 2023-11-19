@@ -14,6 +14,7 @@ sealed class Assets {
   static const String Home = "assets/svg/home.svg";
   static const String Plus = "assets/svg/plus.svg";
   static const String Minus = "assets/svg/minus.svg";
+  static const String Close = "assets/svg/close.svg";
 
   //png
   static const String Ads = "assets/images/ad.png";

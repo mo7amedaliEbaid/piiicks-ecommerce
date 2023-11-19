@@ -1,3 +1,4 @@
+/*
 import '../../data/models/product/product_model.dart';
 
 abstract class FavouritesState {}
@@ -30,3 +31,4 @@ class FavouritesAddError extends FavouritesState {
   FavouritesAddError(this.message);
 }
 
+*/

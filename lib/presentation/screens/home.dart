@@ -76,6 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ? _pageController.page?.round()
                                     : 1,
                                 dotsCount: 3,
+                                activeColor: Colors.black,
                               ),
                             ),
                           ],

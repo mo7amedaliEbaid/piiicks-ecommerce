@@ -3,21 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:piiicks/configs/app_dimensions.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/presentation/widgets/lading_shimmer.dart';
-import 'package:shimmer/shimmer.dart';
 
 import '../../core/constant/colors.dart';
 import '../../domain/entities/product/product.dart';
 import '../../core/router/app_router.dart';
 
-class ProductCard extends StatelessWidget {
-  final Product? product;
-  final Function? onFavoriteToggle;
+class RectangularProductItem extends StatelessWidget {
+  final ProductEntity? product;
   final Function? onClick;
 
-  const ProductCard({
+  const RectangularProductItem({
     Key? key,
     this.product,
-    this.onFavoriteToggle,
     this.onClick,
   }) : super(key: key);
 

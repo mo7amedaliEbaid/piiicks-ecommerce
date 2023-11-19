@@ -1,7 +1,7 @@
 part of 'product_bloc.dart';
 
 abstract class ProductState extends Equatable {
-  final List<Product> products;
+  final List<ProductEntity> products;
   final PaginationMetaData metaData;
   final FilterProductParams params;
   const ProductState(

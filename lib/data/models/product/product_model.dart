@@ -2,7 +2,7 @@ import '../../../domain/entities/product/product.dart';
 import '../category/category_model.dart';
 import 'price_tag_model.dart';
 
-class ProductModel extends Product {
+class ProductModel extends ProductEntity {
   const ProductModel({
     required String id,
     required String name,
@@ -49,7 +49,7 @@ class ProductModel extends Product {
         "updatedAt": updatedAt.toIso8601String(),
       };
 
-  factory ProductModel.fromEntity(Product entity) => ProductModel(
+  factory ProductModel.fromEntity(ProductEntity entity) => ProductModel(
         id: entity.id,
         name: entity.name,
         description: entity.description,

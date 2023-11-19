@@ -1,3 +1,6 @@
+/*
+import 'dart:developer';
+
 import 'package:get_storage/get_storage.dart';
 import '../models/product/product_model.dart';
 
@@ -6,6 +9,7 @@ class FavouriteProductRepository {
   static const String _favoriteProductsBox = 'favorite_products';
 
   Future<void> addToFavorites(ProductModel product) async {
+    log(product.description);
     final List<Map<String, dynamic>>? existingProducts =
     box.read(_favoriteProductsBox) as List<Map<String, dynamic>>?;
 
@@ -32,9 +36,11 @@ class FavouriteProductRepository {
     box.read(_favoriteProductsBox) as List<Map<String, dynamic>>?;
 
     if (existingProducts != null) {
+      log(existingProducts.length.toString());
       return existingProducts.map((product) => ProductModel.fromJson(product)).toList();
     } else {
       return [];
     }
   }
 }
+*/

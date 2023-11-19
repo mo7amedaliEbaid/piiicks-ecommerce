@@ -29,7 +29,7 @@ sealed class AppRouter {
       case filter:
         return MaterialPageRoute(builder: (_) => const FilterScreen());
       case productDetails:
-        Product product = routeSettings.arguments as Product;
+        ProductEntity product = routeSettings.arguments as ProductEntity;
         return MaterialPageRoute(
             builder: (_) => ProductDetailsScreen(product: product));
 

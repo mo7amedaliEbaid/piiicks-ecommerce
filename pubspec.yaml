@@ -47,8 +47,9 @@ dependencies:
   flutter_svg:
   dots_indicator:
   flutter_secure_storage:
+  photo_view:
 
-  get_storage:
+ # get_storage:
 
 dev_dependencies:
   flutter_test:

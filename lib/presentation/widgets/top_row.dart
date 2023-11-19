@@ -5,6 +5,7 @@ import '../../configs/app_dimensions.dart';
 import '../../configs/space.dart';
 import '../../core/constant/assets.dart';
 import '../../core/router/app_router.dart';
+import '../screens/wishlist.dart';
 
 Widget TopRow({required bool isFromHome, required BuildContext context}) {
   return SizedBox(
@@ -21,7 +22,12 @@ Widget TopRow({required bool isFromHome, required BuildContext context}) {
         isFromHome
             ? Row(
                 children: [
-                  const Icon(Icons.favorite_border),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => YourWidget()));
+                      },
+                      child: const Icon(Icons.favorite_border)),
                   Space.xf(),
                   GestureDetector(
                       onTap: () {

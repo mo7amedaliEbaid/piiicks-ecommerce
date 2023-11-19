@@ -9,7 +9,7 @@ import '../../configs/app_typography.dart';
 import '../../core/constant/colors.dart';
 import '../../core/error/failures.dart';
 import '../../data/models/product/filter_params_model.dart';
-import '../widgets/product_item.dart';
+import '../widgets/rectangular_product_item.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -231,11 +231,11 @@ class _SearchScreenState extends State<SearchScreen> {
                           shrinkWrap: true,
                           itemBuilder: (BuildContext context, int index) {
                             if (state.products.length > index) {
-                              return ProductCard(
+                              return RectangularProductItem(
                                 product: state.products[index],
                               );
                             }
-                            return const ProductCard();
+                            return const RectangularProductItem();
                           },
                         );
                       },

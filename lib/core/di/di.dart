@@ -49,12 +49,12 @@ import '../networkchecker/network_info.dart';
 final sl = GetIt.instance;
 
 Future<void> init() async {
-  sl.registerLazySingleton<FavouriteProductRepository>(
+ /* sl.registerLazySingleton<FavouriteProductRepository>(
     () => FavouriteProductRepository(),
-  );
-  sl.registerFactory(
+  );*/
+  /*sl.registerFactory(
     () => FavouritesCubit(sl()),
-  );
+  );*/
   sl.registerFactory(
     () => CategoryBloc(sl(), sl(), sl()),
   );
