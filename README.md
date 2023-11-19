@@ -1,6 +1,6 @@
 # piiicks
 
-<img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/90c5a0c75a374c331bd13d311ed075fb5d5d8796/screenshots/output.gif" width="200"/>
+<img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/90c5a0c75a374c331bd13d311ed075fb5d5d8796/screenshots/output.gif" width="300"/>
 
 <p float="left">
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/79eb26bc2d6f8421adb22672850bbeb42c3197ce/screenshots/details.jpg" width="170" />
