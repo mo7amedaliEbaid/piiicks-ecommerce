@@ -1,5 +1,38 @@
 # piiicks
+A flutter ecommerce built with clean architecture and bloc state management.
 
+### Done:
+- Products.
+- Categories.
+- Product Details.
+- Splash.
+- Home.
+- Search.
+- Bottom NavBar.
+- Sorting.
+- Filter.
+- Ads.
+- SignUp UI.
+
+### ToDo:
+- Auth.
+- Cart.
+- Orders.
+- Delivery.
+- Payment.
+
+
+### Directory Structure.
+- application=> blocs/cubits.
+- core=> app/observer/const/enums/networkchecker/error/router/usecases.
+- configs
+- di
+- data=> data_sources/models/repositories.
+- domain=> entities/repositories/usecases.
+- presentation=> screens/widgets.
+- main.dart
+
+### Screenshots.
 <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/90c5a0c75a374c331bd13d311ed075fb5d5d8796/screenshots/output.gif" width="200"/>
 
 <p float="left">
@@ -23,22 +56,4 @@
 
 </p>
 
-Done:
-- Products.
-- Categories.
-- Product Details.
-- Splash.
-- Home.
-- Search.
-- Bottom NavBar.
-- Sorting.
-- Filter.
-- Ads.
-- SignUp UI.
 
-ToDo:
-- Auth.
-- Cart.
-- Orders.
-- Delivery.
-- Payment.
