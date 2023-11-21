@@ -10,10 +10,10 @@ import '../../application/filter_cubit/filter_cubit.dart';
 import '../../application/products_bloc/product_bloc.dart';
 import '../../application/user_bloc/user_bloc.dart';
 import '../../data/models/product/filter_params_model.dart';
-import '../di/di.dart' as di;
+import '../../di/di.dart' as di;
 
 import '../../application/categories_bloc/category_bloc.dart';
-import '../di/di.dart';
+import '../../di/di.dart';
 import '../router/app_router.dart';
 import '../constant/colors.dart';
 import '../constant/strings.dart';

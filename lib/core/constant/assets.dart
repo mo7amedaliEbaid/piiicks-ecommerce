@@ -16,8 +16,17 @@ sealed class Assets {
   static const String Minus = "assets/svg/minus.svg";
   static const String Close = "assets/svg/close.svg";
   static const String Profile_bg = "assets/svg/profile-bg.svg";
+  static const String Bell = "assets/svg/bell.svg";
+  static const String Globe = "assets/svg/globe.svg";
+  static const String Money = "assets/svg/money.svg";
+  static const String Comments = "assets/svg/comments.svg";
+  static const String Document = "assets/svg/document.svg";
+  static const String Whats = "assets/svg/whats.svg";
+  static const String Music = "assets/svg/music.svg";
+  static const String Noti = "assets/svg/noti.svg";
 
   //png
   static const String Ads = "assets/images/ad.png";
   static const String HomePng = "assets/images/homepng.png";
+  static const String Profile_bg_png = "assets/images/profile-bg.png";
 }

@@ -1,17 +1,17 @@
 // Feature: DeliveryInfo
-import '../../application/delivery_info_action_cubit/delivery_info_action_cubit.dart';
-import '../../application/delivery_info_fetch_cubit/delivery_info_fetch_cubit.dart';
-import '../../data/data_sources/local/delivery_info_local_data_source.dart';
-import '../../data/data_sources/remote/delivery_info_remote_data_source.dart';
-import '../../data/repositories/delivery_info_impl.dart';
-import '../../domain/repositories/delivery_info_repository.dart';
-import '../../domain/usecases/delivery_info/add_dilivey_info_usecase.dart';
-import '../../domain/usecases/delivery_info/clear_local_delivery_info_usecase.dart';
-import '../../domain/usecases/delivery_info/edit_delivery_info_usecase.dart';
-import '../../domain/usecases/delivery_info/get_cached_delivery_info_usecase.dart';
-import '../../domain/usecases/delivery_info/get_remote_delivery_info_usecase.dart';
-import '../../domain/usecases/delivery_info/get_selected_delivery_info_usecase.dart';
-import '../../domain/usecases/delivery_info/select_delivery_info_usecase.dart';
+import '../application/delivery_info_action_cubit/delivery_info_action_cubit.dart';
+import '../application/delivery_info_fetch_cubit/delivery_info_fetch_cubit.dart';
+import '../data/data_sources/local/delivery_info_local_data_source.dart';
+import '../data/data_sources/remote/delivery_info_remote_data_source.dart';
+import '../data/repositories/delivery_info_impl.dart';
+import '../domain/repositories/delivery_info_repository.dart';
+import '../domain/usecases/delivery_info/add_dilivey_info_usecase.dart';
+import '../domain/usecases/delivery_info/clear_local_delivery_info_usecase.dart';
+import '../domain/usecases/delivery_info/edit_delivery_info_usecase.dart';
+import '../domain/usecases/delivery_info/get_cached_delivery_info_usecase.dart';
+import '../domain/usecases/delivery_info/get_remote_delivery_info_usecase.dart';
+import '../domain/usecases/delivery_info/get_selected_delivery_info_usecase.dart';
+import '../domain/usecases/delivery_info/select_delivery_info_usecase.dart';
 import 'di.dart';
 
 void registerDeliveryInfoFeature() {
