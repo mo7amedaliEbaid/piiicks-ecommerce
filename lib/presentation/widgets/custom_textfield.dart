@@ -11,7 +11,7 @@ Widget CustomTextField({required String hintText}) {
     decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
     child: Center(
       child: TextField(
-        cursorColor: AppColors.CommonBlue,
+        cursorColor: AppColors.CommonCyan,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: hintText,

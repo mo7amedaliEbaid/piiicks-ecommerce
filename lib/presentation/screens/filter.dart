@@ -100,7 +100,7 @@ class _FilterScreenState extends State<FilterScreen> {
                                             .isSelectedCategory(
                                                 categoryState.categories[index])
                                         ? AppColors
-                                            .CommonBlue // Change color when checkbox is checked
+                                            .CommonCyan // Change color when checkbox is checked
                                         : Colors.black,
                                   )),
                               BlocBuilder<FilterCubit, FilterProductParams>(
@@ -109,7 +109,7 @@ class _FilterScreenState extends State<FilterScreen> {
                                     height: AppDimensions.normalize(10),
                                     width: AppDimensions.normalize(5),
                                     child: Checkbox(
-                                      activeColor: AppColors.CommonBlue,
+                                      activeColor: AppColors.CommonCyan,
                                       materialTapTargetSize:
                                           MaterialTapTargetSize.shrinkWrap,
                                       value: filterState.categories.contains(
@@ -174,7 +174,7 @@ class _FilterScreenState extends State<FilterScreen> {
                         child: Text(
                           "Dollar".toUpperCase(),
                           style: AppText.h3b
-                              ?.copyWith(color: AppColors.CommonBlue),
+                              ?.copyWith(color: AppColors.CommonCyan),
                         ),
                       ),
                       BlocBuilder<FilterCubit, FilterProductParams>(
@@ -208,14 +208,14 @@ class _FilterScreenState extends State<FilterScreen> {
                  child: Container(
                   height: AppDimensions.normalize(24),
                   decoration: BoxDecoration(
-                      border: Border.all(color: AppColors.CommonBlue),
+                      border: Border.all(color: AppColors.CommonCyan),
                       borderRadius: BorderRadius.circular(5)),
                   child: Padding(
                     padding: Space.all(2, 1.1),
                     child: Center(
                         child: Text(
                       "Reset",
-                      style: AppText.h3b?.copyWith(color: AppColors.CommonBlue),
+                      style: AppText.h3b?.copyWith(color: AppColors.CommonCyan),
                     )),
                   )),
             )),

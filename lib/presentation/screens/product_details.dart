@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -15,6 +16,7 @@ import '../../application/wishlist_cubit/wishlist_cubit.dart';
 import '../../data/models/product/product_model.dart';
 import '../../domain/entities/product/price_tag.dart';
 import '../widgets/dots_indicator.dart';
+import '../widgets/lading_shimmer.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   const ProductDetailsScreen({super.key, required this.product});
@@ -30,6 +32,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   ScrollController _listController = ScrollController();
   int _selectedPageIndex = 0;
   late PriceTag _selectedPriceTag;
+
   @override
   void initState() {
     super.initState();
@@ -72,7 +75,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 ),
                 SvgPicture.asset(
                   Assets.Cart,
-                  color: AppColors.CommonBlue,
+                  color: AppColors.CommonCyan,
                 )
               ],
             ),
@@ -94,7 +97,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               Space.yf(.6),
               Text(
                 "${widget.product.priceTags.first.price} \$",
-                style: AppText.h3b?.copyWith(color: AppColors.CommonBlue),
+                style: AppText.h3b?.copyWith(color: AppColors.CommonCyan),
               ),
               Space.yf(.6),
               Row(
@@ -105,7 +108,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   ),
                   Text(
                     widget.product.categories.first.name.toUpperCase(),
-                    style: AppText.h3b?.copyWith(color: AppColors.CommonBlue),
+                    style: AppText.h3b?.copyWith(color: AppColors.CommonCyan),
                   ),
                 ],
               ),
@@ -141,22 +144,29 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                           clipBehavior: Clip.none,
                                           children: [
                                             SizedBox(
-                                              height: AppDimensions.normalize(170),
+                                              height:
+                                                  AppDimensions.normalize(170),
                                               width: double.maxFinite,
                                               child: PhotoViewGallery(
-                                                pageController: PageController(),
-                                                scrollPhysics: const BouncingScrollPhysics(),
-                                                backgroundDecoration: BoxDecoration(
+                                                pageController:
+                                                    PageController(),
+                                                scrollPhysics:
+                                                    const BouncingScrollPhysics(),
+                                                backgroundDecoration:
+                                                    BoxDecoration(
                                                   color: Colors.grey.shade400,
                                                 ),
                                                 pageOptions: [
                                                   PhotoViewGalleryPageOptions(
                                                     imageProvider: NetworkImage(
-                                                        widget.product.images[index]),
+                                                        widget.product
+                                                            .images[index]),
                                                     minScale:
-                                                        PhotoViewComputedScale.covered,
+                                                        PhotoViewComputedScale
+                                                            .covered,
                                                     maxScale:
-                                                        PhotoViewComputedScale.covered *
+                                                        PhotoViewComputedScale
+                                                                .covered *
                                                             2,
                                                   ),
                                                 ],
@@ -164,7 +174,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                             ),
                                             Positioned(
                                               top: -AppDimensions.normalize(18),
-                                              right: -AppDimensions.normalize(4),
+                                              right:
+                                                  -AppDimensions.normalize(4),
                                               child: IconButton(
                                                 onPressed: () {
                                                   setState(() {
@@ -183,9 +194,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                   },
                                 );
                               },
-                              child: Image.network(
-                                widget.product.images[index],
+                              child: CachedNetworkImage(
                                 fit: BoxFit.contain,
+                                imageUrl: widget.product.images[index],
+                                placeholder: (context, url) =>
+                                    placeholderShimmer(),
                               ),
                             );
                           },
@@ -198,7 +211,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                             dotsIndex: _pageController.hasClients
                                 ? _pageController.page?.round()
                                 : 0,
-                            dotsCount: widget.product.images.length, activeColor: AppColors.CommonBlue,
+                            dotsCount: widget.product.images.length,
+                            activeColor: AppColors.CommonCyan,
                           ),
                         ),
                       ],
@@ -230,13 +244,14 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           border: Border.all(
                             color: _selectedPageIndex == index
                                 ? AppColors
-                                    .CommonBlue // Change this to your desired color
+                                    .CommonCyan // Change this to your desired color
                                 : Colors.transparent,
                             width: 5.0,
                           ),
                         ),
-                        child: Image.network(
-                          widget.product.images[index],
+                        child: CachedNetworkImage(
+                          imageUrl: widget.product.images[index],
+                          placeholder: (context, url) => placeholderShimmer(),
                         ),
                       ),
                     );
@@ -254,7 +269,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 style:
                     AppText.b2?.copyWith(height: AppDimensions.normalize(.6)),
               ),
-
               Space.yf(1.2),
               Text(
                 "Prices",
@@ -264,32 +278,32 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               Wrap(
                 children: widget.product.priceTags
                     .map((priceTag) => GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _selectedPriceTag = priceTag;
-                    });
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: _selectedPriceTag.id == priceTag.id
-                            ? 2.7
-                            : 1.0,
-                        color: AppColors.CommonBlue,
-                      ),
-                      borderRadius:
-                      const BorderRadius.all(Radius.circular(5.0)),
-                    ),
-                    padding: const EdgeInsets.all(8),
-                    margin: const EdgeInsets.only(right: 7,bottom: 5),
-                    child: Column(
-                      children: [
-                        Text(priceTag.name),
-                        Text("${priceTag.price} \$"),
-                      ],
-                    ),
-                  ),
-                ))
+                          onTap: () {
+                            setState(() {
+                              _selectedPriceTag = priceTag;
+                            });
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                width: _selectedPriceTag.id == priceTag.id
+                                    ? 2.7
+                                    : 1.0,
+                                color: AppColors.CommonCyan,
+                              ),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(5.0)),
+                            ),
+                            padding: const EdgeInsets.all(8),
+                            margin: const EdgeInsets.only(right: 7, bottom: 5),
+                            child: Column(
+                              children: [
+                                Text(priceTag.name),
+                                Text("${priceTag.price} \$"),
+                              ],
+                            ),
+                          ),
+                        ))
                     .toList(),
               ),
             ],
@@ -300,7 +314,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         color: AppColors.LightGrey,
         height: AppDimensions.normalize(33),
         padding: Space.all(.7, .9),
-        margin: EdgeInsets.only(top: AppDimensions.normalize(1),bottom: AppDimensions.normalize(6)),
+        margin: EdgeInsets.only(
+            top: AppDimensions.normalize(1),
+            bottom: AppDimensions.normalize(6)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -310,7 +326,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   GestureDetector(
                     child: Container(
                       width: AppDimensions.normalize(17),
-                      color: AppColors.CommonBlue,
+                      color: AppColors.CommonCyan,
                       child: Center(
                         child: SvgPicture.asset(Assets.Minus,
                             color: Colors.white, height: 3),
@@ -330,7 +346,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   GestureDetector(
                     child: Container(
                       width: AppDimensions.normalize(17),
-                      color: AppColors.CommonBlue,
+                      color: AppColors.CommonCyan,
                       child: Center(
                         child: SvgPicture.asset(Assets.Plus,
                             color: Colors.white, height: 13),
@@ -343,7 +359,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             Expanded(
               child: ElevatedButton(
                   onPressed: () {
-                   /* context.read<WishlistCubit>().addToWishlist(ProductModel(
+                    /* context.read<WishlistCubit>().addToWishlist(ProductModel(
                         id: "",
                         name: "name411",
                         description: "description",

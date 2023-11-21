@@ -5,6 +5,7 @@ import 'package:piiicks/presentation/screens/categories.dart';
 import 'package:piiicks/presentation/screens/filter.dart';
 import 'package:piiicks/presentation/screens/home.dart';
 import 'package:piiicks/presentation/screens/products_list.dart';
+import 'package:piiicks/presentation/screens/profile.dart';
 import 'package:piiicks/presentation/screens/signup.dart';
 import 'package:piiicks/presentation/widgets/bottom_navbar.dart';
 
@@ -32,7 +33,7 @@ class RootScreen extends StatelessWidget {
               case NavigationTab.cartTab:
                 return const FilterScreen();
               case NavigationTab.profileTab:
-                return const SignUpScreen();
+                return const ProfileScreen();
               default:
                 return const HomeScreen();
             }

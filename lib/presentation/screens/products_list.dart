@@ -68,7 +68,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                 title: Text('Newest', style: AppText.h3),
                 trailing: Radio(
                   value: SortOrder.newest,
-                  fillColor: MaterialStateProperty.all(AppColors.CommonBlue),
+                  fillColor: MaterialStateProperty.all(AppColors.CommonCyan),
                   groupValue: selectedSortOrder,
                   onChanged: (SortOrder? value) {
                     setState(() {
@@ -82,7 +82,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                 title: Text('Price High to Low', style: AppText.h3),
                 trailing: Radio(
                   value: SortOrder.highToLow,
-                  fillColor: MaterialStateProperty.all(AppColors.CommonBlue),
+                  fillColor: MaterialStateProperty.all(AppColors.CommonCyan),
                   groupValue: selectedSortOrder,
                   onChanged: (SortOrder? value) {
                     setState(() {
@@ -96,7 +96,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                 title: Text('Price Low to High', style: AppText.h3),
                 trailing: Radio(
                   value: SortOrder.lowToHigh,
-                  fillColor: MaterialStateProperty.all(AppColors.CommonBlue),
+                  fillColor: MaterialStateProperty.all(AppColors.CommonCyan),
                   groupValue: selectedSortOrder,
                   onChanged: (SortOrder? value) {
                     setState(() {
@@ -110,7 +110,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                 title: Text('Alphabetic (A-Z)', style: AppText.h3),
                 trailing: Radio(
                   value: SortOrder.aToZ,
-                  fillColor: MaterialStateProperty.all(AppColors.CommonBlue),
+                  fillColor: MaterialStateProperty.all(AppColors.CommonCyan),
                   groupValue: selectedSortOrder,
                   onChanged: (SortOrder? value) {
                     setState(() {
@@ -124,7 +124,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                 title: Text('Alphabetic (Z-A)', style: AppText.h3),
                 trailing: Radio(
                   value: SortOrder.zToA,
-                  fillColor: MaterialStateProperty.all(AppColors.CommonBlue),
+                  fillColor: MaterialStateProperty.all(AppColors.CommonCyan),
                   groupValue: selectedSortOrder,
                   onChanged: (SortOrder? value) {
                     setState(() {
@@ -214,7 +214,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                       ),
                       SvgPicture.asset(
                         Assets.Cart,
-                        color: AppColors.CommonBlue,
+                        color: AppColors.CommonCyan,
                         height: AppDimensions.normalize(10),
                       )
                     ],

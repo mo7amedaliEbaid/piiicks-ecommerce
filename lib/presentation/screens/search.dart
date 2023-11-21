@@ -99,7 +99,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         context.read<ProductBloc>().add(
                             GetProducts(FilterProductParams(keyword: val)));
                       },
-                      cursorColor: AppColors.CommonBlue,
+                      cursorColor: AppColors.CommonCyan,
                       decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: "Search Here",
@@ -175,7 +175,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                       Text(
                                         "NO RESULT FOUND",
                                         style: AppText.h3b?.copyWith(
-                                            color: AppColors.CommonBlue),
+                                            color: AppColors.CommonCyan),
                                       ),
                                       Space.yf(),
                                       const Text("There is no such product"),

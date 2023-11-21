@@ -55,7 +55,7 @@ class RectangularProductItem extends StatelessWidget {
               ),
               Space.y!,
               Text(r'$ ' + product!.priceTags.first.price.toString(),
-                  style: AppText.h3?.copyWith(color: AppColors.CommonBlue)),
+                  style: AppText.h3?.copyWith(color: AppColors.CommonCyan)),
             ],
           ),
         ),

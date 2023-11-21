@@ -26,7 +26,7 @@ class SignUpScreen extends StatelessWidget {
               children: [
                 Text(
                   "SIGNUP",
-                  style: AppText.h2b?.copyWith(color: AppColors.CommonBlue),
+                  style: AppText.h2b?.copyWith(color: AppColors.CommonCyan),
                 ),
                 Space.y!,
                 Text(
@@ -108,11 +108,11 @@ class SignUpScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.transparent,
                       border:
-                          Border.all(width: 1, color: AppColors.CommonBlue)),
+                          Border.all(width: 1, color: AppColors.CommonCyan)),
                   child: Center(
                     child: Text(
                       "Login",
-                      style: AppText.h3b?.copyWith(color: AppColors.CommonBlue),
+                      style: AppText.h3b?.copyWith(color: AppColors.CommonCyan),
                     ),
                   ),
                 )

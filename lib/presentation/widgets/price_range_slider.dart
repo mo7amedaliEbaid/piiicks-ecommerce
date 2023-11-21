@@ -45,7 +45,7 @@ class _PriceRangeSliderState extends State<PriceRangeSlider> {
         values: _currentRangeValues,
         max: max,
         divisions: 10,
-        activeColor: AppColors.CommonBlue,
+        activeColor: AppColors.CommonCyan,
         inactiveColor: Colors.grey,
         labels: RangeLabels(
           _currentRangeValues.start.round().toString(),

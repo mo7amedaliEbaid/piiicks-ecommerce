@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Text(
                               "FEATURED CATEGORIES",
                               style: AppText.h2b
-                                  ?.copyWith(color: AppColors.CommonBlue),
+                                  ?.copyWith(color: AppColors.CommonCyan),
                             ),
                             GestureDetector(
                               onTap: () {
@@ -105,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Text(
                                     "VIEW ALL",
                                     style: AppText.b2b
-                                        ?.copyWith(color: AppColors.CommonBlue),
+                                        ?.copyWith(color: AppColors.CommonCyan),
                                   ),
                                   const Icon(
                                     Icons.double_arrow,
@@ -145,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Text(
                               "FEATURED PRODUCTS",
                               style: AppText.h2b
-                                  ?.copyWith(color: AppColors.CommonBlue),
+                                  ?.copyWith(color: AppColors.CommonCyan),
                             ),
                             GestureDetector(
                               onTap: () {
@@ -158,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Text(
                                     "VIEW ALL",
                                     style: AppText.b2b
-                                        ?.copyWith(color: AppColors.CommonBlue),
+                                        ?.copyWith(color: AppColors.CommonCyan),
                                   ),
                                   Icon(
                                     Icons.double_arrow,

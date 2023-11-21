@@ -51,7 +51,7 @@ class RectangularCategoryItem extends StatelessWidget {
                 ),
                 Container(
                   decoration: const BoxDecoration(
-                      color: AppColors.CommonBlue,
+                      color: AppColors.CommonCyan,
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(5),
                           bottomRight: Radius.circular(5))),
