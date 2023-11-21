@@ -38,16 +38,16 @@ A flutter ecommerce built with clean architecture and bloc state management.
 |   Details        |       Home       |      Sort        |
 |------------------|------------------|------------------|
 | <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/90c5a0c75a374c331bd13d311ed075fb5d5d8796/screenshots/output.gif" width="200"/> | <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/6c3c05ede0b14553c45f51548b1bbe9aab256064/screenshots/home2.jpg" width="170" /> | <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b8c8669117a69cad0aaba88e4561c1e1a9e3d9ca/screenshots/sorting.jpg" width="170" /> |
+|                  |                  |                  |
+|   Sign Up        |    Search        |                  |
 |------------------|------------------|------------------|
-|   Sign Up        |    Search        |   @Username6     |
+| <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/3c774ccfbe06f8e1071543b9d007c21566919e76/screenshots/signup.jpg" width="170" /> | <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/91c8e6d86714f86df0b32ac65ecd9fcad1e155b8/screenshots/searchresult.jpg" width="170" /> |     |
 |------------------|------------------|------------------|
-| <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/3c774ccfbe06f8e1071543b9d007c21566919e76/screenshots/signup.jpg" width="170" /> | <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/91c8e6d86714f86df0b32ac65ecd9fcad1e155b8/screenshots/searchresult.jpg" width="170" /> | ![Image6](link6) |
+|                  |                  |                  |
+|                  |                  |                  |
 |------------------|------------------|------------------|
-|   @Username7     |   @Username8     |   @Username9     |
-| ![Image7](link7) | ![Image8](link8) | ![Image9](link9) |
-|------------------|------------------|------------------|
-|   @Username10    |   @Username11    |   @Username12    |
-| ![Image10](link10)| ![Image11](link11)| ![Image12](link12)|
+|                  |                  |                  |
+|                  |                  |                  |
 
 
 <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/90c5a0c75a374c331bd13d311ed075fb5d5d8796/screenshots/output.gif" width="200"/>
