@@ -1,24 +1,31 @@
-import 'package:flutter/material.dart';
-
-import '../../configs/app_dimensions.dart';
-import '../../configs/space.dart';
+import '../../configs/configs.dart';
 import '../../core/constant/colors.dart';
 
-Widget CustomTextField({required String hintText}) {
+import 'package:flutter/material.dart';
+
+Widget buildTextFormField(TextEditingController controller, String labelText) {
   return Container(
     height: AppDimensions.normalize(20),
     padding: Space.h1,
     decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
     child: Center(
-      child: TextField(
+      child: TextFormField(
+        controller: controller,
+        validator: (String? val) {
+          if (val == null || val.isEmpty) {
+            return 'This field can\'t be empty';
+          }
+          return null;
+        },
         cursorColor: AppColors.CommonCyan,
         decoration: InputDecoration(
           border: InputBorder.none,
-          hintText: hintText,
+          hintText: "Enter your $labelText",
           hintStyle: const TextStyle(
-              fontSize: 10,
-              color: AppColors.GreyText,
-              fontWeight: FontWeight.w400),
+            fontSize: 10,
+            color: AppColors.GreyText,
+            fontWeight: FontWeight.w400,
+          ),
         ),
       ),
     ),

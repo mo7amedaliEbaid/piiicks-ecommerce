@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:piiicks/presentation/screens/ads.dart';
 import 'package:piiicks/presentation/screens/filter.dart';
+import 'package:piiicks/presentation/screens/login.dart';
 import 'package:piiicks/presentation/screens/product_details.dart';
 import 'package:piiicks/presentation/screens/root.dart';
 import 'package:piiicks/presentation/screens/search.dart';
+import 'package:piiicks/presentation/screens/signup.dart';
 import 'package:piiicks/presentation/screens/splash.dart';
 import '../../domain/entities/product/product.dart';
 import '../error/exceptions.dart';
@@ -15,6 +17,8 @@ sealed class AppRouter {
   static const String productDetails = '/product-details';
   static const String search = '/search';
   static const String filter = '/filter';
+  static const String signup = '/signup';
+  static const String login = '/login';
 
   static Route<dynamic> onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
@@ -32,6 +36,12 @@ sealed class AppRouter {
         ProductEntity product = routeSettings.arguments as ProductEntity;
         return MaterialPageRoute(
             builder: (_) => ProductDetailsScreen(product: product));
+      case signup:
+        return MaterialPageRoute(
+            builder: (_) => const SignUpScreen());
+      case login:
+        return MaterialPageRoute(
+            builder: (_) =>  const LoginScreen());
 
       default:
         throw const RouteException('Route not found!');

@@ -24,6 +24,9 @@ sealed class Assets {
   static const String Whats = "assets/svg/whats.svg";
   static const String Music = "assets/svg/music.svg";
   static const String Noti = "assets/svg/noti.svg";
+  static const String Archive = "assets/svg/archive.svg";
+  static const String Lock = "assets/svg/lock.svg";
+  static const String Marker = "assets/svg/marker.svg";
 
   //png
   static const String Ads = "assets/images/ad.png";
