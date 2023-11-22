@@ -1,6 +1,7 @@
 # piiicks
 A flutter ecommerce built with clean architecture and bloc state management.
 
+
 ### Done:
 - Products.
 
@@ -29,10 +30,9 @@ A flutter ecommerce built with clean architecture and bloc state management.
 - Sorting.
 - Filter.
 - Ads.
-- SignUp UI.
+- Auth.
 
 ### ToDo:
-- Auth.
 - Cart.
 - Orders.
 - Delivery.
