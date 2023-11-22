@@ -1,4 +1,54 @@
 # piiicks
+A flutter ecommerce built with clean architecture and bloc state management.
+
+### Done:
+- Products.
+- Categories.
+- Product Details.
+- Splash.
+- Home.
+- Search.
+- Bottom NavBar.
+- Sorting.
+- Filter.
+- Ads.
+- SignUp UI.
+
+### ToDo:
+- Auth.
+- Cart.
+- Orders.
+- Delivery.
+- Payment.
+
+
+### Directory Structure.
+- application=> blocs/cubits.
+- core=> app/observer/const/enums/networkchecker/error/router/usecases.
+- configs
+- di
+- data=> data_sources/models/repositories.
+- domain=> entities/repositories/usecases.
+- presentation=> screens/widgets.
+- main.dart
+
+### Screenshots.
+
+
+|   Details        |       Home       |      Sort        |
+|------------------|------------------|------------------|
+| <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/90c5a0c75a374c331bd13d311ed075fb5d5d8796/screenshots/output.gif" width="200"/> | <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/6c3c05ede0b14553c45f51548b1bbe9aab256064/screenshots/home2.jpg" width="170" /> | <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b8c8669117a69cad0aaba88e4561c1e1a9e3d9ca/screenshots/sorting.jpg" width="170" /> |
+|                  |                  |                  |
+|   Sign Up        |    Search        |                  |
+|------------------|------------------|------------------|
+| <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/3c774ccfbe06f8e1071543b9d007c21566919e76/screenshots/signup.jpg" width="170" /> | <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/91c8e6d86714f86df0b32ac65ecd9fcad1e155b8/screenshots/searchresult.jpg" width="170" /> |     |
+|------------------|------------------|------------------|
+|                  |                  |                  |
+|                  |                  |                  |
+|------------------|------------------|------------------|
+|                  |                  |                  |
+|                  |                  |                  |
+
 
 <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/90c5a0c75a374c331bd13d311ed075fb5d5d8796/screenshots/output.gif" width="200"/>
 
@@ -23,22 +73,4 @@
 
 </p>
 
-Done:
-- Products.
-- Categories.
-- Product Details.
-- Splash.
-- Home.
-- Search.
-- Bottom NavBar.
-- Sorting.
-- Filter.
-- Ads.
-- SignUp UI.
 
-ToDo:
-- Auth.
-- Cart.
-- Orders.
-- Delivery.
-- Payment.
