@@ -1,6 +1,10 @@
 # piiicks
 A flutter ecommerce built with clean architecture and bloc state management.
 
+
+https://github.com/mo7amedaliEbaid/piiicks-ecommerce/assets/131966482/8b35423d-26e8-4cb9-8316-0a1240630802
+
+
 ### Directory Structure.
 
 📂lib         
