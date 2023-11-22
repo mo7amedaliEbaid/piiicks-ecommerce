@@ -70,32 +70,32 @@ A flutter ecommerce built with clean architecture and bloc state management.
 
 ### Directory Structure.
 
-📂lib
-├──main.dart
-├──📂application
-|   └──📂blocs/cubits
-├──📂core
-|   ├──app
-|   ├──observer
-|   ├──const
-|   ├──enums
-|   ├──networkchecker
-|   ├──error
-|   ├──router
-|   └──usecases
-├──📂configs
-├──📂di
-├──📂data
-|   ├──data_sources
-|   ├──models
-|   └──repositories
-├──📂domain
-|   ├──entities
-|   ├──repositories
-|   └──usecases
-└──📂presentation
-├──screens
-└──widgets
+📂lib         
+├──main.dart            
+├──📂application            
+|   └──📂blocs/cubits            
+├──📂core         
+|   ├──app         
+|   ├──observer         
+|   ├──const         
+|   ├──enums         
+|   ├──networkchecker         
+|   ├──error         
+|   ├──router         
+|   └──usecases         
+├──📂configs      
+├──📂di         
+├──📂data                  
+|   ├──data_sources         
+|   ├──models         
+|   └──repositories         
+├──📂domain         
+|   ├──entities         
+|   ├──repositories         
+|   └──usecases         
+└──📂presentation         
+├──screens      
+└──widgets      
 
 
 
