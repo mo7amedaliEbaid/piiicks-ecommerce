@@ -23,7 +23,7 @@ Widget buildTextFormField(TextEditingController controller, String labelText,boo
           border: InputBorder.none,
           hintText: "Enter your $labelText",
           hintStyle: const TextStyle(
-            fontSize: 10,
+            fontSize: 12,
             color: AppColors.GreyText,
             fontWeight: FontWeight.w400,
           ),

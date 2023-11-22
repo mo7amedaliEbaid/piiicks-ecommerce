@@ -24,8 +24,8 @@ Widget TopRow({required bool isFromHome, required BuildContext context}) {
                 children: [
                   GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => YourWidget()));
+                       /* Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => YourWidget()));*/
                       },
                       child: const Icon(Icons.favorite_border)),
                   Space.xf(),

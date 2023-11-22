@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:piiicks/di/product.dart';
 import 'package:piiicks/di/user.dart';
+import 'cart.dart';
 import 'category.dart';
 import 'common.dart';
 import 'delivery.dart';
@@ -14,6 +15,7 @@ Future<void> init() async {
   registerProductFeature();
   registerUserFeature();
   registerDeliveryInfoFeature();
+  registerCartFeature();
 
   // Register common dependencies
   registerCommonDependencies();

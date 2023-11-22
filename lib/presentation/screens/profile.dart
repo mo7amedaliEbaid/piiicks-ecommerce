@@ -212,26 +212,31 @@ class ProfileScreen extends StatelessWidget {
                                 ],
                               ),
                               Space.yf(1.1),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      SvgPicture.asset(Assets.Marker),
-                                      Space.xf(),
-                                      Text(
-                                        "Address Book",
-                                        style: AppText.b1b,
-                                      )
-                                    ],
-                                  ),
-                                  const Icon(
-                                    Icons.arrow_forward,
-                                    size: 20,
-                                    color: Colors.black,
-                                  ),
-                                ],
+                              GestureDetector(
+                                onTap:(){
+                                  Navigator.of(context).pushNamed(AppRouter.adress);
+                            },
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        SvgPicture.asset(Assets.Marker),
+                                        Space.xf(),
+                                        Text(
+                                          "Address Book",
+                                          style: AppText.b1b,
+                                        )
+                                      ],
+                                    ),
+                                    const Icon(
+                                      Icons.arrow_forward,
+                                      size: 20,
+                                      color: Colors.black,
+                                    ),
+                                  ],
+                                ),
                               ),
                               Space.yf(1.1),
                               Row(

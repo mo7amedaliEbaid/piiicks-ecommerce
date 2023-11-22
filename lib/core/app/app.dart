@@ -4,6 +4,7 @@ import 'package:piiicks/application/favourites_cubit/favourites_cubit.dart';
 import 'package:piiicks/application/wishlist_cubit/wishlist_cubit.dart';
 
 import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
+import '../../application/cart_bloc/cart_bloc.dart';
 import '../../application/delivery_info_action_cubit/delivery_info_action_cubit.dart';
 import '../../application/delivery_info_fetch_cubit/delivery_info_fetch_cubit.dart';
 import '../../application/filter_cubit/filter_cubit.dart';
@@ -27,9 +28,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => NavigationCubit()),
         BlocProvider(create: (context) => WishlistCubit()..loadWishlist(),),
-     //   BlocProvider(create: (context) => FavouritesCubit(sl())..getFavouriteProducts(),),
 
-       // BlocProvider(create: (context) => di.sl<FavouritesCubit>()),
         BlocProvider(
           create: (context) =>
               di.sl<CategoryBloc>()..add(const GetCategories()),
@@ -43,6 +42,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => di.sl<UserBloc>()..add(CheckUser()),
+        ),
+        BlocProvider(
+          create: (context) => di.sl<CartBloc>()..add(const GetCart()),
         ),
         BlocProvider(
           create: (context) => di.sl<DeliveryInfoActionCubit>(),
