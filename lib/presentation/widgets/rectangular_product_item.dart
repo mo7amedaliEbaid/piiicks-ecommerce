@@ -39,12 +39,15 @@ class RectangularProductItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CachedNetworkImage(
-                height: AppDimensions.normalize(70),
-                imageUrl: product!.images.first,
-                placeholder: (context, url) => placeholderShimmer(),
-                errorWidget: (context, url, error) =>
-                    const Center(child: Icon(Icons.error)),
+              Hero(
+                tag: product!.id,
+                child: CachedNetworkImage(
+                  height: AppDimensions.normalize(70),
+                  imageUrl: product!.images.first,
+                  placeholder: (context, url) => placeholderShimmer(),
+                  errorWidget: (context, url, error) =>
+                      const Center(child: Icon(Icons.error)),
+                ),
               ),
               Space.y1!,
               Text(

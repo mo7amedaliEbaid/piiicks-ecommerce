@@ -33,14 +33,17 @@ class SquareProductItem extends StatelessWidget {
                   child: Container(
                     decoration:
                         BoxDecoration(border: Border.all(color: Colors.grey)),
-                    child: CachedNetworkImage(
-                      height: AppDimensions.normalize(70),
-                      width: AppDimensions.normalize(70),
-                      imageUrl: product!.images.last,
-                      fit: BoxFit.cover,
-                      placeholder: (context, url) => placeholderShimmer(),
-                      errorWidget: (context, url, error) =>
-                          const Center(child: Icon(Icons.error)),
+                    child: Hero(
+                      tag:product!.id ,
+                      child: CachedNetworkImage(
+                        height: AppDimensions.normalize(70),
+                        width: AppDimensions.normalize(70),
+                        imageUrl: product!.images.last,
+                        fit: BoxFit.cover,
+                        placeholder: (context, url) => placeholderShimmer(),
+                        errorWidget: (context, url, error) =>
+                            const Center(child: Icon(Icons.error)),
+                      ),
                     ),
                   ),
                 ),

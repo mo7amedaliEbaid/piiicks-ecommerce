@@ -3,7 +3,7 @@ import '../../core/constant/colors.dart';
 
 import 'package:flutter/material.dart';
 
-Widget buildTextFormField(TextEditingController controller, String labelText) {
+Widget buildTextFormField(TextEditingController controller, String labelText,bool isObscure) {
   return Container(
     height: AppDimensions.normalize(20),
     padding: Space.h1,
@@ -11,6 +11,7 @@ Widget buildTextFormField(TextEditingController controller, String labelText) {
     child: Center(
       child: TextFormField(
         controller: controller,
+        obscureText: isObscure,
         validator: (String? val) {
           if (val == null || val.isEmpty) {
             return 'This field can\'t be empty';

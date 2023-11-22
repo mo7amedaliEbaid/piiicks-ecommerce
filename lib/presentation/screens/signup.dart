@@ -27,11 +27,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final _formKey = GlobalKey<FormState>();
 
   bool isLoading = false;
+  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:CustomAppBar("SIGNUP"),
+      appBar: CustomAppBar("SIGNUP"),
       body: SingleChildScrollView(
         child: Padding(
           padding: Space.all(1, 1.3),
@@ -55,140 +56,48 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   style: AppText.b1b,
                 ),
                 Space.y!,
-                buildTextFormField(_nameController,"Full Name"),
-               /* Container(
-                  height: AppDimensions.normalize(20),
-                  padding: Space.h1,
-                  decoration:
-                      BoxDecoration(border: Border.all(color: Colors.grey)),
-                  child: Center(
-                    child: TextFormField(
-                      controller: _nameController,
-                      validator: (String? val) {
-                        if (val == null || val.isEmpty) {
-                          return 'This field can\'t be empty';
-                        }
-                        return null;
-                      },
-                      cursorColor: AppColors.CommonCyan,
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Enter Your Full Name",
-                        hintStyle: TextStyle(
-                            fontSize: 10,
-                            color: AppColors.GreyText,
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ),
-                  ),
-                ),*/
+                buildTextFormField(_nameController, "Full Name", false),
                 Space.yf(1.5),
                 Text(
                   "Email Address*",
                   style: AppText.b1b,
                 ),
                 Space.y!,
-                buildTextFormField(_emailController,"Email Address"),
-                /*Container(
-                  height: AppDimensions.normalize(20),
-                  padding: Space.h1,
-                  decoration:
-                      BoxDecoration(border: Border.all(color: Colors.grey)),
-                  child: Center(
-                    child: TextFormField(
-                      controller: _emailController,
-                      validator: (String? val) {
-                        if (val == null || val.isEmpty) {
-                          return 'This field can\'t be empty';
-                        }
-                        return null;
-                      },
-                      cursorColor: AppColors.CommonCyan,
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Enter your Email Address",
-                        hintStyle: TextStyle(
-                            fontSize: 10,
-                            color: AppColors.GreyText,
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ),
-                  ),
-                ),*/
+                buildTextFormField(_emailController, "Email Address", false),
                 Space.yf(1.5),
                 Text(
                   "Password*",
                   style: AppText.b1b,
                 ),
                 Space.y!,
-                buildTextFormField(_passwordController,"Password")
-,
-                /*Container(
-                  height: AppDimensions.normalize(20),
-                  padding: Space.h1,
-                  decoration:
-                      BoxDecoration(border: Border.all(color: Colors.grey)),
-                  child: Center(
-                    child: TextFormField(
-                      controller: _passwordController,
-                      validator: (String? val) {
-                        if (val == null || val.isEmpty) {
-                          return 'This field can\'t be empty';
-                        }
-                        return null;
-                      },
-                      cursorColor: AppColors.CommonCyan,
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Enter your Password",
-                        hintStyle: TextStyle(
-                            fontSize: 10,
-                            color: AppColors.GreyText,
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ),
-                  ),
-                ),*/
+                buildTextFormField(_passwordController, "Password", true),
                 Space.yf(1.5),
                 Text(
                   "Confirm Password*",
                   style: AppText.b1b,
                 ),
                 Space.y!,
-                buildTextFormField(_confirmPasswordController,"Password"),
-                /*Container(
-                  height: AppDimensions.normalize(20),
-                  padding: Space.h1,
-                  decoration:
-                      BoxDecoration(border: Border.all(color: Colors.grey)),
-                  child: Center(
-                    child: TextFormField(
-                      controller: _confirmPasswordController,
-                      validator: (String? val) {
-                        if (val == null || val.isEmpty) {
-                          return 'This field can\'t be empty';
-                        }
-                        return null;
-                      },
-                      cursorColor: AppColors.CommonCyan,
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Confirm your Password",
-                        hintStyle: TextStyle(
-                            fontSize: 10,
-                            color: AppColors.GreyText,
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ),
-                  ),
-                ),*/
+                buildTextFormField(
+                    _confirmPasswordController, "Password", true),
                 Space.yf(1.5),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    const Icon(
-                      Icons.check_box_outline_blank_outlined,
-                      color: Colors.black,
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isChecked = !isChecked;
+                        });
+                      },
+                      child: isChecked
+                          ? const Icon(
+                              Icons.check_box,
+                              color: Colors.black,
+                            )
+                          : const Icon(
+                              Icons.check_box_outline_blank_outlined,
+                              color: Colors.black,
+                            ),
                     ),
                     Space.x!,
                     Text(
@@ -216,7 +125,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             return Dialog(
                               child: Container(
                                 height: AppDimensions.normalize(70),
-                                padding: Space.all(1, .65),
+                                padding: Space.all(1, 1.05),
                                 child: Center(
                                   child: Column(
                                     crossAxisAlignment:
@@ -388,7 +297,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                   ),
                 ),
-
                 Space.yf(1.5),
                 Center(
                     child: Text(

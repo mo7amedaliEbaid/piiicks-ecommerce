@@ -194,11 +194,14 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                   },
                                 );
                               },
-                              child: CachedNetworkImage(
-                                fit: BoxFit.contain,
-                                imageUrl: widget.product.images[index],
-                                placeholder: (context, url) =>
-                                    placeholderShimmer(),
+                              child: Hero(
+                                tag: widget.product.id,
+                                child: CachedNetworkImage(
+                                  fit: BoxFit.contain,
+                                  imageUrl: widget.product.images[index],
+                                  placeholder: (context, url) =>
+                                      placeholderShimmer(),
+                                ),
                               ),
                             );
                           },

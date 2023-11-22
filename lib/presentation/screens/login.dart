@@ -53,14 +53,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: AppText.b1b,
                 ),
                 Space.y!,
-                buildTextFormField(_emailController, "Email Address"),
+                buildTextFormField(_emailController, "Email Address",false),
                 Space.yf(1.5),
                 Text(
                   "Password*",
                   style: AppText.b1b,
                 ),
                 Space.y!,
-                buildTextFormField(_passwordController, "Password"),
+                buildTextFormField(_passwordController, "Password",true),
                 Space.y1!,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -86,19 +86,19 @@ class _LoginScreenState extends State<LoginScreen> {
                             return Dialog(
                               child: Container(
                                 height: AppDimensions.normalize(70),
-                                padding: Space.all(1, .65),
+                                padding: Space.all(1, 1),
                                 child: Center(
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        "SUCCESSFULLY REGISTERED",
+                                        "SUCCESSFULLY Logged In",
                                         style: AppText.b1b,
                                       ),
                                       Space.yf(.6),
                                       Text(
-                                        "Congratulations,\nYour Account Has Been Successfully Registered!",
+                                        "Congratulations,\nYou Have Been Successfully Logged In!",
                                         style: AppText.b2,
                                       ),
                                       Row(
@@ -106,19 +106,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                             MainAxisAlignment.end,
                                         children: [
                                           TextButton(
-                                              onPressed: () {
-                                                Navigator.of(context)
-                                                    .pushNamedAndRemoveUntil(
-                                                  AppRouter.mainscreen,
-                                                  ModalRoute.withName(''),
-                                                );
-                                              },
-                                              child: Text(
-                                                "Ok",
-                                                style: AppText.h3b?.copyWith(
-                                                    color:
-                                                        AppColors.CommonCyan),
-                                              ))
+                                            onPressed: () {
+                                              Navigator.of(context)
+                                                  .pushNamedAndRemoveUntil(
+                                                AppRouter.mainscreen,
+                                                ModalRoute.withName(''),
+                                              );
+                                            },
+                                            child: Text(
+                                              "Ok",
+                                              style: AppText.h3b?.copyWith(
+                                                  color: AppColors.CommonCyan),
+                                            ),
+                                          )
                                         ],
                                       )
                                     ],
@@ -143,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          "Username/Password Wrong!",
+                                          "Email/Password Wrong!",
                                           style: AppText.b1b,
                                         ),
                                         Space.yf(.5),
@@ -259,17 +259,23 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: AppText.b1b,
                 )),
                 Space.y1!,
-                Container(
-                  height: AppDimensions.normalize(20),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      border:
-                          Border.all(width: 1, color: AppColors.CommonCyan)),
-                  child: Center(
-                    child: Text(
-                      "Signup",
-                      style: AppText.h3b?.copyWith(color: AppColors.CommonCyan),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushNamed(AppRouter.signup);
+                  },
+                  child: Container(
+                    height: AppDimensions.normalize(20),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        border:
+                            Border.all(width: 1, color: AppColors.CommonCyan)),
+                    child: Center(
+                      child: Text(
+                        "Signup",
+                        style:
+                            AppText.h3b?.copyWith(color: AppColors.CommonCyan),
+                      ),
                     ),
                   ),
                 )
