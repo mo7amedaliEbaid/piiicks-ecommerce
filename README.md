@@ -72,30 +72,14 @@ A flutter ecommerce built with clean architecture and bloc state management.
 
 📂lib         
 ├──main.dart            
-├──📂application            
-|   └──📂blocs/cubits            
-├──📂core         
-|   ├──app         
-|   ├──observer         
-|   ├──const         
-|   ├──enums         
-|   ├──networkchecker         
-|   ├──error         
-|   ├──router         
-|   └──usecases         
+├──📂application ──📂blocs/cubits                             
+├──📂core              
 ├──📂configs      
 ├──📂di         
-├──📂data                  
-|   ├──data_sources         
-|   ├──models         
-|   └──repositories         
-├──📂domain         
-|   ├──entities         
-|   ├──repositories         
-|   └──usecases         
-└──📂presentation         
-├──screens      
-└──widgets      
+├──📂data                        
+├──📂domain                
+└──📂presentation  ──screens/widgets         
+     
 
 
 
