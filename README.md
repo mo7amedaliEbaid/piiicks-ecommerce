@@ -2,14 +2,7 @@
 A flutter ecommerce built with clean architecture and bloc state management.
 
 
-https://github.com/mo7amedaliEbaid/piiicks-ecommerce/assets/131966482/8b35423d-26e8-4cb9-8316-0a1240630802
 
-https://github.com/mo7amedaliEbaid/piiicks-ecommerce/assets/131966482/e13d84e6-2acc-47de-982d-61af5cf85321
-
-
-
-
-https://github.com/mo7amedaliEbaid/piiicks-ecommerce/assets/131966482/6e8e134e-39f6-45c5-8bcf-2bd7d6b4c9b5
 
 
 
@@ -23,9 +16,14 @@ https://github.com/mo7amedaliEbaid/piiicks-ecommerce/assets/131966482/6e8e134e-3
 ├──📂di         
 ├──📂data                        
 ├──📂domain                
-└──📂presentation  ──screens/widgets         
+└──📂presentation  ──📂screens/widgets         
      
+### Demos.
+https://github.com/mo7amedaliEbaid/piiicks-ecommerce/assets/131966482/8b35423d-26e8-4cb9-8316-0a1240630802
 
+https://github.com/mo7amedaliEbaid/piiicks-ecommerce/assets/131966482/e13d84e6-2acc-47de-982d-61af5cf85321
+
+https://github.com/mo7amedaliEbaid/piiicks-ecommerce/assets/131966482/6e8e134e-39f6-45c5-8bcf-2bd7d6b4c9b5
 
 ### Done:
 ##### Products.
