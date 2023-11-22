@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:piiicks/configs/app.dart';
+import 'package:piiicks/presentation/screens/cart.dart';
 import 'package:piiicks/presentation/screens/categories.dart';
 import 'package:piiicks/presentation/screens/filter.dart';
 import 'package:piiicks/presentation/screens/home.dart';
@@ -31,7 +32,7 @@ class RootScreen extends StatelessWidget {
               case NavigationTab.productsTap:
                 return const ProductsListScreen();
               case NavigationTab.cartTab:
-                return const FilterScreen();
+                return const CartScreen();
               case NavigationTab.profileTab:
                 return const ProfileScreen();
               default:

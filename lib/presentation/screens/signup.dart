@@ -5,6 +5,8 @@ import 'package:piiicks/configs/app_typography.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/colors.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
+import '../../application/cart_bloc/cart_bloc.dart';
+import '../../application/delivery_info_fetch_cubit/delivery_info_fetch_cubit.dart';
 import '../../application/user_bloc/user_bloc.dart';
 import '../../core/error/failures.dart';
 import '../../core/router/app_router.dart';
@@ -32,7 +34,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar("SIGNUP"),
+      appBar: CustomAppBar("SIGNUP",null),
       body: SingleChildScrollView(
         child: Padding(
           padding: Space.all(1, 1.3),
@@ -146,6 +148,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                         children: [
                                           TextButton(
                                               onPressed: () {
+                                                context.read<CartBloc>().add(const GetCart());
+                                                context.read<DeliveryInfoFetchCubit>().fetchDeliveryInfo();
                                                 Navigator.of(context)
                                                     .pushNamedAndRemoveUntil(
                                                   AppRouter.mainscreen,

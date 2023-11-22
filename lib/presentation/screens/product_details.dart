@@ -10,10 +10,15 @@ import 'package:piiicks/configs/app_typography.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/assets.dart';
 import 'package:piiicks/core/constant/colors.dart';
+import 'package:piiicks/core/router/app_router.dart';
 import 'package:piiicks/domain/entities/product/product.dart';
 
+import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
+import '../../application/cart_bloc/cart_bloc.dart';
 import '../../application/wishlist_cubit/wishlist_cubit.dart';
+import '../../core/enums/enums.dart';
 import '../../data/models/product/product_model.dart';
+import '../../domain/entities/cart/cart_item.dart';
 import '../../domain/entities/product/price_tag.dart';
 import '../widgets/dots_indicator.dart';
 import '../widgets/lading_shimmer.dart';
@@ -362,18 +367,88 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             Expanded(
               child: ElevatedButton(
                   onPressed: () {
-                    /* context.read<WishlistCubit>().addToWishlist(ProductModel(
-                        id: "",
-                        name: "name411",
-                        description: "description",
-                        priceTags: [],
-                        categories: [],
-                        images: [
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjIEnUkwQUdbyVfkutEwc9ZQDGz_f8IXu1R024nhc-&s",
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjIEnUkwQUdbyVfkutEwc9ZQDGz_f8IXu1R024nhc-&s"
-                        ],
-                        createdAt: DateTime.now(),
-                        updatedAt: DateTime.now()));*/
+                    /* context.read<CartBloc>().add(AddProduct(
+                        cartItem: CartItem(
+                            product: widget.product,
+                            priceTag: _selectedPriceTag)));*/
+                    showModalBottomSheet(
+                      context: context,
+                      backgroundColor: const Color(0xfff6f6f6),
+                      constraints: BoxConstraints(
+                          minHeight: AppDimensions.normalize(120),
+                          maxWidth: double.infinity),
+                      builder: (BuildContext context) {
+                        return SizedBox(
+                          width: double.infinity,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                top: AppDimensions.normalize(12),
+                                left: AppDimensions.normalize(8),
+                                right: AppDimensions.normalize(8),
+                                bottom: AppDimensions.normalize(5)),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "CONTINUE",
+                                  style: AppText.h3b,
+                                ),
+                                Space.yf(1),
+                                const Text(
+                                    "Lorem Ipsum is simply dummy text of the"),
+                                Space.yf(.2),
+                                const Text(
+                                    "printing and typesetting industry."),
+                                Space.yf(2),
+                                SizedBox(
+                                  width: double.infinity,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      context
+                                          .read<NavigationCubit>()
+                                          .updateTab(NavigationTab.cartTab);
+                                      Navigator.popAndPushNamed(
+                                          context, AppRouter.mainscreen);
+                                    },
+                                    child: Container(
+                                      padding: Space.vf(.8),
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: AppColors.CommonCyan)),
+                                      child: Center(
+                                          child: Text(
+                                        "Proceed to Cart",
+                                        style: AppText.h3b?.copyWith(
+                                            color: AppColors.CommonCyan),
+                                      )),
+                                    ),
+                                  ),
+                                ),
+                                Space.yf(1.5),
+                                SizedBox(
+                                  width: double.infinity,
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      context
+                                          .read<NavigationCubit>()
+                                          .updateTab(NavigationTab.productsTap);
+                                      Navigator.popAndPushNamed(
+                                          context, AppRouter.mainscreen);
+                                    },
+                                    child: Text(
+                                      "Continue Shopping",
+                                      style: AppText.h3b
+                                          ?.copyWith(color: Colors.white),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    );
                   },
                   child: Text(
                     "Add to cart",

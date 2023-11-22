@@ -52,7 +52,7 @@ class _AddAdressScreenState extends State<AddAdressScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar("ADD NEW ADDRESS"),
+      appBar: CustomAppBar("ADD NEW ADDRESS",null),
       body: BlocListener<DeliveryInfoActionCubit, DeliveryInfoActionState>(
         listener: (context, state) {
           if (state is DeliveryInfoActionLoading) {

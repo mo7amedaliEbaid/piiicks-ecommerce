@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:piiicks/domain/usecases/user/sign_in_usecase.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
 
+import '../../application/cart_bloc/cart_bloc.dart';
+import '../../application/delivery_info_fetch_cubit/delivery_info_fetch_cubit.dart';
 import '../../application/user_bloc/user_bloc.dart';
 import '../../configs/app_dimensions.dart';
 import '../../configs/app_typography.dart';
@@ -29,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar("LOGIN"),
+      appBar: CustomAppBar("LOGIN",null),
       body: SingleChildScrollView(
         child: Padding(
           padding: Space.all(1, 1.3),
@@ -107,6 +109,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                         children: [
                                           TextButton(
                                             onPressed: () {
+                                              context.read<CartBloc>().add(const GetCart());
+                                              context.read<DeliveryInfoFetchCubit>().fetchDeliveryInfo();
                                               Navigator.of(context)
                                                   .pushNamedAndRemoveUntil(
                                                 AppRouter.mainscreen,

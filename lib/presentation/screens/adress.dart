@@ -22,14 +22,17 @@ class _AdressScreenState extends State<AdressScreen> {
     return BlocListener<DeliveryInfoActionCubit, DeliveryInfoActionState>(
       listener: (context, state) {
         if (state is DeliveryInfoActionLoading) {
+          //TODO
         } else if (state is DeliveryInfoSelectActionSuccess) {
           context
               .read<DeliveryInfoFetchCubit>()
               .selectDeliveryInfo(state.deliveryInfo);
-        } else if (state is DeliveryInfoActionFail) {}
+        } else if (state is DeliveryInfoActionFail) {
+          //TODO
+        }
       },
       child: Scaffold(
-        appBar: CustomAppBar("ADD ADDRESS"),
+        appBar: CustomAppBar("ADD ADDRESS",null),
         body: Padding(
           padding: Space.all(1.2, 1),
           child: Column(
