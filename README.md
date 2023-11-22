@@ -89,10 +89,12 @@ https://github.com/mo7amedaliEbaid/piiicks-ecommerce/assets/131966482/6e8e134e-3
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/logged1.jpg" width="170" />
 </p>
 
+##### Delivery.
+
+
 ### ToDo:
 - Cart.
 - Orders.
-- Delivery.
 - Payment.
 
 
