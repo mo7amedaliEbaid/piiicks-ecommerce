@@ -40,18 +40,18 @@ A flutter ecommerce built with clean architecture and bloc state management.
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/splash.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/home3.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/home2.jpg" width="170" />
-   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/search.jpg" width="170" />
+   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/0cd8e6506c789cd9bc8f4ae9248c30a34e64a914/screenshots/addadress.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/searchresult.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/search_noresult.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/sorting.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/filter.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/filter1.jpg" width="170" />
-   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/filter2.jpg" width="170" />
+   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/0cd8e6506c789cd9bc8f4ae9248c30a34e64a914/screenshots/cart.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/signup.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/profile.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/profile1.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/logged1.jpg" width="170" />
-   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/ads.jpg" width="170" />
+   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/0cd8e6506c789cd9bc8f4ae9248c30a34e64a914/screenshots/adresses.jpg" width="170" />
 </p>
 
 
