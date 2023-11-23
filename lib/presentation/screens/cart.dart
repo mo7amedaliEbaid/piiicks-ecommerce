@@ -4,6 +4,8 @@ import 'package:piiicks/configs/app_dimensions.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/colors.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
+import 'package:piiicks/presentation/widgets/dashed_separator.dart';
+import 'package:piiicks/presentation/widgets/payment_details_row.dart';
 
 import '../../../../core/error/failures.dart';
 import '../../../../domain/entities/cart/cart_item.dart';
@@ -25,11 +27,11 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar("Cart",false),
+      appBar: CustomAppBar("CART", false),
       body: Stack(
         children: [
           Padding(
-            padding: Space.all(1.5,.5),
+            padding: Space.all(1, 0),
             child: Column(
               children: [
                 BlocBuilder<CartBloc, CartState>(
@@ -83,8 +85,7 @@ class _CartScreenState extends State<CartScreen> {
                                     onPressed: () {
                                       context
                                           .read<NavigationCubit>()
-                                          .updateTab(
-                                              NavigationTab.productsTap);
+                                          .updateTab(NavigationTab.productsTap);
                                     },
                                     child: Text(
                                       "Add Items",
@@ -103,10 +104,7 @@ class _CartScreenState extends State<CartScreen> {
                             ? 10
                             : (state.cart.length +
                                 ((state is CartLoading) ? 10 : 0)),
-                        padding: EdgeInsets.only(
-                            top: (MediaQuery.of(context).padding.top + 20),
-                            bottom:
-                                MediaQuery.of(context).padding.bottom + 200),
+                        padding: EdgeInsets.only(bottom: AppDimensions.normalize(120)),
                         physics: const BouncingScrollPhysics(),
                         shrinkWrap: true,
                         itemBuilder: (BuildContext context, int index) {
@@ -142,52 +140,46 @@ class _CartScreenState extends State<CartScreen> {
           ),
           BlocBuilder<CartBloc, CartState>(builder: (context, state) {
             if (state.cart.isEmpty) {
-              return const SizedBox();
+              return const SizedBox.shrink();
             }
             return Positioned(
-              bottom: (MediaQuery.of(context).padding.bottom + 90),
+              bottom: 0,
               left: 0,
               right: 0,
               child: Container(
-                color: Colors.white,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                color: AppColors.LightGrey,
+                padding: Space.all(1, 1.2),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(bottom: 4, left: 8, right: 8),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Total (${state.cart.length} items)',
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                          Text(
-                            '\$${state.cart.fold(0.0, (previousValue, element) => (element.priceTag.price + previousValue))}',
-                            style: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w500),
-                          ),
-                        ],
-                      ),
+                    Text(
+                      "PAYMENT DETAILS",
+                      style: AppText.h3b?.copyWith(color: AppColors.CommonCyan),
                     ),
-                    /* SizedBox(
-                      height: 40,
-                      width: 100,
-                      child: InputFormButton(
-                        color: Colors.black87,
-                        cornerRadius: 36,
-                        padding: EdgeInsets.zero,
-                        onClick: () {
-                          Navigator.of(context).pushNamed(
-                              AppRouter.orderCheckout,
-                              arguments: state.cart);
-                        },
-                        titleText: 'Checkout',
+                    Space.yf(),
+                    PaymentDetailsRow(
+                        "SUB Total",
+                        '${state.cart.fold(0.0, (previousValue, element) => (element.priceTag.price + previousValue))}',
+                        null),
+                    PaymentDetailsRow("Gift Charges", '0.000', null),
+                    PaymentDetailsRow("Discount", '0.000', null),
+                    PaymentDetailsRow("Shipping Charges", '0.000', null),
+                    PaymentDetailsRow(
+                        "Total",
+                        '${state.cart.fold(0.0, (previousValue, element) => (element.priceTag.price + previousValue))}',
+                        AppText.h3b),
+                    const DashedSeparator(),
+                    Space.yf(.8),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: null,
+                        child: Text(
+                          "Proceed To Checkout",
+                          style: AppText.h3b?.copyWith(color: Colors.white),
+                        ),
                       ),
-                    ),*/
+                    )
                   ],
                 ),
               ),

@@ -9,6 +9,7 @@ import 'package:piiicks/presentation/widgets/top_row.dart';
 
 import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
 import '../../application/categories_bloc/category_bloc.dart';
+import '../../application/filter_cubit/filter_cubit.dart';
 import '../../core/constant/assets.dart';
 import '../../core/constant/colors.dart';
 import '../../core/enums/enums.dart';
@@ -29,6 +30,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     _pageController = PageController(initialPage: currentPage);
+    context.read<FilterCubit>().reset();
+    context
+        .read<ProductBloc>()
+        .add(GetProducts(context.read<FilterCubit>().state));
     super.initState();
   }
 

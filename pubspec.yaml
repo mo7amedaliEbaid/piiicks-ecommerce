@@ -31,6 +31,7 @@ dependencies:
   flutter_secure_storage:
   photo_view:
   dotted_border:
+  flutter_local_notifications:
 
  # get_storage:
 

@@ -12,6 +12,7 @@ import 'package:piiicks/core/constant/assets.dart';
 import 'package:piiicks/core/constant/colors.dart';
 import 'package:piiicks/core/router/app_router.dart';
 import 'package:piiicks/domain/entities/product/product.dart';
+import 'package:piiicks/presentation/widgets/quantity_row.dart';
 
 import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
 import '../../application/cart_bloc/cart_bloc.dart';
@@ -329,48 +330,15 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(
-              child: Row(
-                children: [
-                  GestureDetector(
-                    child: Container(
-                      width: AppDimensions.normalize(17),
-                      color: AppColors.CommonCyan,
-                      child: Center(
-                        child: SvgPicture.asset(Assets.Minus,
-                            color: Colors.white, height: 3),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: Space.hf(2),
-                    color: Colors.white,
-                    child: Center(
-                      child: Text(
-                        "1",
-                        style: AppText.h3b,
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    child: Container(
-                      width: AppDimensions.normalize(17),
-                      color: AppColors.CommonCyan,
-                      child: Center(
-                        child: SvgPicture.asset(Assets.Plus,
-                            color: Colors.white, height: 13),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+              child: QuantityRow(17,2)
             ),
             Expanded(
               child: ElevatedButton(
                   onPressed: () {
-                    /* context.read<CartBloc>().add(AddProduct(
+                     context.read<CartBloc>().add(AddProduct(
                         cartItem: CartItem(
                             product: widget.product,
-                            priceTag: _selectedPriceTag)));*/
+                            priceTag: _selectedPriceTag)));
                     showModalBottomSheet(
                       context: context,
                       backgroundColor: const Color(0xfff6f6f6),
