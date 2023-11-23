@@ -30,6 +30,7 @@ A flutter ecommerce built with clean architecture and bloc state management.
 - Adresses.
 - Add/Edit Adress.
 - Sort Products.
+- Notifications.
   
 <p float="left">
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/8e5f750515f9eddb7e26e90001ba9dfa1167bbd6/screenshots/allproducts.jpg" width="170" />
