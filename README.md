@@ -49,12 +49,7 @@ Welcome to my Flutter Piiicks e-commerce app, meticulously crafted with clean ar
 25. **Dependency Injection:** Leverage the `get_it` package for efficient dependency injection, improving code maintainability and managing dependencies effectively.
 26. **Functional Programming Principles:** Explore and implement functional programming principles from the `dartz` package, enhancing code clarity and error handling.
 
-## Getting Started
-1. Clone the repository.
-2. Navigate to the project directory.
-3. Run `flutter pub get` to fetch the dependencies.
-4. Open the project in your preferred Flutter IDE.
-5. Run the app on your desired emulator or physical device.
+
 
 ## Dependencies
 ```yaml
@@ -149,7 +144,12 @@ https://github.com/mo7amedaliEbaid/piiicks-ecommerce/assets/131966482/6e8e134e-3
 
 
 
-
+## Getting Started
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Run `flutter pub get` to fetch the dependencies.
+4. Open the project in your preferred Flutter IDE.
+5. Run the app on your desired emulator or physical device.
 
 
 
