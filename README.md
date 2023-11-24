@@ -27,27 +27,29 @@ Welcome to my Flutter Piiicks e-commerce app, meticulously crafted with clean ar
 9. **Filter Options:** Intuitive product filtering options for a customized shopping experience.
 10. **Splash Screen:** Captivating initial loading screen setting the tone for the app.
 11. **Addresses:** Effortlessly manage and edit user addresses for smooth order processing.
+12. **Pagination:** Implement pagination for efficient loading of large sets of data, ensuring a smoother user experience.
+
 
 ### User Interaction
-12. **Sort Products:** Options to sort products based on criteria such as price, popularity, or relevance.
-13. **Notifications:** Keep users informed with updates on order status, promotions, and more.
+13. **Sort Products:** Options to sort products based on criteria such as price, popularity, or relevance.
+14. **Notifications:** Keep users informed with updates on order status, promotions, and more.
 
 ### User Management
-14. **Login/SignUp:** Secure user authentication for a personalized experience.
-15. **Shopping Cart:** Seamless and intuitive management of selected items before purchase.
-16. **User Profile:** Dedicated section for managing addresses, viewing order history, and personalizing preferences.
+15. **Login/SignUp:** Secure user authentication for a personalized experience.
+16. **Shopping Cart:** Seamless and intuitive management of selected items before purchase.
+17. **User Profile:** Dedicated section for managing addresses, viewing order history, and personalizing preferences.
 
 ### Additional Features
-17. **Image Caching and Loading Optimization:** Utilize the `cached_network_image` package for efficient loading and caching of network images, enhancing performance.
-18. **SVG Support:** Leverage the `flutter_svg` package for supporting SVG images, providing a scalable and crisp user interface.
-19. **Data Caching:** Use the `shared_preferences` package for caching small amounts of data, improving the user experience by maintaining certain states.
-20. **Authentication and Secure Storage:** Implement secure user authentication with the `flutter_secure_storage` package, ensuring sensitive user data is stored securely.
-21. **Stateful UI with Shimmer Effect:** Enhance the user interface by incorporating the shimmering effect using the `shimmer` package, providing a polished loading experience.
-22. **Dynamic Page Indicators:** Implement dynamic page indicators using the `dots_indicator` package, providing visual cues for users when navigating through different screens.
-23. **HTTP Requests and API Integration:** Leverage the `http` package for making HTTP requests and seamlessly integrate with external APIs for fetching and updating data.
-24. **Network Connectivity Check:** Utilize the `internet_connection_checker` package to ensure a smooth user experience by checking and handling network connectivity.
-25. **Dependency Injection:** Leverage the `get_it` package for efficient dependency injection, improving code maintainability and managing dependencies effectively.
-26. **Functional Programming Principles:** Explore and implement functional programming principles from the `dartz` package, enhancing code clarity and error handling.
+18. **Image Caching and Loading Optimization:** Utilize the `cached_network_image` package for efficient loading and caching of network images, enhancing performance.
+19. **SVG Support:** Leverage the `flutter_svg` package for supporting SVG images, providing a scalable and crisp user interface.
+20. **Data Caching:** Use the `shared_preferences` package for caching small amounts of data, improving the user experience by maintaining certain states.
+21. **Authentication and Secure Storage:** Implement secure user authentication with the `flutter_secure_storage` package, ensuring sensitive user data is stored securely.
+22. **Stateful UI with Shimmer Effect:** Enhance the user interface by incorporating the shimmering effect using the `shimmer` package, providing a polished loading experience.
+23. **Dynamic Page Indicators:** Implement dynamic page indicators using the `dots_indicator` package, providing visual cues for users when navigating through different screens.
+24. **HTTP Requests and API Integration:** Leverage the `http` package for making HTTP requests and seamlessly integrate with external APIs for fetching and updating data.
+25. **Network Connectivity Check:** Utilize the `internet_connection_checker` package to ensure a smooth user experience by checking and handling network connectivity.
+26. **Dependency Injection:** Leverage the `get_it` package for efficient dependency injection, improving code maintainability and managing dependencies effectively.
+27. **Functional Programming Principles:** Explore and implement functional programming principles from the `dartz` package, enhancing code clarity and error handling.
 
 
 
