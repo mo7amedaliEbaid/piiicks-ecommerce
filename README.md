@@ -32,7 +32,7 @@ Welcome to my Flutter Piiicks e-commerce app, meticulously crafted with clean ar
 
 ### User Interaction
 13. **Sort Products:** Options to sort products based on criteria such as price.
-14. **Notifications:** Keep users informed with updates on order status, promotions, and more.
+14. **Notifications:** Keep users informed with updates on order status and more.
 
 ### User Management
 15. **Login/SignUp:** Secure user authentication for a personalized experience.
