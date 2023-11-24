@@ -1,18 +1,40 @@
-# piiicks
-A flutter ecommerce built with clean architecture and bloc state management.
+## Piiicks
+Welcome to my Flutter Piiicks e-commerce app, meticulously crafted with clean architecture and powered by the efficient BLoC state management ensuring scalability, maintainability, and optimal performance. Dive into a seamless coding experience with a sleek interface and robust features designed to elevate the online shopping journey.
 
 ### Directory Structure.
+- 📂lib         
+  - main.dart: Entry point of the application.                      
+  - 📂application ──📂blocs/cubits: Houses the BLoC (Business Logic Component) or Cubit classes responsible for managing the application's state.                                       
+  - 📂core: Contains core functionalities and utilities shared across the application.                                  
+  - 📂configs: Holds configuration files for the project.           
+  - 📂di: Dependency Injection setup for managing dependencies and services.                   
+  - 📂data: Manages data sources, repositories, and data models.                                  
+  - 📂domain: Defines the domain entities, use cases, and interfaces.                          
+  - 📂presentation  ──📂screens/widgets: Contains UI components, screens, and widgets for the application.                   
 
-📂lib         
-├──main.dart            
-├──📂application ──📂blocs/cubits                             
-├──📂core              
-├──📂configs      
-├──📂di         
-├──📂data                        
-├──📂domain                
-└──📂presentation  ──📂screens/widgets         
-     
+### Features
+- 1- Clean Architecture: Ensure a modular and scalable architecture for long-term maintainability.
+- 2- BLoC State Management: Efficient state management for a smooth and predictable user experience.
+#### User Interface
+- 3- Product Screen: User-friendly display of products for effortless browsing.
+- 4- Categories: Seamless navigation through various product categories.
+- 5- Product Details: In-depth information for a comprehensive view of products.
+- 6- Search Functionality: Robust search feature for quick product discovery.
+- 7- Search Results: Clear and relevant search results for user convenience.
+- 8- Home Screen: Engaging showcase of featured products and promotions.
+- 9- Filter Options: Intuitive product filtering options for a customized shopping experience.
+- 10- Splash Screen: Captivating initial loading screen setting the tone for the app.
+- 11- Addresses: Effortlessly manage and edit user addresses for smooth order processing.
+#### User Interaction
+- 12- Sort Products: Options to sort products based on criteria such as price, popularity, or relevance.
+- 13- Notifications: Keep users informed with updates on order status, and more.
+#### User Management
+- 14- Login/SignUp: Secure user authentication for a personalized experience.
+- 15- Shopping Cart: Seamless and intuitive management of selected items before purchase.
+- 16- User Profile: Dedicated section for managing addresses, viewing order history, and personalizing preferences.
+#### Data Caching
+- 17- Data Caching using Shared Preferences: Enhance performance and user experience by caching relevant data using Shared Preferences.
+
 ## Screens.
 ### Done:
 - Products.
