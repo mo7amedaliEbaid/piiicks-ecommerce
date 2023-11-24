@@ -37,8 +37,17 @@ Welcome to my Flutter Piiicks e-commerce app, meticulously crafted with clean ar
 15. **Shopping Cart:** Seamless and intuitive management of selected items before purchase.
 16. **User Profile:** Dedicated section for managing addresses, viewing order history, and personalizing preferences.
 
-### Data Caching
-17. **Data Caching using Shared Preferences:** Enhance performance and user experience by caching relevant data using Shared Preferences.
+### Additional Features
+17. **Image Caching and Loading Optimization:** Utilize the `cached_network_image` package for efficient loading and caching of network images, enhancing performance.
+18. **SVG Support:** Leverage the `flutter_svg` package for supporting SVG images, providing a scalable and crisp user interface.
+19. **Data Caching:** Use the `shared_preferences` package for caching small amounts of data, improving the user experience by maintaining certain states.
+20. **Authentication and Secure Storage:** Implement secure user authentication with the `flutter_secure_storage` package, ensuring sensitive user data is stored securely.
+21. **Stateful UI with Shimmer Effect:** Enhance the user interface by incorporating the shimmering effect using the `shimmer` package, providing a polished loading experience.
+22. **Dynamic Page Indicators:** Implement dynamic page indicators using the `dots_indicator` package, providing visual cues for users when navigating through different screens.
+23. **HTTP Requests and API Integration:** Leverage the `http` package for making HTTP requests and seamlessly integrate with external APIs for fetching and updating data.
+24. **Network Connectivity Check:** Utilize the `internet_connection_checker` package to ensure a smooth user experience by checking and handling network connectivity.
+25. **Dependency Injection:** Leverage the `get_it` package for efficient dependency injection, improving code maintainability and managing dependencies effectively.
+26. **Functional Programming Principles:** Explore and implement functional programming principles from the `dartz` package, enhancing code clarity and error handling.
 
 ## Getting Started
 1. Clone the repository.
@@ -49,6 +58,9 @@ Welcome to my Flutter Piiicks e-commerce app, meticulously crafted with clean ar
 
 ## Dependencies
 ```yaml
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+
 dependencies:
   flutter:
     sdk: flutter
@@ -69,6 +81,8 @@ dependencies:
   dotted_border: # Package for creating dotted borders in Flutter
   flutter_local_notifications: # Package for displaying local notifications in Flutter applications
 ```
+
+
 ## Screens.
 ### Done:
 - Products.
