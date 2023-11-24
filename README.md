@@ -31,7 +31,7 @@ Welcome to my Flutter Piiicks e-commerce app, meticulously crafted with clean ar
 
 
 ### User Interaction
-13. **Sort Products:** Options to sort products based on criteria such as price, popularity, or relevance.
+13. **Sort Products:** Options to sort products based on criteria such as price.
 14. **Notifications:** Keep users informed with updates on order status, promotions, and more.
 
 ### User Management
