@@ -1,5 +1,5 @@
 # Piiicks
-Welcome to my Flutter Piiicks e-commerce app, meticulously crafted with clean architecture and powered by the efficient BLoC state management ensuring scalability, maintainability, and optimal performance. Dive into a seamless coding experience with a sleek interface and robust features designed to elevate the online shopping journey.
+Piiicks is a Flutter e-commerce app, meticulously crafted with clean architecture and powered by the efficient BLoC state management ensuring scalability, maintainability, and optimal performance. Dive into a seamless coding experience with a sleek interface and robust features designed to elevate the online shopping journey.
 
 ## Directory Structure.
 - **lib**
