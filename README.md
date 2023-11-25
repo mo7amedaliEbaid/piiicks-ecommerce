@@ -1,18 +1,85 @@
-# piiicks
-A flutter ecommerce built with clean architecture and bloc state management.
+# Piiicks
+Piiicks is a Flutter e-commerce app, meticulously crafted with clean architecture and powered by the efficient BLoC state management ensuring scalability, maintainability, and optimal performance. Dive into a seamless coding experience with a sleek interface and robust features designed to elevate the online shopping journey.
 
-### Directory Structure.
+## Directory Structure.
+- **lib**
+  - **main.dart:** Entry point of the application.
+  - **📂application ──📂blocs/cubits:** Houses the BLoC (Business Logic Component) or Cubit classes responsible for managing the application's state.
+  - **📂core:** Contains core functionalities and utilities shared across the application.
+  - **📂configs:** Holds configuration files for the project.
+  - **📂di:** Dependency Injection setup for managing dependencies and services.
+  - **📂data:** Manages data sources, repositories, and data models.
+  - **📂domain:** Defines the domain entities, use cases, and interfaces.
+  - **📂presentation ──📂screens/widgets:** Contains UI components, screens, and widgets for the application.
 
-📂lib         
-├──main.dart            
-├──📂application ──📂blocs/cubits                             
-├──📂core              
-├──📂configs      
-├──📂di         
-├──📂data                        
-├──📂domain                
-└──📂presentation  ──📂screens/widgets         
-     
+
+## Features
+1. **Clean Architecture:** Ensure a modular and scalable architecture for long-term maintainability.
+2. **BLoC State Management:** Efficient state management for a smooth and predictable user experience.
+
+### User Interface
+3. **Product Screen:** User-friendly display of products for effortless browsing.
+4. **Categories:** Seamless navigation through various product categories.
+5. **Product Details:** In-depth information for a comprehensive view of products.
+6. **Search Functionality:** Robust search feature for quick product discovery.
+7. **Search Results:** Clear and relevant search results for user convenience.
+8. **Home Screen:** Engaging showcase of featured products and categories.
+9. **Filter Options:** Intuitive product filtering options for a customized shopping experience.
+10. **Splash Screen:** Captivating initial loading screen setting the tone for the app.
+11. **Addresses:** Effortlessly manage and edit user addresses for smooth order processing.
+12. **Pagination:** Implement pagination for efficient loading of large sets of data, ensuring a smoother user experience.
+
+
+### User Interaction
+13. **Sort Products:** Options to sort products based on criteria such as price.
+14. **Notifications:** Keep users informed with updates on order status and more.
+
+### User Management
+15. **Login/SignUp:** Secure user authentication for a personalized experience.
+16. **Shopping Cart:** Seamless and intuitive management of selected items before purchase.
+17. **User Profile:** Dedicated section for managing addresses, viewing order history, and personalizing preferences.
+
+### Additional Features
+18. **Image Caching and Loading Optimization:** Utilize the `cached_network_image` package for efficient loading and caching of network images, enhancing performance.
+19. **SVG Support:** Leverage the `flutter_svg` package for supporting SVG images, providing a scalable and crisp user interface.
+20. **Data Caching:** Use the `shared_preferences` package for caching small amounts of data, improving the user experience by maintaining certain states.
+21. **Authentication and Secure Storage:** Implement secure user authentication with the `flutter_secure_storage` package, ensuring sensitive user data is stored securely.
+22. **Stateful UI with Shimmer Effect:** Enhance the user interface by incorporating the shimmering effect using the `shimmer` package, providing a polished loading experience.
+23. **Dynamic Page Indicators:** Implement dynamic page indicators using the `dots_indicator` package, providing visual cues for users when navigating through different screens.
+24. **HTTP Requests and API Integration:** Leverage the `http` package for making HTTP requests and seamlessly integrate with external APIs for fetching and updating data.
+25. **Network Connectivity Check:** Utilize the `internet_connection_checker` package to ensure a smooth user experience by checking and handling network connectivity.
+26. **Dependency Injection:** Leverage the `get_it` package for efficient dependency injection, improving code maintainability and managing dependencies effectively.
+27. **Functional Programming Principles:** Explore and implement functional programming principles from the `dartz` package, enhancing code clarity and error handling.
+
+
+
+## Dependencies
+```yaml
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+ # the last versions.
+  equatable: # Package for handling value equality without explicit overrides
+  dartz:  # Functional programming library for Dart
+  shared_preferences: # Plugin for reading and writing key-value pairs to persistent storage
+  http: # Package for making HTTP requests
+  internet_connection_checker: # Library for checking internet connectivity
+  flutter_bloc: # State management library for Flutter applications
+  get_it: # Simple service locator for Dart and Flutter projects
+  shimmer:  # Package for adding shimmering effect to Flutter applications
+  cached_network_image:  # Library for loading and caching network images
+  flutter_svg: # Library for rendering SVG files in Flutter applications
+  dots_indicator: # Customizable dots indicator for PageView in Flutter
+  flutter_secure_storage: # Secure storage plugin for Flutter
+  photo_view: # Package for displaying images in Flutter with zooming and panning capabilities
+  dotted_border: # Package for creating dotted borders in Flutter
+  flutter_local_notifications: # Package for displaying local notifications in Flutter applications
+```
+
+
 ## Screens.
 ### Done:
 - Products.
@@ -30,6 +97,7 @@ A flutter ecommerce built with clean architecture and bloc state management.
 - Adresses.
 - Add/Edit Adress.
 - Sort Products.
+- Notifications.
   
 <p float="left">
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/8e5f750515f9eddb7e26e90001ba9dfa1167bbd6/screenshots/allproducts.jpg" width="170" />
@@ -76,6 +144,14 @@ https://github.com/mo7amedaliEbaid/piiicks-ecommerce/assets/131966482/6e8e134e-3
 
 
 
+
+
+## Getting Started
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Run `flutter pub get` to fetch the dependencies.
+4. Open the project in your preferred Flutter IDE.
+5. Run the app on your desired emulator or physical device.
 
 
 
