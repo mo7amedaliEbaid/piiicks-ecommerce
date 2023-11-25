@@ -12,8 +12,9 @@ class NotificationsCubit extends Cubit<List<String>> {
   Future<void> init() async {
     const AndroidInitializationSettings initializationSettingsAndroid =
     AndroidInitializationSettings('app_icon');
+    // TODO add icon in drawable folder
 
-    final InitializationSettings initializationSettings =
+    const InitializationSettings initializationSettings =
     InitializationSettings(
       android: initializationSettingsAndroid,
       iOS: null,

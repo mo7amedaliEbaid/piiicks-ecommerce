@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:piiicks/di/cubits.dart';
+import 'package:piiicks/di/order.dart';
 import 'package:piiicks/di/product.dart';
 import 'package:piiicks/di/user.dart';
 import 'cart.dart';
@@ -17,6 +18,7 @@ Future<void> init() async {
   registerUserFeature();
   registerDeliveryInfoFeature();
   registerCartFeature();
+  registerOrderFeature();
 
   // Register Cubits
   registerCubits();

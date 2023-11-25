@@ -104,7 +104,8 @@ class _CartScreenState extends State<CartScreen> {
                             ? 10
                             : (state.cart.length +
                                 ((state is CartLoading) ? 10 : 0)),
-                        padding: EdgeInsets.only(bottom: AppDimensions.normalize(120)),
+                        padding: EdgeInsets.only(
+                            bottom: AppDimensions.normalize(120)),
                         physics: const BouncingScrollPhysics(),
                         shrinkWrap: true,
                         itemBuilder: (BuildContext context, int index) {
@@ -163,10 +164,10 @@ class _CartScreenState extends State<CartScreen> {
                         null),
                     PaymentDetailsRow("Gift Charges", '0.000', null),
                     PaymentDetailsRow("Discount", '0.000', null),
-                    PaymentDetailsRow("Shipping Charges", '0.000', null),
+                    PaymentDetailsRow("Shipping Charges", '5.000', null),
                     PaymentDetailsRow(
                         "Total",
-                        '${state.cart.fold(0.0, (previousValue, element) => (element.priceTag.price + previousValue))}',
+                        '${state.cart.fold(0.0, (previousValue, element) => (element.priceTag.price + previousValue)) + 5}',
                         AppText.h3b),
                     const DashedSeparator(),
                     Space.yf(.8),
