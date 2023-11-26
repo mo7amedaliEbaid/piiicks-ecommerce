@@ -6,6 +6,8 @@ import '../../application/wishlist_cubit/wishlist_cubit.dart';
 import '../../data/models/product/product_model.dart';
 
 class WhishListScreen extends StatefulWidget {
+  const WhishListScreen({super.key});
+
   @override
   State<WhishListScreen> createState() => _WhishListScreenState();
 }
@@ -19,13 +21,15 @@ class _WhishListScreenState extends State<WhishListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: YourWidgetContent(),
     );
   }
 }
 
 class YourWidgetContent extends StatelessWidget {
+  const YourWidgetContent({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<WishlistCubit, WishlistState>(
@@ -33,7 +37,7 @@ class YourWidgetContent extends StatelessWidget {
         if (state is WishlistLoadedState) {
           return YourWishlistWidget(wishlist: state.wishlist);
         } else {
-          return CircularProgressIndicator();
+          return const CircularProgressIndicator();
         }
       },
     );

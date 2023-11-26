@@ -29,6 +29,7 @@ sealed class Assets {
   static const String Marker = "assets/svg/marker.svg";
   static const String Whatsapp = "assets/svg/whatsapp.svg";
   static const String Share = "assets/svg/share.svg";
+  static const String Trash = "assets/svg/trash.svg";
 
   //png
   static const String Ads = "assets/images/ad.png";

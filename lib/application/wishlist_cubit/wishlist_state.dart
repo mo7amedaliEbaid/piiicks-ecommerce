@@ -15,7 +15,7 @@ class WishlistInitialState extends WishlistState {}
 class WishlistLoadedState extends WishlistState {
   final List<ProductModel> wishlist;
 
-  WishlistLoadedState(this.wishlist);
+  const WishlistLoadedState(this.wishlist);
 
   @override
   List<Object> get props => [wishlist];

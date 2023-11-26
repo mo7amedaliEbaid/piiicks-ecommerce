@@ -61,6 +61,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     App.init(context);
+    bool isProductInWishlist =
+        context.read<WishlistCubit>().isInWishlist(widget.product.id);
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size(double.infinity, AppDimensions.normalize(20)),
@@ -277,34 +279,14 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        context
-                            .read<WishlistCubit>()
-                            .addToWishlist(ProductModel(
-                                id: widget.product.id,
-                                name: widget.product.name,
-                                description: widget.product.description,
-                                priceTags: [
-                                  PriceTagModel(
-                                      id: widget.product.priceTags.first.id,
-                                      name: widget.product.priceTags.first.name,
-                                      price:
-                                          widget.product.priceTags.first.price),
-                                ],
-                                categories: [
-                                  CategoryModel(
-                                      id: widget.product.categories.first.id,
-                                      name:
-                                          widget.product.categories.first.name,
-                                      image:
-                                          widget.product.categories.first.image)
-                                ],
-                                images: widget.product.images,
-                                createdAt: DateTime.now(),
-                                updatedAt: DateTime.now()));
+                        context.read<WishlistCubit>().addToWishlist(
+                            ProductModel.fromEntity(widget.product));
                       },
                       child: Row(
                         children: [
-                          Icon(Icons.favorite_border),
+                          isProductInWishlist
+                              ? const Icon(Icons.favorite)
+                              : const Icon(Icons.favorite_border),
                           Space.xf(.3),
                           Text(
                             "Add to wishlist",

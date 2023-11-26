@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:piiicks/configs/app_dimensions.dart';
 import 'package:piiicks/configs/app_typography.dart';
 import 'package:piiicks/configs/configs.dart';
+import 'package:piiicks/core/constant/colors.dart';
 import 'package:piiicks/core/router/app_router.dart';
-import 'package:piiicks/presentation/screens/add_edit_adress.dart';
 import 'package:piiicks/presentation/widgets/adress_row.dart';
 import 'package:piiicks/presentation/widgets/lading_shimmer.dart';
 
@@ -15,9 +15,13 @@ import '../../domain/entities/delivery/delivery_info.dart';
 class AdressCard extends StatelessWidget {
   final DeliveryInfo? deliveryInformation;
   final bool isSelected;
+  final bool isfromCheckout;
 
   const AdressCard(
-      {Key? key, this.deliveryInformation, this.isSelected = false})
+      {Key? key,
+      this.deliveryInformation,
+      this.isSelected = false,
+      this.isfromCheckout = false})
       : super(key: key);
 
   @override
@@ -31,7 +35,8 @@ class AdressCard extends StatelessWidget {
           strokeWidth: .5,
           child: InkWell(
             onTap: () {
-              Navigator.of(context).pushNamed(AppRouter.addadress,arguments: deliveryInformation);
+              Navigator.of(context).pushNamed(AppRouter.addadress,
+                  arguments: deliveryInformation);
             },
             child: Padding(
               padding: Space.all(),
@@ -44,40 +49,58 @@ class AdressCard extends StatelessWidget {
                   ),
                   AdressRow("Full Name : ",
                       "${deliveryInformation!.firstName} ${deliveryInformation!.lastName}"),
+                  AdressRow("Line 1 : ", deliveryInformation!.addressLineOne),
+                  AdressRow("Line 2 : ", deliveryInformation!.addressLineTwo),
+                  AdressRow("Zip Code : ", deliveryInformation!.zipCode),
                   AdressRow(
-                      "Line 1 : ", "${deliveryInformation!.addressLineOne}"),
-                  AdressRow(
-                      "Line 2 : ", "${deliveryInformation!.addressLineTwo}"),
-                  AdressRow("Zip Code : ", "${deliveryInformation!.zipCode}"),
-                  AdressRow("Contact Number : ",
-                      "${deliveryInformation!.contactNumber}"),
+                      "Contact Number : ", deliveryInformation!.contactNumber),
                   Space.yf(1.2),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                        onPressed: () {
-                          context
-                              .read<DeliveryInfoActionCubit>()
-                              .selectDeliveryInfo(deliveryInformation!);
-                        },
-                        child: isSelected?
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Selected",
-                              style: AppText.b1b?.copyWith(color: Colors.white),
-                            ),
-                            Icon(Icons.check,color: Colors.white,)
-                          ],
-                        ):
-                        Text(
-                          "Select",
-                          style: AppText.b1b?.copyWith(color: Colors.white),
-                        )),
-                  ),
+                  isfromCheckout
+                      ? Container(
+                          width: double.infinity,
+                          padding: Space.v1,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: AppColors.CommonCyan, width: 1),
+                          ),
+                          child: Center(
+                              child: Text(
+                            "Change Address",
+                            style: AppText.h3b
+                                ?.copyWith(color: AppColors.CommonCyan),
+                          )),
+                        )
+                      : SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                              onPressed: () {
+                                context
+                                    .read<DeliveryInfoActionCubit>()
+                                    .selectDeliveryInfo(deliveryInformation!);
+                              },
+                              child: isSelected
+                                  ? Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          "Selected",
+                                          style: AppText.b1b
+                                              ?.copyWith(color: Colors.white),
+                                        ),
+                                        const Icon(
+                                          Icons.check,
+                                          color: Colors.white,
+                                        )
+                                      ],
+                                    )
+                                  : Text(
+                                      "Select",
+                                      style: AppText.b1b
+                                          ?.copyWith(color: Colors.white),
+                                    )),
+                        ),
                   Space.yf()
-
                 ],
               ),
             ),

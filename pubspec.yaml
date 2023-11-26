@@ -33,7 +33,7 @@ dependencies:
   dotted_border:
   flutter_local_notifications:
 
- # get_storage:
+  get_storage:
 
 dev_dependencies:
   flutter_test:

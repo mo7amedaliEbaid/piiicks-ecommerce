@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:piiicks/configs/app_dimensions.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/colors.dart';
+import 'package:piiicks/core/router/app_router.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
 import 'package:piiicks/presentation/widgets/dashed_separator.dart';
 import 'package:piiicks/presentation/widgets/payment_details_row.dart';
@@ -174,7 +175,10 @@ class _CartScreenState extends State<CartScreen> {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: null,
+                        onPressed: () {
+                          Navigator.pushNamed(context, AppRouter.checkout,
+                              arguments: state.cart);
+                        },
                         child: Text(
                           "Proceed To Checkout",
                           style: AppText.h3b?.copyWith(color: Colors.white),
