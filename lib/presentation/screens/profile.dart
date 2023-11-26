@@ -64,17 +64,19 @@ class ProfileScreen extends StatelessWidget {
                                         width: AppDimensions.normalize(45),
                                         height: AppDimensions.normalize(22),
                                         child: ElevatedButton(
-                                          onPressed: (){
-                                            context.read<UserBloc>().add(SignOutUser());
+                                          onPressed: () {
+                                            context
+                                                .read<UserBloc>()
+                                                .add(SignOutUser());
                                             context
                                                 .read<NavigationCubit>()
-                                                .updateTab(NavigationTab.homeTab);
-                                         /* context.read<CartBloc>().add(const ClearCart());
+                                                .updateTab(
+                                                    NavigationTab.homeTab);
+                                            /* context.read<CartBloc>().add(const ClearCart());
                                             context
                                                 .read<DeliveryInfoFetchCubit>()
                                                 .clearLocalDeliveryInfo();
                                             context.read<OrderFetchCubit>().clearLocalOrders();*/
-
                                           },
                                           child: Text(
                                             "Logout",
@@ -136,7 +138,7 @@ class ProfileScreen extends StatelessWidget {
                                   SizedBox(
                                     width: double.infinity,
                                     child: ElevatedButton(
-                                      onPressed: (){
+                                      onPressed: () {
                                         Navigator.of(context)
                                             .pushNamed(AppRouter.login);
                                       },
@@ -213,9 +215,10 @@ class ProfileScreen extends StatelessWidget {
                               ),
                               Space.yf(1.1),
                               GestureDetector(
-                                onTap:(){
-                                  Navigator.of(context).pushNamed(AppRouter.adress);
-                            },
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .pushNamed(AppRouter.adress);
+                                },
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -392,67 +395,82 @@ class ProfileScreen extends StatelessWidget {
                             AppText.h3b?.copyWith(color: AppColors.CommonCyan),
                       ),
                       Space.yf(1.2),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              SvgPicture.asset(Assets.Document),
-                              Space.xf(),
-                              Text(
-                                "Terms & Conditions",
-                                style: AppText.b1b,
-                              )
-                            ],
-                          ),
-                          const Icon(
-                            Icons.arrow_forward,
-                            size: 20,
-                            color: Colors.black,
-                          )
-                        ],
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.of(context).pushNamed(AppRouter.appinfo,arguments: "TERMS & CONDITIONS");
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                SvgPicture.asset(Assets.Document),
+                                Space.xf(),
+                                Text(
+                                  "Terms & Conditions",
+                                  style: AppText.b1b,
+                                )
+                              ],
+                            ),
+                            const Icon(
+                              Icons.arrow_forward,
+                              size: 20,
+                              color: Colors.black,
+                            )
+                          ],
+                        ),
                       ),
                       Space.yf(1.1),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              SvgPicture.asset(Assets.Document),
-                              Space.xf(),
-                              Text(
-                                "Privacy Policy",
-                                style: AppText.b1b,
-                              )
-                            ],
-                          ),
-                          const Icon(
-                            Icons.arrow_forward,
-                            size: 20,
-                            color: Colors.black,
-                          )
-                        ],
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.of(context).pushNamed(AppRouter.appinfo,arguments: "PRIVACY POLICY");
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                SvgPicture.asset(Assets.Document),
+                                Space.xf(),
+                                Text(
+                                  "Privacy Policy",
+                                  style: AppText.b1b,
+                                )
+                              ],
+                            ),
+                            const Icon(
+                              Icons.arrow_forward,
+                              size: 20,
+                              color: Colors.black,
+                            )
+                          ],
+                        ),
                       ),
                       Space.yf(1.1),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              SvgPicture.asset(Assets.Comments),
-                              Space.xf(),
-                              Text(
-                                "Contact",
-                                style: AppText.b1b,
-                              )
-                            ],
-                          ),
-                          const Icon(
-                            Icons.arrow_forward,
-                            size: 20,
-                            color: Colors.black,
-                          )
-                        ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushNamed(AppRouter.contact);
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                SvgPicture.asset(Assets.Comments),
+                                Space.xf(),
+                                Text(
+                                  "Contact",
+                                  style: AppText.b1b,
+                                )
+                              ],
+                            ),
+                            const Icon(
+                              Icons.arrow_forward,
+                              size: 20,
+                              color: Colors.black,
+                            )
+                          ],
+                        ),
                       ),
                       Space.yf(2.9),
                       Row(
@@ -494,5 +512,3 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-
-

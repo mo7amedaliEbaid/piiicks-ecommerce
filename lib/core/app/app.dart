@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 //import 'package:piiicks/application/favourites_cubit/favourites_cubit.dart';
 import 'package:piiicks/application/wishlist_cubit/wishlist_cubit.dart';
 
@@ -16,6 +17,7 @@ import '../../data/models/product/filter_params_model.dart';
 import '../../di/di.dart' as di;
 
 import '../../application/categories_bloc/category_bloc.dart';
+
 //import '../../di/di.dart';
 import '../constant/notifications.dart';
 import '../router/app_router.dart';
@@ -30,9 +32,12 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => di.sl<NavigationCubit>()),
-        BlocProvider(create: (context) => WishlistCubit()..loadWishlist(),),
         BlocProvider(
-          create: (context) => NotificationsCubit(flutterLocalNotificationsPlugin),
+          create: (context) => WishlistCubit()..loadWishlist(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              NotificationsCubit(flutterLocalNotificationsPlugin),
         ),
         BlocProvider(
           create: (context) =>

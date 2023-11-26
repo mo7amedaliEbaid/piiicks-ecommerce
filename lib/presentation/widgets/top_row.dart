@@ -24,16 +24,16 @@ Widget TopRow({required bool isFromHome, required BuildContext context}) {
                 children: [
                   GestureDetector(
                       onTap: () {
-                       /* Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => YourWidget()));*/
+                        Navigator.of(context).pushNamed(AppRouter.wishlist);
                       },
                       child: const Icon(Icons.favorite_border)),
                   Space.xf(),
                   GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pushNamed(AppRouter.search);
-                      },
-                      child: const Icon(Icons.search)),
+                    onTap: () {
+                      Navigator.of(context).pushNamed(AppRouter.search);
+                    },
+                    child: const Icon(Icons.search),
+                  ),
                 ],
               )
             : const SizedBox.shrink()

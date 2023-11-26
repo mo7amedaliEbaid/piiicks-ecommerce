@@ -27,6 +27,8 @@ sealed class Assets {
   static const String Archive = "assets/svg/archive.svg";
   static const String Lock = "assets/svg/lock.svg";
   static const String Marker = "assets/svg/marker.svg";
+  static const String Whatsapp = "assets/svg/whatsapp.svg";
+  static const String Share = "assets/svg/share.svg";
 
   //png
   static const String Ads = "assets/images/ad.png";

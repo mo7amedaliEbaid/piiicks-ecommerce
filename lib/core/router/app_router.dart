@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:piiicks/domain/entities/delivery/delivery_info.dart';
 import 'package:piiicks/presentation/screens/add_edit_adress.dart';
 import 'package:piiicks/presentation/screens/ads.dart';
+import 'package:piiicks/presentation/screens/app_info.dart';
+import 'package:piiicks/presentation/screens/checkout.dart';
+import 'package:piiicks/presentation/screens/contact.dart';
 import 'package:piiicks/presentation/screens/filter.dart';
 import 'package:piiicks/presentation/screens/login.dart';
 import 'package:piiicks/presentation/screens/product_details.dart';
@@ -9,6 +12,8 @@ import 'package:piiicks/presentation/screens/root.dart';
 import 'package:piiicks/presentation/screens/search.dart';
 import 'package:piiicks/presentation/screens/signup.dart';
 import 'package:piiicks/presentation/screens/splash.dart';
+import 'package:piiicks/presentation/screens/wishlist.dart';
+import '../../domain/entities/cart/cart_item.dart';
 import '../../domain/entities/product/product.dart';
 import '../../presentation/screens/adress.dart';
 import '../error/exceptions.dart';
@@ -24,6 +29,10 @@ sealed class AppRouter {
   static const String login = '/login';
   static const String adress = '/adress';
   static const String addadress = '/addadress';
+  static const String checkout = '/checkout';
+  static const String contact = '/contact';
+  static const String appinfo = '/appinfo';
+  static const String wishlist = '/wishlist';
 
   static Route<dynamic> onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
@@ -45,6 +54,8 @@ sealed class AppRouter {
         return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case login:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
+      case contact:
+        return MaterialPageRoute(builder: (_) => const ContactScreen());
       case adress:
         return MaterialPageRoute(builder: (_) => const AdressScreen());
       case addadress:
@@ -53,7 +64,20 @@ sealed class AppRouter {
             builder: (_) => AddAdressScreen(
                   deliveryInfo: deliveryInfo,
                 ));
-
+      case checkout:
+        List<CartItem> items = routeSettings.arguments as List<CartItem>;
+        return MaterialPageRoute(
+            builder: (_) => CheckOutScreen(
+                  items: items,
+                ));
+      case appinfo:
+        String screenTitle = routeSettings.arguments as String;
+        return MaterialPageRoute(
+            builder: (_) => AppInfoScreen(
+                  screenTitle: screenTitle,
+                ));
+      case wishlist:
+        return MaterialPageRoute(builder: (_) => WhishListScreen());
       default:
         throw const RouteException('Route not found!');
     }

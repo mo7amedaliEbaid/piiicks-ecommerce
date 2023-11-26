@@ -11,6 +11,8 @@ import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/assets.dart';
 import 'package:piiicks/core/constant/colors.dart';
 import 'package:piiicks/core/router/app_router.dart';
+import 'package:piiicks/data/models/category/category_model.dart';
+import 'package:piiicks/data/models/product/price_tag_model.dart';
 import 'package:piiicks/domain/entities/product/product.dart';
 import 'package:piiicks/presentation/widgets/quantity_row.dart';
 
@@ -267,6 +269,73 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   },
                 ),
               ),
+              Container(
+                color: AppColors.LightGrey,
+                margin: Space.v,
+                padding: Space.all(.5, .5),
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        context
+                            .read<WishlistCubit>()
+                            .addToWishlist(ProductModel(
+                                id: widget.product.id,
+                                name: widget.product.name,
+                                description: widget.product.description,
+                                priceTags: [
+                                  PriceTagModel(
+                                      id: widget.product.priceTags.first.id,
+                                      name: widget.product.priceTags.first.name,
+                                      price:
+                                          widget.product.priceTags.first.price),
+                                ],
+                                categories: [
+                                  CategoryModel(
+                                      id: widget.product.categories.first.id,
+                                      name:
+                                          widget.product.categories.first.name,
+                                      image:
+                                          widget.product.categories.first.image)
+                                ],
+                                images: widget.product.images,
+                                createdAt: DateTime.now(),
+                                updatedAt: DateTime.now()));
+                      },
+                      child: Row(
+                        children: [
+                          Icon(Icons.favorite_border),
+                          Space.xf(.3),
+                          Text(
+                            "Add to wishlist",
+                            style: AppText.h3,
+                          )
+                        ],
+                      ),
+                    ),
+                    Space.xf(.8),
+                    Container(
+                      height: AppDimensions.normalize(10),
+                      width: 1,
+                      color: Colors.grey,
+                    ),
+                    Space.xf(2.5),
+                    Row(
+                      children: [
+                        SvgPicture.asset(
+                          Assets.Share,
+                          height: AppDimensions.normalize(10),
+                        ),
+                        Space.xf(.7),
+                        Text(
+                          "Share",
+                          style: AppText.h3,
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
               Space.yf(1.2),
               Text(
                 "Description",
@@ -329,13 +398,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
-              child: QuantityRow(17,2)
-            ),
+            Expanded(child: QuantityRow(17, 2)),
             Expanded(
               child: ElevatedButton(
                   onPressed: () {
-                     context.read<CartBloc>().add(AddProduct(
+                    context.read<CartBloc>().add(AddProduct(
                         cartItem: CartItem(
                             product: widget.product,
                             priceTag: _selectedPriceTag)));
