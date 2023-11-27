@@ -62,21 +62,36 @@ dependencies:
   flutter:
     sdk: flutter
  # the last versions.
-  equatable: # Package for handling value equality without explicit overrides
-  dartz:  # Functional programming library for Dart
-  shared_preferences: # Plugin for reading and writing key-value pairs to persistent storage
-  http: # Package for making HTTP requests
-  internet_connection_checker: # Library for checking internet connectivity
-  flutter_bloc: # State management library for Flutter applications
-  get_it: # Simple service locator for Dart and Flutter projects
-  shimmer:  # Package for adding shimmering effect to Flutter applications
-  cached_network_image:  # Library for loading and caching network images
-  flutter_svg: # Library for rendering SVG files in Flutter applications
-  dots_indicator: # Customizable dots indicator for PageView in Flutter
-  flutter_secure_storage: # Secure storage plugin for Flutter
-  photo_view: # Package for displaying images in Flutter with zooming and panning capabilities
-  dotted_border: # Package for creating dotted borders in Flutter
-  flutter_local_notifications: # Package for displaying local notifications in Flutter applications
+  equatable:
+# Package for handling value equality without explicit overrides
+  dartz:
+ # Functional programming library for Dart
+  shared_preferences:
+# Plugin for reading and writing key-value pairs to persistent storage
+  http:
+# Package for making HTTP requests
+  internet_connection_checker:
+ # Library for checking internet connectivity
+  flutter_bloc:
+# State management library for Flutter applications
+  get_it:
+# Simple service locator for Dart and Flutter projects
+  shimmer:
+# Package for adding shimmering effect to Flutter applications
+  cached_network_image:
+ # Library for loading and caching network images
+  flutter_svg:
+# Library for rendering SVG files in Flutter applications
+  dots_indicator:
+ # Customizable dots indicator for PageView in Flutter
+  flutter_secure_storage:
+# Secure storage plugin for Flutter
+  photo_view:
+# Package for displaying images in Flutter with zooming and panning capabilities
+  dotted_border:
+# Package for creating dotted borders in Flutter
+  flutter_local_notifications:
+ # Package for displaying local notifications in Flutter applications
 ```
 
 
@@ -97,7 +112,6 @@ dependencies:
 - Adresses.
 - Add/Edit Adress.
 - Sort Products.
-- Notifications.
   
 <p float="left">
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/8e5f750515f9eddb7e26e90001ba9dfa1167bbd6/screenshots/allproducts.jpg" width="170" />
