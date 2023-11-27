@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
@@ -10,6 +12,7 @@ class NotificationsCubit extends Cubit<List<String>> {
   NotificationsCubit(this._flutterLocalNotificationsPlugin) : super([]);
 
   Future<void> init() async {
+    log("initiaiiiiiizing");
     const AndroidInitializationSettings initializationSettingsAndroid =
     AndroidInitializationSettings('app_icon');
     // TODO add icon in drawable folder
@@ -42,6 +45,7 @@ class NotificationsCubit extends Cubit<List<String>> {
   }
 
   Future<void> showPlainNotification() async {
+    log("presssssssed");
     const AndroidNotificationDetails androidNotificationDetails =
     AndroidNotificationDetails('your channel id', 'your channel name',
         channelDescription: 'your channel description',

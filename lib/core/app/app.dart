@@ -66,6 +66,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => di.sl<OrderFetchCubit>()..getOrders(),
         ),
+   /*     BlocProvider(
+          create: (context) => di.sl<NotificationsCubit>()..init(),
+        ),*/
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

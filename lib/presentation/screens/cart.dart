@@ -12,6 +12,7 @@ import '../../../../core/error/failures.dart';
 import '../../../../domain/entities/cart/cart_item.dart';
 import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
 import '../../application/cart_bloc/cart_bloc.dart';
+import '../../application/notifications_cubit/notifications_cubit.dart';
 import '../../core/enums/enums.dart';
 import '../widgets/cart_item.dart';
 
@@ -27,6 +28,7 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
+    context.read<NotificationsCubit>().init();
     return Scaffold(
       appBar: CustomAppBar("CART", false),
       body: Stack(
@@ -175,10 +177,13 @@ class _CartScreenState extends State<CartScreen> {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, AppRouter.checkout,
-                              arguments: state.cart);
-                        },
+                        onPressed: ()async {
+                          await context.read<NotificationsCubit>().showNotificationWithAudioAttributeAlarm();
+                          await context.read<NotificationsCubit>().showPlainNotification();
+
+                         /* Navigator.pushNamed(context, AppRouter.checkout,
+                              arguments: state.cart);*/
+                          },
                         child: Text(
                           "Proceed To Checkout",
                           style: AppText.h3b?.copyWith(color: Colors.white),
