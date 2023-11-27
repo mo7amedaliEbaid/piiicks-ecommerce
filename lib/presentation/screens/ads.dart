@@ -15,7 +15,7 @@ class AdsScreen extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            decoration:const BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage(
                       Assets.Ads,
@@ -24,12 +24,18 @@ class AdsScreen extends StatelessWidget {
           ),
           Positioned(
               bottom: AppDimensions.normalize(10),
-              right:AppDimensions.normalize(8) ,
+              right: AppDimensions.normalize(8),
               child: ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(AppRouter.mainscreen);
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                      AppRouter.mainscreen,
+                      (route) => false,
+                    );
                   },
-                  child: Text("Skip".toUpperCase(),style: AppText.h3b,))),
+                  child: Text(
+                    "Skip".toUpperCase(),
+                    style: AppText.h3b,
+                  ))),
         ],
       ),
     );

@@ -6,6 +6,7 @@ import 'package:piiicks/core/constant/colors.dart';
 import 'package:piiicks/core/router/app_router.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
 import 'package:piiicks/presentation/widgets/dashed_separator.dart';
+import 'package:piiicks/presentation/widgets/payment_details.dart';
 import 'package:piiicks/presentation/widgets/payment_details_row.dart';
 
 import '../../../../core/error/failures.dart';
@@ -28,7 +29,6 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    context.read<NotificationsCubit>().init();
     return Scaffold(
       appBar: CustomAppBar("CART", false),
       body: Stack(
@@ -142,59 +142,7 @@ class _CartScreenState extends State<CartScreen> {
               ],
             ),
           ),
-          BlocBuilder<CartBloc, CartState>(builder: (context, state) {
-            if (state.cart.isEmpty) {
-              return const SizedBox.shrink();
-            }
-            return Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                color: AppColors.LightGrey,
-                padding: Space.all(1, 1.2),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "PAYMENT DETAILS",
-                      style: AppText.h3b?.copyWith(color: AppColors.CommonCyan),
-                    ),
-                    Space.yf(),
-                    PaymentDetailsRow(
-                        "SUB Total",
-                        '${state.cart.fold(0.0, (previousValue, element) => (element.priceTag.price + previousValue))}',
-                        null),
-                    PaymentDetailsRow("Gift Charges", '0.000', null),
-                    PaymentDetailsRow("Discount", '0.000', null),
-                    PaymentDetailsRow("Shipping Charges", '5.000', null),
-                    PaymentDetailsRow(
-                        "Total",
-                        '${state.cart.fold(0.0, (previousValue, element) => (element.priceTag.price + previousValue)) + 5}',
-                        AppText.h3b),
-                    const DashedSeparator(),
-                    Space.yf(.8),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: ()async {
-                          await context.read<NotificationsCubit>().showNotificationWithAudioAttributeAlarm();
-                          await context.read<NotificationsCubit>().showPlainNotification();
-
-                         /* Navigator.pushNamed(context, AppRouter.checkout,
-                              arguments: state.cart);*/
-                          },
-                        child: Text(
-                          "Proceed To Checkout",
-                          style: AppText.h3b?.copyWith(color: Colors.white),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            );
-          })
+          const PaymentDetails(buttonText: "Proceed To Checkout",)
         ],
       ),
     );

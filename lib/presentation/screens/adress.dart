@@ -61,7 +61,7 @@ class _AdressScreenState extends State<AdressScreen> {
                     return Container(
                       height: AppDimensions.normalize(60),
                       padding: Space.all(0, .7),
-                      margin: EdgeInsets.only(top: AppDimensions.normalize(10)),
+                      margin: EdgeInsets.only(top: AppDimensions.normalize(60)),
                       color: AppColors.LightGrey,
                       child: Center(
                         child: Column(

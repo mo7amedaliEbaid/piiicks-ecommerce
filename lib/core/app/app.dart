@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 //import 'package:piiicks/application/favourites_cubit/favourites_cubit.dart';
 import 'package:piiicks/application/wishlist_cubit/wishlist_cubit.dart';
@@ -9,7 +10,6 @@ import '../../application/cart_bloc/cart_bloc.dart';
 import '../../application/delivery_info_action_cubit/delivery_info_action_cubit.dart';
 import '../../application/delivery_info_fetch_cubit/delivery_info_fetch_cubit.dart';
 import '../../application/filter_cubit/filter_cubit.dart';
-import '../../application/notifications_cubit/notifications_cubit.dart';
 import '../../application/order_fetch_cubit/order_fetch_cubit.dart';
 import '../../application/products_bloc/product_bloc.dart';
 import '../../application/user_bloc/user_bloc.dart';
@@ -18,8 +18,6 @@ import '../../di/di.dart' as di;
 
 import '../../application/categories_bloc/category_bloc.dart';
 
-//import '../../di/di.dart';
-import '../constant/notifications.dart';
 import '../router/app_router.dart';
 import '../constant/colors.dart';
 import '../constant/strings.dart';
@@ -34,10 +32,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => di.sl<NavigationCubit>()),
         BlocProvider(
           create: (context) => WishlistCubit()..loadWishlist(),
-        ),
-        BlocProvider(
-          create: (context) =>
-              NotificationsCubit(flutterLocalNotificationsPlugin),
         ),
         BlocProvider(
           create: (context) =>
@@ -66,7 +60,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => di.sl<OrderFetchCubit>()..getOrders(),
         ),
-   /*     BlocProvider(
+        /*     BlocProvider(
           create: (context) => di.sl<NotificationsCubit>()..init(),
         ),*/
       ],
