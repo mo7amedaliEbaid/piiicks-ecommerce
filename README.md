@@ -110,7 +110,6 @@ dependencies:
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/home2.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/0cd8e6506c789cd9bc8f4ae9248c30a34e64a914/screenshots/addadress.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/searchresult.jpg" width="170" />
-   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/search_noresult.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/sorting.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/filter.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/filter1.jpg" width="170" />
@@ -120,6 +119,8 @@ dependencies:
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/profile1.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/b90fb5675ea83f423c3742ff949d142dd4c035ab/screenshots/logged1.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/0cd8e6506c789cd9bc8f4ae9248c30a34e64a914/screenshots/adresses.jpg" width="170" />
+   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/43ccd1a70e591ebf4ecce32916eb7d3c954d0bee/screenshots/homeexit.jpg" width="170" />
+   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/43ccd1a70e591ebf4ecce32916eb7d3c954d0bee/screenshots/checkout.jpg" width="170" />
 </p>
 
 
