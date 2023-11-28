@@ -14,7 +14,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   void _nextScreen() {
-    Future.delayed(const Duration(seconds: 0), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Navigator.of(context).pushNamedAndRemoveUntil(
         AppRouter.ads,
         (route) => false,

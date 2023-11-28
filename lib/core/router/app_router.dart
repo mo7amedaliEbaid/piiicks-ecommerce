@@ -77,7 +77,7 @@ sealed class AppRouter {
                   screenTitle: screenTitle,
                 ));
       case wishlist:
-        return MaterialPageRoute(builder: (_) => WhishListScreen());
+        return MaterialPageRoute(builder: (_) => WishListScreen());
       default:
         throw const RouteException('Route not found!');
     }
