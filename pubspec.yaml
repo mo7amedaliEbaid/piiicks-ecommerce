@@ -36,6 +36,7 @@ dependencies:
   get_storage:
   screenshot:
   path_provider:
+  url_launcher:
 
 dev_dependencies:
   flutter_test:

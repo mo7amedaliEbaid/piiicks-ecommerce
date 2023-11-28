@@ -3,7 +3,8 @@ import '../../core/constant/colors.dart';
 
 import 'package:flutter/material.dart';
 
-Widget buildTextFormField(TextEditingController controller, String labelText,bool isObscure) {
+Widget buildTextFormField(TextEditingController controller, String labelText,
+    {bool isObscure=false}) {
   return Container(
     height: AppDimensions.normalize(20),
     padding: Space.h1,

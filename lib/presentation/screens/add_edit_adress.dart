@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
+import 'package:piiicks/presentation/widgets/mobile_number_textfield.dart';
 import 'package:piiicks/presentation/widgets/textfield_toptext.dart';
 
 import '../../application/delivery_info_action_cubit/delivery_info_action_cubit.dart';
@@ -78,41 +79,19 @@ class _AddAdressScreenState extends State<AddAdressScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     TextFieldTopText("First Name*"),
-                    buildTextFormField(firstName, 'First name', false),
+                    buildTextFormField(firstName, 'First name'),
                     TextFieldTopText("Last name*"),
-                    buildTextFormField(lastName, 'Last name', false),
+                    buildTextFormField(lastName, 'Last name'),
                     TextFieldTopText("Line One*"),
-                    buildTextFormField(
-                        addressLineOne, 'Address line one', false),
+                    buildTextFormField(addressLineOne, 'Address line one'),
                     TextFieldTopText("Line Two*"),
-                    buildTextFormField(
-                        addressLineTwo, 'Address line two', false),
+                    buildTextFormField(addressLineTwo, 'Address line two'),
                     TextFieldTopText("City*"),
-                    buildTextFormField(city, 'City', false),
+                    buildTextFormField(city, 'City'),
                     TextFieldTopText("Zip Code*"),
-                    buildTextFormField(zipCode, 'Zip code', false),
+                    buildTextFormField(zipCode, 'Zip code'),
                     TextFieldTopText("Contact number*"),
-                    Row(
-                      children: [
-                        Flexible(
-                          flex: 1,
-                          child: Container(
-                            width: AppDimensions.normalize(30),
-                            height: AppDimensions.normalize(20),
-                            decoration: BoxDecoration(color: Colors.black),
-                            child: Center(
-                                child: Text(
-                              "+20",
-                              style: AppText.b1b?.copyWith(color: Colors.white),
-                            )),
-                          ),
-                        ),
-                        Flexible(
-                            flex: 4,
-                            child: buildTextFormField(
-                                contactNumber, 'Contact number', false)),
-                      ],
-                    ),
+                    MobileNumberTextField(contactNumber, 'Contact number'),
                     Space.yf(2),
                     SizedBox(
                       width: double.infinity,

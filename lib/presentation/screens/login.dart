@@ -55,14 +55,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: AppText.b1b,
                 ),
                 Space.y!,
-                buildTextFormField(_emailController, "Email Address",false),
+                buildTextFormField(_emailController, "Email Address"),
                 Space.yf(1.5),
                 Text(
                   "Password*",
                   style: AppText.b1b,
                 ),
                 Space.y!,
-                buildTextFormField(_passwordController, "Password",true),
+                buildTextFormField(_passwordController, "Password",isObscure: true),
                 Space.y1!,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,

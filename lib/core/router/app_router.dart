@@ -57,7 +57,7 @@ sealed class AppRouter {
       case login:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case contact:
-        return MaterialPageRoute(builder: (_) => const ContactScreen());
+        return MaterialPageRoute(builder: (_) =>  ContactScreen());
       case cart:
         return MaterialPageRoute(builder: (_) => const CartScreen());
       case adress:

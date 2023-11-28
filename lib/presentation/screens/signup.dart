@@ -58,21 +58,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   style: AppText.b1b,
                 ),
                 Space.y!,
-                buildTextFormField(_nameController, "Full Name", false),
+                buildTextFormField(_nameController, "Full Name"),
                 Space.yf(1.5),
                 Text(
                   "Email Address*",
                   style: AppText.b1b,
                 ),
                 Space.y!,
-                buildTextFormField(_emailController, "Email Address", false),
+                buildTextFormField(_emailController, "Email Address"),
                 Space.yf(1.5),
                 Text(
                   "Password*",
                   style: AppText.b1b,
                 ),
                 Space.y!,
-                buildTextFormField(_passwordController, "Password", true),
+                buildTextFormField(_passwordController, "Password", isObscure: true),
                 Space.yf(1.5),
                 Text(
                   "Confirm Password*",
@@ -80,7 +80,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 Space.y!,
                 buildTextFormField(
-                    _confirmPasswordController, "Password", true),
+                    _confirmPasswordController, "Password", isObscure: true),
                 Space.yf(1.5),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
