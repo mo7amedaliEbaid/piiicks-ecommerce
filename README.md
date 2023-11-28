@@ -137,6 +137,7 @@ dependencies:
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/43ccd1a70e591ebf4ecce32916eb7d3c954d0bee/screenshots/homeexit.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/43ccd1a70e591ebf4ecce32916eb7d3c954d0bee/screenshots/checkout.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/3c2986dd16cb847ef9866cb9a861d3c6167edc41/screenshots/terms.jpg" width="170" />
+   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/5384c98e8609f0ca356917582dbd49e874e976b1/screenshots/wishlist.jpg" width="170" />
 </p>
 
 
