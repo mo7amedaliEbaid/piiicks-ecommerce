@@ -50,7 +50,10 @@ Piiicks is a Flutter e-commerce app, meticulously crafted with clean architectur
 25. **Network Connectivity Check:** Utilize the `internet_connection_checker` package to ensure a smooth user experience by checking and handling network connectivity.
 26. **Dependency Injection:** Leverage the `get_it` package for efficient dependency injection, improving code maintainability and managing dependencies effectively.
 27. **Functional Programming Principles:** Explore and implement functional programming principles from the `dartz` package, enhancing code clarity and error handling.
-
+28. **Share Products:** Enable users to share product details using the `share_plus` package for seamless sharing on social media and other platforms.
+29. **Contact Us Screen with URL Launcher:** Utilize the `url_launcher` package to open the contact us screen, allowing users to interact with external links such as emails or phone numbers.
+30. **Wishlist with Get Storage:** Implement a wishlist feature using the `get_storage` package to save and retrieve products, providing users with a personalized wishlist experience.
+31. **Product Sharing with Screenshot:** Allow users to share product details with a screenshot using the `screenshot` package, enhancing the sharing capabilities of your app.
 
 
 ## Dependencies
@@ -92,6 +95,16 @@ dependencies:
       # Package for creating dotted borders in Flutter
   flutter_local_notifications:
       # Package for displaying local notifications in Flutter applications
+  share_plus:
+      # Package for sharing content on social media and more
+  get_storage: 
+      # Persistent storage for Flutter, allowing key-value pair storage
+  screenshot:
+      # Flutter plugin for taking screenshots of widgets
+  path_provider:
+      # Plugin for interacting with the file system, including getting the app's temporary and application support directories
+  url_launcher:
+      # Flutter plugin for launching URLs, emails, making phone calls, and sending SMS
 ```
 
 
@@ -113,7 +126,8 @@ dependencies:
 - Add/Edit Adress.
 - Sort Products.
 - Terms & Conditions.
-
+- Wishlist.
+- Contact Us.
 
 For more screen shots [Here](https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/ec474e822af055693058d0beb05a5e52411d8504/screenshots)
 
