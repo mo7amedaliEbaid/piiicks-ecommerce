@@ -13,7 +13,7 @@ class ContactScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar("CONTACT", true),
+      appBar: CustomAppBar("CONTACT", context,automaticallyImplyLeading: true),
       body: Column(
         children: [
           Container(

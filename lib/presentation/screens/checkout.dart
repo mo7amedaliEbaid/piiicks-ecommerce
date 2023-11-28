@@ -8,6 +8,7 @@ import 'package:piiicks/core/router/app_router.dart';
 import 'package:piiicks/presentation/widgets/adress_card.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
 import 'package:piiicks/presentation/widgets/payment_details.dart';
+import 'package:piiicks/presentation/widgets/transparent_button.dart';
 
 import '../../application/delivery_info_fetch_cubit/delivery_info_fetch_cubit.dart';
 import '../../domain/entities/cart/cart_item.dart';
@@ -20,7 +21,7 @@ class CheckOutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar("CHECKOUT", true),
+      appBar: CustomAppBar("CHECKOUT", context,automaticallyImplyLeading: true),
       body: Stack(
         children: [
           Padding(
@@ -54,24 +55,10 @@ class CheckOutScreen extends StatelessWidget {
                               style: TextStyle(height: 1.6),
                             ),
                             Space.yf(1.8),
-                            GestureDetector(
-                              onTap: (){
-                                Navigator.of(context).pushNamed(AppRouter.adress);
-                              },
-                              child: Container(
-                                padding: Space.vf(.7),
-                                decoration: BoxDecoration(
-                                    border:
-                                        Border.all(color: AppColors.CommonCyan)),
-                                child: Center(
-                                  child: Text(
-                                    "Add Address",
-                                    style: AppText.h3b
-                                        ?.copyWith(color: AppColors.CommonCyan),
-                                  ),
-                                ),
-                              ),
-                            )
+                            TransparentButton(context: context, onTap: (){
+                              Navigator.of(context).pushNamed(AppRouter.adress);
+                            }, buttonText: "Add Address")
+
                           ],
                         ),
                       );

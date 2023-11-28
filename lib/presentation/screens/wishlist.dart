@@ -9,6 +9,7 @@ import 'package:piiicks/presentation/widgets/custom_appbar.dart';
 
 import '../../application/wishlist_cubit/wishlist_cubit.dart';
 import '../../data/models/product/product_model.dart';
+import '../widgets/rectangular_product_item.dart';
 
 class WishListScreen extends StatefulWidget {
   const WishListScreen({super.key});
@@ -27,7 +28,7 @@ class _WishListScreenState extends State<WishListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar('WISHLIST', true),
+        appBar: CustomAppBar('WISHLIST', context,automaticallyImplyLeading: true),
         body: BlocBuilder<WishlistCubit, WishlistState>(
           builder: (context, state) {
             if (state is WishlistLoadedState) {
@@ -59,10 +60,27 @@ class _WishListScreenState extends State<WishListScreen> {
                   ),
                 );
               } else {
-                return YourWishlistWidget(wishlist: state.wishlist);
+                return SizedBox(
+                  child: GridView.builder(
+                    padding: Space.all(1),
+                    itemCount: state.wishlist.length ,
+                    gridDelegate:
+                    const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 0.55,
+                      crossAxisSpacing: 6,
+                    ),
+                    physics: const ClampingScrollPhysics(),
+                    shrinkWrap: true,
+                    itemBuilder: (BuildContext context, int index) {
+
+                      return  RectangularProductItem(product: state.wishlist[index],isFromWishlist: true,);
+                    },
+                  ),
+                );
               }
             } else {
-              return const CircularProgressIndicator();
+              return const Center(child:  CircularProgressIndicator(color: AppColors.CommonCyan,));
             }
           },
         ));

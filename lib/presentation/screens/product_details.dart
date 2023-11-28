@@ -11,14 +11,14 @@ import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/assets.dart';
 import 'package:piiicks/core/constant/colors.dart';
 import 'package:piiicks/core/router/app_router.dart';
-import 'package:piiicks/data/models/category/category_model.dart';
-import 'package:piiicks/data/models/product/price_tag_model.dart';
+
 import 'package:piiicks/domain/entities/product/product.dart';
+import 'package:piiicks/presentation/widgets/custom_appbar.dart';
 import 'package:piiicks/presentation/widgets/quantity_row.dart';
+import 'package:piiicks/presentation/widgets/transparent_button.dart';
 
 import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
 import '../../application/cart_bloc/cart_bloc.dart';
-import '../../application/notifications_cubit/notifications_cubit.dart';
 import '../../application/wishlist_cubit/wishlist_cubit.dart';
 import '../../core/enums/enums.dart';
 import '../../data/models/product/product_model.dart';
@@ -65,34 +65,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
     bool isProductInWishlist =
         context.read<WishlistCubit>().isInWishlist(widget.product.id);
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size(double.infinity, AppDimensions.normalize(20)),
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: Space.all(.9, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Icon(Icons.arrow_back),
-                ),
-                Text(
-                  "PRODUCT DETAILS",
-                  style: AppText.b2b,
-                ),
-                SvgPicture.asset(
-                  Assets.Cart,
-                  color: AppColors.CommonCyan,
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
+      appBar: CustomAppBar("PRODUCT DETAILS", context,
+          doesHasCartIcom: true, automaticallyImplyLeading: true),
       body: Padding(
         padding: Space.all(.9, .7),
         child: SingleChildScrollView(
@@ -278,23 +252,35 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 padding: Space.all(.5, .5),
                 child: Row(
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        context.read<WishlistCubit>().addToWishlist(
-                            ProductModel.fromEntity(widget.product));
-                      },
-                      child: Row(
-                        children: [
-                          isProductInWishlist
-                              ? const Icon(Icons.favorite)
-                              : const Icon(Icons.favorite_border),
-                          Space.xf(.3),
-                          Text(
-                            "Add to wishlist",
-                            style: AppText.h3,
-                          )
-                        ],
-                      ),
+                    Row(
+                      children: [
+                        isProductInWishlist
+                            ? GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    context
+                                        .read<WishlistCubit>()
+                                        .removeFromWishlist(
+                                            ProductModel.fromEntity(
+                                                widget.product));
+                                  });
+                                },
+                                child: const Icon(Icons.favorite))
+                            : GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    context.read<WishlistCubit>().addToWishlist(
+                                        ProductModel.fromEntity(
+                                            widget.product));
+                                  });
+                                },
+                                child: const Icon(Icons.favorite_border)),
+                        Space.xf(.3),
+                        Text(
+                          "Add to wishlist",
+                          style: AppText.h3,
+                        )
+                      ],
                     ),
                     Space.xf(.8),
                     Container(
@@ -418,7 +404,17 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               Space.yf(.2),
                               const Text("printing and typesetting industry."),
                               Space.yf(2),
-                              SizedBox(
+                              TransparentButton(
+                                  context: context,
+                                  onTap: () {
+                                    context
+                                        .read<NavigationCubit>()
+                                        .updateTab(NavigationTab.cartTab);
+                                    Navigator.popAndPushNamed(
+                                        context, AppRouter.mainscreen);
+                                  },
+                                  buttonText: "Proceed to Cart"),
+                              /* SizedBox(
                                 width: double.infinity,
                                 child: GestureDetector(
                                   onTap: () {
@@ -441,7 +437,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                     )),
                                   ),
                                 ),
-                              ),
+                              ),*/
                               Space.yf(1.5),
                               SizedBox(
                                 width: double.infinity,

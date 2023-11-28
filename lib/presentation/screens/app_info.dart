@@ -12,7 +12,7 @@ class AppInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(screenTitle, true),
+      appBar: CustomAppBar(screenTitle, context,automaticallyImplyLeading: true),
       body: SingleChildScrollView(
         child: Padding(
           padding: Space.all(1, .1),

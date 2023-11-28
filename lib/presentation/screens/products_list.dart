@@ -49,93 +49,91 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
       backgroundColor: const Color(0xfff6f6f6),
       constraints: BoxConstraints(minHeight: AppDimensions.normalize(150)),
       builder: (BuildContext context) {
-        return Container(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(
-                    top: AppDimensions.normalize(8),
-                    left: AppDimensions.normalize(5),
-                    bottom: AppDimensions.normalize(5)),
-                child: Text(
-                  "SORT BY",
-                  style: AppText.h3b,
-                ),
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(
+                  top: AppDimensions.normalize(8),
+                  left: AppDimensions.normalize(5),
+                  bottom: AppDimensions.normalize(5)),
+              child: Text(
+                "SORT BY",
+                style: AppText.h3b,
               ),
-              ListTile(
-                title: Text('Newest', style: AppText.h3),
-                trailing: Radio(
-                  value: SortOrder.newest,
-                  fillColor: MaterialStateProperty.all(AppColors.CommonCyan),
-                  groupValue: selectedSortOrder,
-                  onChanged: (SortOrder? value) {
-                    setState(() {
-                      selectedSortOrder = value;
-                    });
-                    Navigator.pop(context, SortOrder.newest);
-                  },
-                ),
+            ),
+            ListTile(
+              title: Text('Newest', style: AppText.h3),
+              trailing: Radio(
+                value: SortOrder.newest,
+                fillColor: MaterialStateProperty.all(AppColors.CommonCyan),
+                groupValue: selectedSortOrder,
+                onChanged: (SortOrder? value) {
+                  setState(() {
+                    selectedSortOrder = value;
+                  });
+                  Navigator.pop(context, SortOrder.newest);
+                },
               ),
-              ListTile(
-                title: Text('Price High to Low', style: AppText.h3),
-                trailing: Radio(
-                  value: SortOrder.highToLow,
-                  fillColor: MaterialStateProperty.all(AppColors.CommonCyan),
-                  groupValue: selectedSortOrder,
-                  onChanged: (SortOrder? value) {
-                    setState(() {
-                      selectedSortOrder = value;
-                    });
-                    Navigator.pop(context, SortOrder.highToLow);
-                  },
-                ),
+            ),
+            ListTile(
+              title: Text('Price High to Low', style: AppText.h3),
+              trailing: Radio(
+                value: SortOrder.highToLow,
+                fillColor: MaterialStateProperty.all(AppColors.CommonCyan),
+                groupValue: selectedSortOrder,
+                onChanged: (SortOrder? value) {
+                  setState(() {
+                    selectedSortOrder = value;
+                  });
+                  Navigator.pop(context, SortOrder.highToLow);
+                },
               ),
-              ListTile(
-                title: Text('Price Low to High', style: AppText.h3),
-                trailing: Radio(
-                  value: SortOrder.lowToHigh,
-                  fillColor: MaterialStateProperty.all(AppColors.CommonCyan),
-                  groupValue: selectedSortOrder,
-                  onChanged: (SortOrder? value) {
-                    setState(() {
-                      selectedSortOrder = value;
-                    });
-                    Navigator.pop(context, SortOrder.lowToHigh);
-                  },
-                ),
+            ),
+            ListTile(
+              title: Text('Price Low to High', style: AppText.h3),
+              trailing: Radio(
+                value: SortOrder.lowToHigh,
+                fillColor: MaterialStateProperty.all(AppColors.CommonCyan),
+                groupValue: selectedSortOrder,
+                onChanged: (SortOrder? value) {
+                  setState(() {
+                    selectedSortOrder = value;
+                  });
+                  Navigator.pop(context, SortOrder.lowToHigh);
+                },
               ),
-              ListTile(
-                title: Text('Alphabetic (A-Z)', style: AppText.h3),
-                trailing: Radio(
-                  value: SortOrder.aToZ,
-                  fillColor: MaterialStateProperty.all(AppColors.CommonCyan),
-                  groupValue: selectedSortOrder,
-                  onChanged: (SortOrder? value) {
-                    setState(() {
-                      selectedSortOrder = value;
-                    });
-                    Navigator.pop(context, SortOrder.aToZ);
-                  },
-                ),
+            ),
+            ListTile(
+              title: Text('Alphabetic (A-Z)', style: AppText.h3),
+              trailing: Radio(
+                value: SortOrder.aToZ,
+                fillColor: MaterialStateProperty.all(AppColors.CommonCyan),
+                groupValue: selectedSortOrder,
+                onChanged: (SortOrder? value) {
+                  setState(() {
+                    selectedSortOrder = value;
+                  });
+                  Navigator.pop(context, SortOrder.aToZ);
+                },
               ),
-              ListTile(
-                title: Text('Alphabetic (Z-A)', style: AppText.h3),
-                trailing: Radio(
-                  value: SortOrder.zToA,
-                  fillColor: MaterialStateProperty.all(AppColors.CommonCyan),
-                  groupValue: selectedSortOrder,
-                  onChanged: (SortOrder? value) {
-                    setState(() {
-                      selectedSortOrder = value;
-                    });
-                    Navigator.pop(context, SortOrder.zToA);
-                  },
-                ),
+            ),
+            ListTile(
+              title: Text('Alphabetic (Z-A)', style: AppText.h3),
+              trailing: Radio(
+                value: SortOrder.zToA,
+                fillColor: MaterialStateProperty.all(AppColors.CommonCyan),
+                groupValue: selectedSortOrder,
+                onChanged: (SortOrder? value) {
+                  setState(() {
+                    selectedSortOrder = value;
+                  });
+                  Navigator.pop(context, SortOrder.zToA);
+                },
               ),
-            ],
-          ),
+            ),
+          ],
         );
       },
     );
@@ -206,16 +204,22 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                                       ?.copyWith(color: AppColors.GreyText),
                                 )
                               : Text(
-                                  filterState.categories.first.name.toUpperCase(),
+                                  filterState.categories.first.name
+                                      .toUpperCase(),
                                   style: AppText.b1b
                                       ?.copyWith(color: AppColors.GreyText),
                                 );
                         },
                       ),
-                      SvgPicture.asset(
-                        Assets.Cart,
-                        color: AppColors.CommonCyan,
-                        height: AppDimensions.normalize(10),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushNamed(AppRouter.cart);
+                        },
+                        child: SvgPicture.asset(
+                          Assets.Cart,
+                          color: AppColors.CommonCyan,
+                          height: AppDimensions.normalize(10),
+                        ),
                       )
                     ],
                   ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:piiicks/configs/configs.dart';
-import 'package:piiicks/core/router/app_router.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
 import 'package:piiicks/presentation/widgets/textfield_toptext.dart';
 
@@ -52,7 +51,8 @@ class _AddAdressScreenState extends State<AddAdressScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar("ADD NEW ADDRESS",null),
+      appBar: CustomAppBar("ADD NEW ADDRESS", context,
+          automaticallyImplyLeading: true),
       body: BlocListener<DeliveryInfoActionCubit, DeliveryInfoActionState>(
         listener: (context, state) {
           if (state is DeliveryInfoActionLoading) {

@@ -3,6 +3,7 @@ import 'package:piiicks/domain/entities/delivery/delivery_info.dart';
 import 'package:piiicks/presentation/screens/add_edit_adress.dart';
 import 'package:piiicks/presentation/screens/ads.dart';
 import 'package:piiicks/presentation/screens/app_info.dart';
+import 'package:piiicks/presentation/screens/cart.dart';
 import 'package:piiicks/presentation/screens/checkout.dart';
 import 'package:piiicks/presentation/screens/contact.dart';
 import 'package:piiicks/presentation/screens/filter.dart';
@@ -32,6 +33,7 @@ sealed class AppRouter {
   static const String checkout = '/checkout';
   static const String contact = '/contact';
   static const String appinfo = '/appinfo';
+  static const String cart = '/cart';
   static const String wishlist = '/wishlist';
 
   static Route<dynamic> onGenerateRoute(RouteSettings routeSettings) {
@@ -56,6 +58,8 @@ sealed class AppRouter {
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case contact:
         return MaterialPageRoute(builder: (_) => const ContactScreen());
+      case cart:
+        return MaterialPageRoute(builder: (_) => const CartScreen());
       case adress:
         return MaterialPageRoute(builder: (_) => const AdressScreen());
       case addadress:

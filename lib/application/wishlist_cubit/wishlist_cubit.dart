@@ -11,24 +11,33 @@ class WishlistCubit extends Cubit<WishlistState> {
 
   Future<void> loadWishlist() async {
     final box = GetStorage();
-    final wishlistIds = box.read<List<String>>('wishlist') ?? [];
+    final List<dynamic>? wishlistIds = box.read<List<dynamic>>('wishlist');
+
+    if (wishlistIds == null) {
+      emit(WishlistLoadedState([]));
+      return;
+    }
+
     final wishlist = wishlistIds
+        .whereType<String>() // Only include elements of type String
         .map((id) => ProductModel(
-        id: id,
-        name: '',
-        description: '',
-        priceTags: [],
-        categories: [],
-        images: [],
-        createdAt: DateTime.now(),
-        updatedAt: DateTime.now()))
+      id: id,
+      name: '',
+      description: '',
+      priceTags: [],
+      categories: [],
+      images: [],
+      createdAt: DateTime.now(),
+      updatedAt: DateTime.now(),
+    ))
         .toList();
+
     emit(WishlistLoadedState(wishlist));
   }
-
   Future<void> addToWishlist(ProductModel product) async {
     final box = GetStorage();
-    List<String> wishlistIds = box.read<List<String>>('wishlist') ?? [];
+    final dynamic wishlistData = box.read('wishlist');
+    List<String> wishlistIds = (wishlistData as List<dynamic>?)?.map((id) => id.toString()).toList() ?? [];
     wishlistIds.add(product.id);
     box.write('wishlist', wishlistIds);
 
@@ -42,15 +51,20 @@ class WishlistCubit extends Cubit<WishlistState> {
 
   Future<void> removeFromWishlist(ProductModel product) async {
     final box = GetStorage();
-    List<String> wishlistIds = box.read<List<String>>('wishlist') ?? [];
+    final dynamic wishlistData = box.read('wishlist');
+    List<String> wishlistIds = (wishlistData as List<dynamic>?)?.map((id) => id.toString()).toList() ?? [];
     wishlistIds.remove(product.id);
     box.write('wishlist', wishlistIds);
-    emit(WishlistLoadedState(
-        (state as WishlistLoadedState)
-            .wishlist
-            .where((p) => p.id != product.id)
-            .toList()));
+
+    if (state is WishlistLoadedState) {
+      emit(WishlistLoadedState(
+          (state as WishlistLoadedState)
+              .wishlist
+              .where((p) => p.id != product.id)
+              .toList()));
+    }
   }
+
 
   Future<void> clearWishlist() async {
     final box = GetStorage();
@@ -60,7 +74,15 @@ class WishlistCubit extends Cubit<WishlistState> {
 
   bool isInWishlist(String productId) {
     final box = GetStorage();
-    List<String> wishlistIds = box.read<List<String>>('wishlist') ?? [];
-    return wishlistIds.contains(productId);
+    List<dynamic>? wishlistIds = box.read<List<dynamic>>('wishlist');
+
+    if (wishlistIds == null) {
+      return false;
+    }
+
+    // Ensure the list contains only String elements
+    List<String> stringWishlistIds = wishlistIds.cast<String>();
+
+    return stringWishlistIds.contains(productId);
   }
 }

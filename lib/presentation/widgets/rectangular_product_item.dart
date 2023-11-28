@@ -11,11 +11,13 @@ import '../../core/router/app_router.dart';
 class RectangularProductItem extends StatelessWidget {
   final ProductEntity? product;
   final Function? onClick;
+  final bool isFromWishlist;
 
   const RectangularProductItem({
     Key? key,
     this.product,
     this.onClick,
+    this.isFromWishlist = false,
   }) : super(key: key);
 
   @override
@@ -35,7 +37,7 @@ class RectangularProductItem extends StatelessWidget {
         elevation: 3,
         margin: EdgeInsets.only(bottom: AppDimensions.normalize(10.8)),
         child: Padding(
-          padding: Space.all(1, 1),
+          padding: isFromWishlist ? Space.all(.5, .5) : Space.all(1, 1),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -43,7 +45,9 @@ class RectangularProductItem extends StatelessWidget {
                 tag: product!.id,
                 child: CachedNetworkImage(
                   height: AppDimensions.normalize(70),
-                  imageUrl: product!.images.first,
+                  imageUrl: isFromWishlist
+                      ? product!.images.last
+                      : product!.images.first,
                   placeholder: (context, url) => placeholderShimmer(),
                   errorWidget: (context, url, error) =>
                       const Center(child: Icon(Icons.error)),
@@ -57,8 +61,12 @@ class RectangularProductItem extends StatelessWidget {
                 maxLines: 1,
               ),
               Space.y!,
-              Text(r'$ ' + product!.priceTags.first.price.toString(),
-                  style: AppText.h3?.copyWith(color: AppColors.CommonCyan)),
+              Text(
+                r'$ ' + product!.priceTags.first.price.toString(),
+                style: AppText.h3?.copyWith(
+                  color: AppColors.CommonCyan,
+                ),
+              ),
             ],
           ),
         ),

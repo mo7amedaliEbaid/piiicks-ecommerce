@@ -31,7 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar("LOGIN",null),
+      appBar: CustomAppBar("LOGIN",context),
       body: SingleChildScrollView(
         child: Padding(
           padding: Space.all(1, 1.3),

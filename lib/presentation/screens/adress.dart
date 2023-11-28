@@ -4,6 +4,7 @@ import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/colors.dart';
 import 'package:piiicks/core/router/app_router.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
+import 'package:piiicks/presentation/widgets/transparent_button.dart';
 
 import '../../application/delivery_info_action_cubit/delivery_info_action_cubit.dart';
 import '../../application/delivery_info_fetch_cubit/delivery_info_fetch_cubit.dart';
@@ -32,28 +33,17 @@ class _AdressScreenState extends State<AdressScreen> {
         }
       },
       child: Scaffold(
-        appBar: CustomAppBar("ADD ADDRESS",null),
+        appBar: CustomAppBar("ADD ADDRESS", context,automaticallyImplyLeading: true),
         body: Padding(
           padding: Space.all(1.2, 1),
           child: Column(
             children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pushNamed(AppRouter.addadress);
-                },
-                child: Container(
-                  width: double.infinity,
-                  padding: Space.v1,
-                  decoration: BoxDecoration(
-                      border:
-                          Border.all(color: AppColors.CommonCyan, width: 1)),
-                  child: Center(
-                      child: Text(
-                    "Add New Address",
-                    style: AppText.h3b?.copyWith(color: AppColors.CommonCyan),
-                  )),
-                ),
-              ),
+              TransparentButton(
+                  context: context,
+                  onTap: () {
+                    Navigator.of(context).pushNamed(AppRouter.addadress);
+                  },
+                  buttonText: "Add New Address"),
               BlocBuilder<DeliveryInfoFetchCubit, DeliveryInfoFetchState>(
                 builder: (context, state) {
                   if (state is! DeliveryInfoFetchLoading &&

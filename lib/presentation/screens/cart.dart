@@ -3,17 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:piiicks/configs/app_dimensions.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/colors.dart';
-import 'package:piiicks/core/router/app_router.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
-import 'package:piiicks/presentation/widgets/dashed_separator.dart';
 import 'package:piiicks/presentation/widgets/payment_details.dart';
-import 'package:piiicks/presentation/widgets/payment_details_row.dart';
 
 import '../../../../core/error/failures.dart';
 import '../../../../domain/entities/cart/cart_item.dart';
 import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
 import '../../application/cart_bloc/cart_bloc.dart';
-import '../../application/notifications_cubit/notifications_cubit.dart';
 import '../../core/enums/enums.dart';
 import '../widgets/cart_item.dart';
 
@@ -30,7 +26,7 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar("CART", false),
+      appBar: CustomAppBar("CART", context,automaticallyImplyLeading: true),
       body: Stack(
         children: [
           Padding(
