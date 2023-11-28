@@ -1,7 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:piiicks/configs/app_dimensions.dart';
 import 'package:piiicks/configs/configs.dart';
+import 'package:piiicks/core/constant/assets.dart';
 import 'package:piiicks/presentation/widgets/lading_shimmer.dart';
 
 import '../../core/constant/colors.dart';
@@ -43,15 +45,20 @@ class RectangularProductItem extends StatelessWidget {
             children: [
               Hero(
                 tag: product!.id,
-                child: CachedNetworkImage(
-                  height: AppDimensions.normalize(70),
-                  imageUrl: isFromWishlist
-                      ? product!.images.last
-                      : product!.images.first,
-                  placeholder: (context, url) => placeholderShimmer(),
-                  errorWidget: (context, url, error) =>
-                      const Center(child: Icon(Icons.error)),
-                ),
+                child: product!.images.isNotEmpty
+                    ? CachedNetworkImage(
+                        height: AppDimensions.normalize(70),
+                        imageUrl: isFromWishlist
+                            ? product!.images.last
+                            : product!.images.first,
+                        placeholder: (context, url) => placeholderShimmer(),
+                        errorWidget: (context, url, error) =>
+                            const Center(child: Icon(Icons.error)),
+                      )
+                    : SvgPicture.asset(
+                        Assets.PiiicksIcon,
+                        height: AppDimensions.normalize(70),
+                      ),
               ),
               Space.y1!,
               Text(
@@ -61,12 +68,14 @@ class RectangularProductItem extends StatelessWidget {
                 maxLines: 1,
               ),
               Space.y!,
-              Text(
-                r'$ ' + product!.priceTags.first.price.toString(),
-                style: AppText.h3?.copyWith(
-                  color: AppColors.CommonCyan,
-                ),
-              ),
+              product!.priceTags.isNotEmpty
+                  ? Text(
+                      r'$ ' + product!.priceTags.first.price.toString(),
+                      style: AppText.h3?.copyWith(
+                        color: AppColors.CommonCyan,
+                      ),
+                    )
+                  : const SizedBox.shrink(),
             ],
           ),
         ),

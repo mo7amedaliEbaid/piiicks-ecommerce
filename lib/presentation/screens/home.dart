@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:piiicks/application/notifications_cubit/notifications_cubit.dart';
 import 'package:piiicks/application/products_bloc/product_bloc.dart';
+import 'package:piiicks/application/wishlist_cubit/wishlist_cubit.dart';
 import 'package:piiicks/configs/app.dart';
 import 'package:piiicks/configs/configs.dart';
+import 'package:piiicks/presentation/widgets/lading_shimmer.dart';
 import 'package:piiicks/presentation/widgets/square_product_item.dart';
 import 'package:piiicks/presentation/widgets/top_row.dart';
 
@@ -32,6 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     _pageController = PageController(initialPage: currentPage);
     context.read<FilterCubit>().reset();
+    context.read<WishlistCubit>().loadWishlist();
     context
         .read<ProductBloc>()
         .add(GetProducts(context.read<FilterCubit>().state));
@@ -199,9 +202,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                         itemBuilder: (context, index) => (state
                                                 is ProductLoading)
                                             ? const SquareProductItem()
-                                            : SquareProductItem(
-                                                product: state.products[index],
-                                              ),
+                                            : state.products.isNotEmpty
+                                                ? SquareProductItem(
+                                                    product:
+                                                        state.products[index],
+                                                  )
+                                                : LoadingShimmer(
+                                                    isSquare: true),
                                       ),
                           );
                         },

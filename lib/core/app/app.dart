@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-//import 'package:piiicks/application/favourites_cubit/favourites_cubit.dart';
 import 'package:piiicks/application/wishlist_cubit/wishlist_cubit.dart';
 
 import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
@@ -31,7 +29,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => di.sl<NavigationCubit>()),
         BlocProvider(
-          create: (context) => WishlistCubit()..loadWishlist(),
+          create: (context) => di.sl<WishlistCubit>()..loadWishlist(),
         ),
         BlocProvider(
           create: (context) =>
