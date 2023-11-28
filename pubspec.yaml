@@ -32,8 +32,10 @@ dependencies:
   photo_view:
   dotted_border:
   flutter_local_notifications:
-
+  share_plus:
   get_storage:
+  screenshot:
+  path_provider:
 
 dev_dependencies:
   flutter_test:

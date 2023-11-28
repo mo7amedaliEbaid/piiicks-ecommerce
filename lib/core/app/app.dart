@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:piiicks/application/share_cubit/share_cubit.dart';
 
 import 'package:piiicks/application/wishlist_cubit/wishlist_cubit.dart';
 
@@ -57,6 +58,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => di.sl<OrderFetchCubit>()..getOrders(),
+        ),
+        BlocProvider(
+          create: (context) => di.sl<ShareCubit>(),
         ),
         /*     BlocProvider(
           create: (context) => di.sl<NotificationsCubit>()..init(),
