@@ -61,37 +61,37 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
- # the last versions.
+      # the last versions.
   equatable:
-# Package for handling value equality without explicit overrides
+      # Package for handling value equality without explicit overrides
   dartz:
- # Functional programming library for Dart
+      # Functional programming library for Dart
   shared_preferences:
-# Plugin for reading and writing key-value pairs to persistent storage
+      # Plugin for reading and writing key-value pairs to persistent storage
   http:
-# Package for making HTTP requests
+      # Package for making HTTP requests
   internet_connection_checker:
- # Library for checking internet connectivity
+      # Library for checking internet connectivity
   flutter_bloc:
-# State management library for Flutter applications
+      # State management library for Flutter applications
   get_it:
-# Simple service locator for Dart and Flutter projects
+      # Simple service locator for Dart and Flutter projects
   shimmer:
-# Package for adding shimmering effect to Flutter applications
+      # Package for adding shimmering effect to Flutter applications
   cached_network_image:
- # Library for loading and caching network images
+      # Library for loading and caching network images
   flutter_svg:
-# Library for rendering SVG files in Flutter applications
+      # Library for rendering SVG files in Flutter applications
   dots_indicator:
- # Customizable dots indicator for PageView in Flutter
+      # Customizable dots indicator for PageView in Flutter
   flutter_secure_storage:
-# Secure storage plugin for Flutter
+      # Secure storage plugin for Flutter
   photo_view:
-# Package for displaying images in Flutter with zooming and panning capabilities
+      # Package for displaying images in Flutter with zooming and panning capabilities
   dotted_border:
-# Package for creating dotted borders in Flutter
+      # Package for creating dotted borders in Flutter
   flutter_local_notifications:
- # Package for displaying local notifications in Flutter applications
+      # Package for displaying local notifications in Flutter applications
 ```
 
 
