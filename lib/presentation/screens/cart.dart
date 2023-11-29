@@ -136,7 +136,7 @@ class _CartScreenState extends State<CartScreen> {
             ),
           ),
           const PaymentDetails(
-            buttonText: "Proceed To Checkout",
+            buttonText: "Proceed To Checkout", isFromCheckout: false,
           )
         ],
       ),

@@ -30,6 +30,8 @@ sealed class Assets {
   static const String Whatsapp = "assets/svg/whatsapp.svg";
   static const String Share = "assets/svg/share.svg";
   static const String Trash = "assets/svg/trash.svg";
+  static const String Knet = "assets/svg/knet.svg";
+  static const String Visa = "assets/svg/visa.svg";
 
   //png
   static const String Ads = "assets/images/ad.png";
