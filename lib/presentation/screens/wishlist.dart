@@ -29,6 +29,12 @@ class _WishListScreenState extends State<WishListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: CustomAppBar('WISHLIST', context,automaticallyImplyLeading: true),
+        floatingActionButton: FloatingActionButton(onPressed: (){
+          setState(() {
+            context.read<WishlistCubit>().clearWishlist();
+          });
+
+        },child: Icon(Icons.delete_forever_outlined)),
         body: BlocBuilder<WishlistCubit, WishlistState>(
           builder: (context, state) {
             if (state is WishlistLoadedState) {

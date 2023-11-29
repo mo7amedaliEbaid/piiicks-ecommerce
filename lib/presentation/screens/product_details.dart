@@ -266,13 +266,13 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           isProductInWishlist
                               ? GestureDetector(
                                   onTap: () {
-                                    setState(() {
+                                    /*setState(() {
                                       context
                                           .read<WishlistCubit>()
                                           .removeFromWishlist(
                                               ProductModel.fromEntity(
                                                   widget.product));
-                                    });
+                                    });*/
                                   },
                                   child: const Icon(Icons.favorite))
                               : GestureDetector(

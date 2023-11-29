@@ -71,21 +71,24 @@ class MyApp extends StatelessWidget {
         title: appTitle,
         onGenerateRoute: AppRouter.onGenerateRoute,
         theme: ThemeData.light().copyWith(
-            canvasColor: AppColors.CommonCyan,
-            appBarTheme: AppBarTheme(
-                color: Theme.of(context).scaffoldBackgroundColor,
-                elevation: 0,
-                toolbarHeight: 56,
-                centerTitle: true,
-                iconTheme:
-                    const IconThemeData(color: AppColors.CommonCyan, size: 30)),
-            elevatedButtonTheme: ElevatedButtonThemeData(
-                style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(AppColors.CommonCyan),
-              minimumSize: MaterialStateProperty.all(const Size(170, 50)),
-            )),
-            iconTheme:
-                const IconThemeData(color: AppColors.CommonCyan, size: 30)),
+          canvasColor: AppColors.CommonCyan,
+          appBarTheme: AppBarTheme(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              elevation: 0,
+              toolbarHeight: 56,
+              centerTitle: true,
+              iconTheme:
+                  const IconThemeData(color: AppColors.CommonCyan, size: 30)),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(AppColors.CommonCyan),
+            minimumSize: MaterialStateProperty.all(const Size(170, 50)),
+          )),
+          iconTheme: const IconThemeData(color: AppColors.CommonCyan, size: 30),
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(
+            backgroundColor: AppColors.CommonCyan,
+          ),
+        ),
         initialRoute: AppRouter.splash,
       ),
     );

@@ -26,7 +26,7 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar("CART", context,automaticallyImplyLeading: true),
+      appBar: CustomAppBar("CART", context, automaticallyImplyLeading: true),
       body: Stack(
         children: [
           Padding(
@@ -35,7 +35,7 @@ class _CartScreenState extends State<CartScreen> {
               children: [
                 BlocBuilder<CartBloc, CartState>(
                   builder: (context, state) {
-                    if (state is CartError && state.cart.isEmpty) {
+                    if (state is CartError) {
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -44,14 +44,11 @@ class _CartScreenState extends State<CartScreen> {
                             if (state.failure is ServerFailure)
                               //TODO
                               // const Text("Cart is Empty!"),
-                              SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.1,
-                              )
+                              const SizedBox.shrink()
                         ],
                       );
                     }
-                    if (state.cart.isEmpty) {
+                    if (state is CartLoaded && state.cart.isEmpty) {
                       return Container(
                         color: AppColors.LightGrey,
                         margin:
@@ -99,7 +96,7 @@ class _CartScreenState extends State<CartScreen> {
                     }
                     return Expanded(
                       child: ListView.builder(
-                        itemCount: (state is CartLoading && state.cart.isEmpty)
+                        itemCount: (state is CartLoading)
                             ? 10
                             : (state.cart.length +
                                 ((state is CartLoading) ? 10 : 0)),
@@ -108,7 +105,7 @@ class _CartScreenState extends State<CartScreen> {
                         physics: const BouncingScrollPhysics(),
                         shrinkWrap: true,
                         itemBuilder: (BuildContext context, int index) {
-                          if (state is CartLoading && state.cart.isEmpty) {
+                          if (state is CartLoading) {
                             return const CartItemCard();
                           } else {
                             if (state.cart.length < index) {
@@ -138,7 +135,9 @@ class _CartScreenState extends State<CartScreen> {
               ],
             ),
           ),
-          const PaymentDetails(buttonText: "Proceed To Checkout",)
+          const PaymentDetails(
+            buttonText: "Proceed To Checkout",
+          )
         ],
       ),
     );
