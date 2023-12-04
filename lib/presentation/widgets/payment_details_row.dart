@@ -11,11 +11,11 @@ Widget PaymentDetailsRow(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            "${leftText}",
+            leftText,
             style: textStyle ?? AppText.h3,
           ),
           Text(
-            "${rightText} \$",
+            "$rightText \$",
             style: textStyle ?? AppText.h3,
           ),
         ],

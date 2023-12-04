@@ -56,7 +56,7 @@ class RectangularProductItem extends StatelessWidget {
                             const Center(child: Icon(Icons.error)),
                       )
                     : SvgPicture.asset(
-                        Assets.PiiicksIcon,
+                        AppAssets.PiiicksIcon,
                         height: AppDimensions.normalize(70),
                       ),
               ),

@@ -43,7 +43,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
     super.initState();
   }
 
-  Future<SortOrder?> _showSortingOptions(BuildContext context) async {
+  Future<SortOrder?> showSortingOptions(BuildContext context) async {
     return showModalBottomSheet(
       context: context,
       backgroundColor: const Color(0xfff6f6f6),
@@ -216,7 +216,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                           Navigator.of(context).pushNamed(AppRouter.cart);
                         },
                         child: SvgPicture.asset(
-                          Assets.Cart,
+                          AppAssets.Cart,
                           color: AppColors.CommonCyan,
                           height: AppDimensions.normalize(10),
                         ),
@@ -235,7 +235,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                         GestureDetector(
                           onTap: () async {
                             final sortOrder =
-                                await _showSortingOptions(context);
+                                await showSortingOptions(context);
                             if (sortOrder != null) {
                               setState(() {});
                               // Dispatch SortProducts event with the selected sorting order
@@ -246,7 +246,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                           },
                           child: Row(
                             children: [
-                              SvgPicture.asset(Assets.SortIcon),
+                              SvgPicture.asset(AppAssets.SortIcon),
                               selectedSortOrder == null
                                   ? const SizedBox.shrink()
                                   : BlackDot(),
@@ -268,7 +268,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                           },
                           child: Row(
                             children: [
-                              SvgPicture.asset(Assets.FilterIcon),
+                              SvgPicture.asset(AppAssets.FilterIcon),
                               context.read<FilterCubit>().getFiltersCount() != 0
                                   ? BlackDot()
                                   : const SizedBox.shrink(),

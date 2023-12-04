@@ -1,7 +1,6 @@
-sealed class Assets {
+sealed class AppAssets {
 
   //svg
-
   static const String PiiicksIcon = "assets/svg/icon.svg";
   static const String PiiicksAppBar = "assets/svg/apbaricon.svg";
   static const String SortIcon = "assets/svg/sort.svg";

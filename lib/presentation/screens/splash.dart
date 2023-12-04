@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Stack(
         children: [
           SvgPicture.asset(
-            Assets.Splash,
+            AppAssets.Splash,
             fit: BoxFit.fill,
           ),
           Positioned(

@@ -68,8 +68,8 @@ class _FilterScreenState extends State<FilterScreen> {
                         style: AppText.h3b,
                       ),
                       isCategorieslistVisible
-                          ? SvgPicture.asset(Assets.Minus)
-                          : SvgPicture.asset(Assets.Plus)
+                          ? SvgPicture.asset(AppAssets.Minus)
+                          : SvgPicture.asset(AppAssets.Plus)
                     ],
                   ),
                 ),
@@ -154,8 +154,8 @@ class _FilterScreenState extends State<FilterScreen> {
                         style: AppText.h3b,
                       ),
                       isPricerangeVisible
-                          ? SvgPicture.asset(Assets.Minus)
-                          : SvgPicture.asset(Assets.Plus)
+                          ? SvgPicture.asset(AppAssets.Minus)
+                          : SvgPicture.asset(AppAssets.Plus)
                     ],
                   ),
                 ),

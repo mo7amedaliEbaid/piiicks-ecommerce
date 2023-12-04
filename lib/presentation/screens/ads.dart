@@ -18,7 +18,7 @@ class AdsScreen extends StatelessWidget {
             decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage(
-                      Assets.Ads,
+                      AppAssets.Ads,
                     ),
                     fit: BoxFit.cover)),
           ),

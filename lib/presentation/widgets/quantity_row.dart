@@ -13,7 +13,7 @@ Widget QuantityRow(double width,double padding){
           width: AppDimensions.normalize(width),
           color: AppColors.CommonCyan,
           child: Center(
-            child: SvgPicture.asset(Assets.Minus,
+            child: SvgPicture.asset(AppAssets.Minus,
                 color: Colors.white, height: 3),
           ),
         ),
@@ -33,7 +33,7 @@ Widget QuantityRow(double width,double padding){
           width: AppDimensions.normalize(width),
           color: AppColors.CommonCyan,
           child: Center(
-            child: SvgPicture.asset(Assets.Plus,
+            child: SvgPicture.asset(AppAssets.Plus,
                 color: Colors.white, height: 13),
           ),
         ),

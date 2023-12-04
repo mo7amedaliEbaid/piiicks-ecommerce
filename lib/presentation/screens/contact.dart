@@ -58,7 +58,7 @@ class ContactScreen extends StatelessWidget {
                   Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                     Padding(
                       padding: EdgeInsets.only(left: AppDimensions.normalize(7)),
-                      child: SvgPicture.asset(Assets.Whatsapp),
+                      child: SvgPicture.asset(AppAssets.Whatsapp),
                     ),
                     Space.yf(.8),
                     Text(

@@ -33,7 +33,7 @@ PreferredSizeWidget CustomAppBar(
                   child: Padding(
                     padding: Space.h1!,
                     child: SvgPicture.asset(
-                      Assets.Cart,
+                      AppAssets.Cart,
                       color: AppColors.CommonCyan,
                     ),
                   ),

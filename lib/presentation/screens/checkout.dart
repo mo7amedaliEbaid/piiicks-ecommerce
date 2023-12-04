@@ -159,7 +159,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                                         color: Colors.white70),
                                     child: Row(
                                       children: [
-                                        SvgPicture.asset(Assets.Knet),
+                                        SvgPicture.asset(AppAssets.Knet),
                                         Space.xf(.3),
                                         const Text("KNET"),
                                         Radio(
@@ -185,7 +185,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                                     //  width: AppDimensions.normalize(140),
                                     child: Row(
                                       children: [
-                                        SvgPicture.asset(Assets.Visa),
+                                        SvgPicture.asset(AppAssets.Visa),
                                         Space.xf(.3),
                                         const Text("Credit"),
                                         Radio(
@@ -216,7 +216,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
             ),
             const PaymentDetails(
               buttonText: 'Proceed To Payment',
-              isFromCheckout: true,
+              isFromCheckout: true, isLogged: true,
             )
           ],
         ),

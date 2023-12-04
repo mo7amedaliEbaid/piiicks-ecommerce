@@ -39,8 +39,8 @@ class ProfileScreen extends StatelessWidget {
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
-                                  image:
-                                      const AssetImage(Assets.Profile_bg_png),
+                                  image: const AssetImage(
+                                      AppAssets.Profile_bg_png),
                                   fit: BoxFit.fill,
                                   colorFilter: ColorFilter.mode(
                                       Colors.grey.shade700,
@@ -56,8 +56,11 @@ class ProfileScreen extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       SvgPicture.asset(
-                                        Assets.Profile,
-                                        color: AppColors.CommonCyan,
+                                        AppAssets.Profile,
+                                        colorFilter: ColorFilter.mode(
+                                            AppColors.CommonCyan,
+                                            BlendMode.srcIn),
+                                        //    color: AppColors.CommonCyan,
                                         height: AppDimensions.normalize(19),
                                       ),
                                       SizedBox(
@@ -107,8 +110,8 @@ class ProfileScreen extends StatelessWidget {
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
-                                  image:
-                                      const AssetImage(Assets.Profile_bg_png),
+                                  image: const AssetImage(
+                                      AppAssets.Profile_bg_png),
                                   fit: BoxFit.fill,
                                   colorFilter: ColorFilter.mode(
                                       Colors.grey.shade700,
@@ -120,8 +123,9 @@ class ProfileScreen extends StatelessWidget {
                                 children: [
                                   Space.y1!,
                                   SvgPicture.asset(
-                                    Assets.Profile,
-                                    color: AppColors.CommonCyan,
+                                    AppAssets.Profile,
+                                    colorFilter: const ColorFilter.mode(
+                                        AppColors.CommonCyan, BlendMode.srcIn),
                                     height: AppDimensions.normalize(19),
                                   ),
                                   Space.y1!,
@@ -198,7 +202,7 @@ class ProfileScreen extends StatelessWidget {
                                 children: [
                                   Row(
                                     children: [
-                                      SvgPicture.asset(Assets.Archive),
+                                      SvgPicture.asset(AppAssets.Archive),
                                       Space.xf(),
                                       Text(
                                         "My Orders",
@@ -225,7 +229,7 @@ class ProfileScreen extends StatelessWidget {
                                   children: [
                                     Row(
                                       children: [
-                                        SvgPicture.asset(Assets.Marker),
+                                        SvgPicture.asset(AppAssets.Marker),
                                         Space.xf(),
                                         Text(
                                           "Address Book",
@@ -249,8 +253,11 @@ class ProfileScreen extends StatelessWidget {
                                   Row(
                                     children: [
                                       SvgPicture.asset(
-                                        Assets.Profile,
-                                        color: AppColors.CommonCyan,
+                                        AppAssets.Profile,
+                                        // color: AppColors.CommonCyan,
+                                        colorFilter: const ColorFilter.mode(
+                                            AppColors.CommonCyan,
+                                            BlendMode.srcIn),
                                       ),
                                       Space.xf(),
                                       Text(
@@ -273,7 +280,7 @@ class ProfileScreen extends StatelessWidget {
                                 children: [
                                   Row(
                                     children: [
-                                      SvgPicture.asset(Assets.Lock),
+                                      SvgPicture.asset(AppAssets.Lock),
                                       Space.xf(),
                                       Text(
                                         "Change Password",
@@ -306,7 +313,7 @@ class ProfileScreen extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              SvgPicture.asset(Assets.Bell),
+                              SvgPicture.asset(AppAssets.Bell),
                               Space.xf(),
                               Text(
                                 "Notifications",
@@ -332,7 +339,7 @@ class ProfileScreen extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              SvgPicture.asset(Assets.Globe),
+                              SvgPicture.asset(AppAssets.Globe),
                               Space.xf(),
                               Text(
                                 "Preferred Language",
@@ -363,7 +370,7 @@ class ProfileScreen extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              SvgPicture.asset(Assets.Money),
+                              SvgPicture.asset(AppAssets.Money),
                               Space.xf(),
                               Text(
                                 "Currency",
@@ -396,15 +403,16 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       Space.yf(1.2),
                       GestureDetector(
-                        onTap: (){
-                          Navigator.of(context).pushNamed(AppRouter.appinfo,arguments: "TERMS & CONDITIONS");
+                        onTap: () {
+                          Navigator.of(context).pushNamed(AppRouter.appinfo,
+                              arguments: "TERMS & CONDITIONS");
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
                               children: [
-                                SvgPicture.asset(Assets.Document),
+                                SvgPicture.asset(AppAssets.Document),
                                 Space.xf(),
                                 Text(
                                   "Terms & Conditions",
@@ -422,15 +430,16 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       Space.yf(1.1),
                       GestureDetector(
-                        onTap: (){
-                          Navigator.of(context).pushNamed(AppRouter.appinfo,arguments: "PRIVACY POLICY");
+                        onTap: () {
+                          Navigator.of(context).pushNamed(AppRouter.appinfo,
+                              arguments: "PRIVACY POLICY");
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
                               children: [
-                                SvgPicture.asset(Assets.Document),
+                                SvgPicture.asset(AppAssets.Document),
                                 Space.xf(),
                                 Text(
                                   "Privacy Policy",
@@ -456,7 +465,7 @@ class ProfileScreen extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                SvgPicture.asset(Assets.Comments),
+                                SvgPicture.asset(AppAssets.Comments),
                                 Space.xf(),
                                 Text(
                                   "Contact",
@@ -487,15 +496,15 @@ class ProfileScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SvgPicture.asset(
-                            Assets.Whats,
+                            AppAssets.Whats,
                             height: AppDimensions.normalize(15),
                           ),
                           SvgPicture.asset(
-                            Assets.Noti,
+                            AppAssets.Noti,
                             height: AppDimensions.normalize(15),
                           ),
                           SvgPicture.asset(
-                            Assets.Music,
+                            AppAssets.Music,
                             height: AppDimensions.normalize(15),
                           ),
                         ],

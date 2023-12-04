@@ -177,7 +177,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                                     });
                                                   },
                                                   icon: SvgPicture.asset(
-                                                    Assets.Close,
+                                                    AppAssets.Close,
                                                   ),
                                                 ),
                                               ),
@@ -307,7 +307,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         child: Row(
                           children: [
                             SvgPicture.asset(
-                              Assets.Share,
+                              AppAssets.Share,
                               height: AppDimensions.normalize(10),
                             ),
                             Space.xf(.7),

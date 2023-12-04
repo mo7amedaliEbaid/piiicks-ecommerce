@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:piiicks/domain/usecases/user/sign_in_usecase.dart';
+import 'package:piiicks/presentation/widgets/auth_error_dialog.dart';
+import 'package:piiicks/presentation/widgets/credential_failure_dialog.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
+import 'package:piiicks/presentation/widgets/successful_auth_dialog.dart';
+import 'package:piiicks/presentation/widgets/transparent_button.dart';
 
-import '../../application/cart_bloc/cart_bloc.dart';
-import '../../application/delivery_info_fetch_cubit/delivery_info_fetch_cubit.dart';
 import '../../application/user_bloc/user_bloc.dart';
 import '../../configs/app_dimensions.dart';
 import '../../configs/app_typography.dart';
@@ -31,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar("LOGIN",context),
+      appBar: CustomAppBar("LOGIN", context, automaticallyImplyLeading: true),
       body: SingleChildScrollView(
         child: Padding(
           padding: Space.all(1, 1.3),
@@ -62,7 +64,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: AppText.b1b,
                 ),
                 Space.y!,
-                buildTextFormField(_passwordController, "Password",isObscure: true),
+                buildTextFormField(_passwordController, "Password",
+                    isObscure: true),
                 Space.y1!,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -81,157 +84,26 @@ class _LoginScreenState extends State<LoginScreen> {
                         isLoading = true;
                       });
                     } else if (state is UserLogged) {
-                      showDialog(
-                          context: context,
-                          barrierDismissible: false,
-                          builder: (BuildContext context) {
-                            return Dialog(
-                              child: Container(
-                                height: AppDimensions.normalize(70),
-                                padding: Space.all(1, 1),
-                                child: Center(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "SUCCESSFULLY Logged In",
-                                        style: AppText.b1b,
-                                      ),
-                                      Space.yf(.6),
-                                      Text(
-                                        "Congratulations,\nYou Have Been Successfully Logged In!",
-                                        style: AppText.b1?.copyWith(height: 1.5),
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          TextButton(
-                                            onPressed: () {
-                                              context.read<CartBloc>().add(const GetCart());
-                                              context.read<DeliveryInfoFetchCubit>().fetchDeliveryInfo();
-                                              Navigator.of(context)
-                                                  .pushNamedAndRemoveUntil(
-                                                AppRouter.mainscreen,
-                                                ModalRoute.withName(''),
-                                              );
-                                            },
-                                            child: Text(
-                                              "Ok",
-                                              style: AppText.h3b?.copyWith(
-                                                  color: AppColors.CommonCyan),
-                                            ),
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            );
-                          });
+                      showSuccessfulAuthDialog(context, "logged in");
                     } else if (state is UserLoggedFail) {
                       if (state.failure is CredentialFailure) {
-                        showDialog(
-                            context: context,
-                            barrierDismissible: false,
-                            builder: (BuildContext context) {
-                              return Dialog(
-                                child: Container(
-                                  height: AppDimensions.normalize(60),
-                                  padding: Space.all(1, .5),
-                                  child: Center(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Email/Password Wrong!",
-                                          style: AppText.b1b,
-                                        ),
-                                        Space.yf(.5),
-                                        Text(
-                                          "Try Again!",
-                                          style: AppText.b1,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            TextButton(
-                                                onPressed: () {
-                                                  Navigator.pop(context);
-                                                },
-                                                child: Text(
-                                                  "Dismiss",
-                                                  style: AppText.h3b?.copyWith(
-                                                      color:
-                                                          AppColors.CommonCyan),
-                                                ))
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              );
-                            });
+                        showCredentialErrorDialog(context);
                       } else {
-                        showDialog(
-                            context: context,
-                            barrierDismissible: false,
-                            builder: (BuildContext context) {
-                              return Dialog(
-                                child: Container(
-                                  height: AppDimensions.normalize(50),
-                                  padding: Space.all(1, .5),
-                                  child: Center(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Error",
-                                          style: AppText.b1b,
-                                        ),
-                                        Space.yf(.5),
-                                        Text(
-                                          "Try Again!",
-                                          style: AppText.b1,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            TextButton(
-                                                onPressed: () {
-                                                  Navigator.pop(context);
-                                                },
-                                                child: Text(
-                                                  "Dismiss",
-                                                  style: AppText.h3b?.copyWith(
-                                                      color:
-                                                          AppColors.CommonCyan),
-                                                ))
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              );
-                            });
+                        showAuthErrorDialog(context);
                       }
                     }
                   },
                   child: ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        context.read<UserBloc>().add(SignInUser(SignInParams(
-                              username: _emailController.text,
-                              password: _passwordController.text,
-                            )));
+                        context.read<UserBloc>().add(
+                              SignInUser(
+                                SignInParams(
+                                  username: _emailController.text,
+                                  password: _passwordController.text,
+                                ),
+                              ),
+                            );
                       }
                     },
                     style: ButtonStyle(
@@ -246,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ? Padding(
                             padding: Space.vf(.3),
                             child: SizedBox(
-                              height: AppDimensions.normalize(5),
+                            //  height: AppDimensions.normalize(5),
                               child: CircularProgressIndicator(
                                 color: Colors.white,
                                 strokeWidth: AppDimensions.normalize(2),
@@ -266,25 +138,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: AppText.b1b,
                 )),
                 Space.y1!,
-                GestureDetector(
+                TransparentButton(
+                  context: context,
                   onTap: () {
                     Navigator.of(context).pushNamed(AppRouter.signup);
                   },
-                  child: Container(
-                    height: AppDimensions.normalize(20),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        border:
-                            Border.all(width: 1, color: AppColors.CommonCyan)),
-                    child: Center(
-                      child: Text(
-                        "Signup",
-                        style:
-                            AppText.h3b?.copyWith(color: AppColors.CommonCyan),
-                      ),
-                    ),
-                  ),
+                  buttonText: "Signup",
                 )
               ],
             ),

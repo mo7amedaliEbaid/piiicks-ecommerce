@@ -10,6 +10,7 @@ import '../../../../core/error/failures.dart';
 import '../../../../domain/entities/cart/cart_item.dart';
 import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
 import '../../application/cart_bloc/cart_bloc.dart';
+import '../../application/user_bloc/user_bloc.dart';
 import '../../core/enums/enums.dart';
 import '../widgets/cart_item.dart';
 
@@ -135,10 +136,24 @@ class _CartScreenState extends State<CartScreen> {
               ],
             ),
           ),
-          const PaymentDetails(
-            buttonText: "Proceed To Checkout",
-            isFromCheckout: false,
-          )
+          BlocBuilder<UserBloc, UserState>(
+            builder: (context, state) {
+              if (state is UserLogged) {
+                 return const PaymentDetails(
+                   buttonText: "Proceed To Checkout",
+                   isFromCheckout: false,
+                   isLogged: true,
+                 );
+              } else {
+               return const PaymentDetails(
+                 buttonText: "Proceed To Checkout",
+                 isFromCheckout: false,
+                 isLogged: false,
+               );
+              }
+            },
+
+          ),
         ],
       ),
     );

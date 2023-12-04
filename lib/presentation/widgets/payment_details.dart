@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:piiicks/domain/entities/order/order_item.dart';
+import 'package:piiicks/presentation/widgets/auth_check_modalsheet.dart';
 import 'package:piiicks/presentation/widgets/payment_details_row.dart';
 import 'package:piiicks/presentation/widgets/transparent_button.dart';
 
@@ -15,10 +16,14 @@ import 'dashed_separator.dart';
 
 class PaymentDetails extends StatelessWidget {
   const PaymentDetails(
-      {super.key, required this.buttonText, required this.isFromCheckout});
+      {super.key,
+      required this.buttonText,
+      required this.isFromCheckout,
+      required this.isLogged});
 
   final String buttonText;
   final bool isFromCheckout;
+  final bool isLogged;
 
   @override
   Widget build(BuildContext context) {
@@ -57,72 +62,10 @@ class PaymentDetails extends StatelessWidget {
                   onPressed: () {
                     isFromCheckout
                         ? null
-                        : showModalBottomSheet(
-                            context: context,
-                            backgroundColor: Colors.white,
-                            constraints: BoxConstraints(
-                              maxHeight: AppDimensions.normalize(130),
-                              minHeight: AppDimensions.normalize(130),
-                              minWidth: double.infinity,
-                            ),
-                            builder: (BuildContext context) {
-                              return Padding(
-                                padding: Space.all(1.5, 1.8),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "CONTINUE",
-                                      style: AppText.h3b,
-                                    ),
-                                    Space.yf(.7),
-                                    Text(
-                                      "Continue as a guest or login/signup",
-                                      style: AppText.b1,
-                                    ),
-                                    Space.yf(),
-                                    SizedBox(
-                                      width: double.infinity,
-                                      child: ElevatedButton(
-                                          onPressed: () {
-                                            Navigator.pushNamed(
-                                                context, AppRouter.login);
-                                          },
-                                          child: Text(
-                                            "Login",
-                                            style: AppText.b1b
-                                                ?.copyWith(color: Colors.white),
-                                          )),
-                                    ),
-                                    Space.yf(),
-                                    SizedBox(
-                                      width: double.infinity,
-                                      child: ElevatedButton(
-                                          style: ElevatedButton.styleFrom(
-                                              backgroundColor: Colors.black),
-                                          onPressed: () {
-                                            Navigator.pushNamed(
-                                                context, AppRouter.signup);
-                                          },
-                                          child: Text(
-                                            "Signup",
-                                            style: AppText.b1b
-                                                ?.copyWith(color: Colors.white),
-                                          )),
-                                    ),
-                                    Space.yf(),
-                                    TransparentButton(
-                                        context: context,
-                                        onTap: () {
-                                          /*Navigator.pushNamed(
-                                              context, AppRouter.checkout,
-                                              arguments: state.cart);*/
-                                        },
-                                        buttonText: "Continue as a Guest")
-                                  ],
-                                ),
-                              );
-                            });
+                        : isLogged
+                            ? Navigator.pushNamed(context, AppRouter.checkout,
+                                arguments: state.cart)
+                            : showAuthCheckModalSheet(context);
                   },
                   child: Text(
                     buttonText,

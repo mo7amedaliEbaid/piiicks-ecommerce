@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 itemCount: 3,
                                 itemBuilder: (context, index) {
                                   return SvgPicture.asset(
-                                    Assets.PiiicksIcon,
+                                    AppAssets.PiiicksIcon,
                                     fit: BoxFit.cover,
                                   );
                                 }),
@@ -214,7 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                       ),
                       Space.y1!,
-                      Image.asset(Assets.HomePng),
+                      Image.asset(AppAssets.HomePng),
                       Space.y2!
                     ],
                   ),

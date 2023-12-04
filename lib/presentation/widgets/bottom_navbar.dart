@@ -33,7 +33,7 @@ class BottomNavigation extends StatelessWidget {
                 icon: Padding(
                   padding: padding,
                   child: SvgPicture.asset(
-                    Assets.Home,
+                    AppAssets.Home,
                     height: height,
                     width: width,
                     fit: BoxFit.fill,
@@ -50,7 +50,7 @@ class BottomNavigation extends StatelessWidget {
                 icon: Padding(
                   padding: padding,
                   child: SvgPicture.asset(
-                    Assets.Categories,
+                    AppAssets.Categories,
                     height: height,
                     width: width,
                     fit: BoxFit.fill,
@@ -67,7 +67,7 @@ class BottomNavigation extends StatelessWidget {
                 icon: Padding(
                   padding: padding,
                   child: SvgPicture.asset(
-                    Assets.Products,
+                    AppAssets.Products,
                     height: height,
                     width: width,
                     fit: BoxFit.fill,
@@ -84,7 +84,7 @@ class BottomNavigation extends StatelessWidget {
                 icon: Padding(
                   padding: padding,
                   child: SvgPicture.asset(
-                    Assets.Cart,
+                    AppAssets.Cart,
                     height: height,
                     width: width,
                     fit: BoxFit.fill,
@@ -101,7 +101,7 @@ class BottomNavigation extends StatelessWidget {
                 icon: Padding(
                   padding: padding,
                   child: SvgPicture.asset(
-                    Assets.Profile,
+                    AppAssets.Profile,
                     height: height,
                     width: width,
                     fit: BoxFit.fill,

@@ -4,10 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:piiicks/configs/app_typography.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/colors.dart';
+import 'package:piiicks/presentation/widgets/auth_error_dialog.dart';
+import 'package:piiicks/presentation/widgets/credential_failure_dialog.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
+import 'package:piiicks/presentation/widgets/successful_auth_dialog.dart';
 import 'package:piiicks/presentation/widgets/transparent_button.dart';
-import '../../application/cart_bloc/cart_bloc.dart';
-import '../../application/delivery_info_fetch_cubit/delivery_info_fetch_cubit.dart';
+
 import '../../application/user_bloc/user_bloc.dart';
 import '../../core/error/failures.dart';
 import '../../core/router/app_router.dart';
@@ -122,152 +124,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         isLoading = true;
                       });
                     } else if (state is UserLogged) {
-                      showDialog(
-                          context: context,
-                          barrierDismissible: false,
-                          builder: (BuildContext context) {
-                            return Dialog(
-                              child: Container(
-                                height: AppDimensions.normalize(70),
-                                padding: Space.all(1, 1.05),
-                                child: Center(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "SUCCESSFULLY REGISTERED",
-                                        style: AppText.b1b,
-                                      ),
-                                      Space.yf(.6),
-                                      Text(
-                                        "Congratulations,\nYour Account Has Been Successfully Registered!",
-                                        style: AppText.b1?.copyWith(height: 1.5),
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          TextButton(
-                                              onPressed: () {
-                                                context
-                                                    .read<CartBloc>()
-                                                    .add(const GetCart());
-                                                context
-                                                    .read<
-                                                        DeliveryInfoFetchCubit>()
-                                                    .fetchDeliveryInfo();
-                                                Navigator.of(context)
-                                                    .pushNamedAndRemoveUntil(
-                                                  AppRouter.mainscreen,
-                                                  ModalRoute.withName(''),
-                                                );
-                                              },
-                                              child: Text(
-                                                "Ok",
-                                                style: AppText.h3b?.copyWith(
-                                                    color:
-                                                        AppColors.CommonCyan),
-                                              ))
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            );
-                          });
+                      showSuccessfulAuthDialog(context, "Registered");
                     } else if (state is UserLoggedFail) {
                       if (state.failure is CredentialFailure) {
-                        showDialog(
-                            context: context,
-                            barrierDismissible: false,
-                            builder: (BuildContext context) {
-                              return Dialog(
-                                child: Container(
-                                  height: AppDimensions.normalize(60),
-                                  padding: Space.all(1, .5),
-                                  child: Center(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Username/Password Wrong!",
-                                          style: AppText.b1b,
-                                        ),
-                                        Space.yf(.5),
-                                        Text(
-                                          "Try Again!",
-                                          style: AppText.b1,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            TextButton(
-                                                onPressed: () {
-                                                  Navigator.pop(context);
-                                                },
-                                                child: Text(
-                                                  "Dismiss",
-                                                  style: AppText.h3b?.copyWith(
-                                                      color:
-                                                          AppColors.CommonCyan),
-                                                ))
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              );
-                            });
+                        showCredentialErrorDialog(context);
                       } else {
-                        showDialog(
-                            context: context,
-                            barrierDismissible: false,
-                            builder: (BuildContext context) {
-                              return Dialog(
-                                child: Container(
-                                  height: AppDimensions.normalize(50),
-                                  padding: Space.all(1, .5),
-                                  child: Center(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Error",
-                                          style: AppText.b1b,
-                                        ),
-                                        Space.yf(.5),
-                                        Text(
-                                          "Try Again!",
-                                          style: AppText.b1,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            TextButton(
-                                                onPressed: () {
-                                                  Navigator.pop(context);
-                                                },
-                                                child: Text(
-                                                  "Dismiss",
-                                                  style: AppText.h3b?.copyWith(
-                                                      color:
-                                                          AppColors.CommonCyan),
-                                                ))
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              );
-                            });
+                        showAuthErrorDialog(context);
                       }
                     }
                   },
@@ -297,9 +159,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     child: isLoading == true
                         ? Padding(
                             padding: Space.vf(.3),
-                            child: CircularProgressIndicator(
-                              color: Colors.white,
-                              strokeWidth: AppDimensions.normalize(2),
+                            child: SizedBox(
+                           //   height: AppDimensions.normalize(5),
+                              child: CircularProgressIndicator(
+                                color: Colors.white,
+                                strokeWidth: AppDimensions.normalize(2),
+                              ),
                             ),
                           )
                         : Text(
@@ -321,7 +186,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Navigator.of(context).pushNamed(AppRouter.login);
                     },
                     buttonText: "Login")
-
               ],
             ),
           ),
