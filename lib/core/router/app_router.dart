@@ -8,6 +8,8 @@ import 'package:piiicks/presentation/screens/checkout.dart';
 import 'package:piiicks/presentation/screens/contact.dart';
 import 'package:piiicks/presentation/screens/filter.dart';
 import 'package:piiicks/presentation/screens/login.dart';
+import 'package:piiicks/presentation/screens/order_failure.dart';
+import 'package:piiicks/presentation/screens/order_success.dart';
 import 'package:piiicks/presentation/screens/product_details.dart';
 import 'package:piiicks/presentation/screens/root.dart';
 import 'package:piiicks/presentation/screens/search.dart';
@@ -35,6 +37,8 @@ sealed class AppRouter {
   static const String appinfo = '/appinfo';
   static const String cart = '/cart';
   static const String wishlist = '/wishlist';
+  static const String ordersuccess = '/ordersuccess';
+  static const String orderfailure = '/orderfailure';
 
   static Route<dynamic> onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
@@ -81,7 +85,11 @@ sealed class AppRouter {
                   screenTitle: screenTitle,
                 ));
       case wishlist:
-        return MaterialPageRoute(builder: (_) => WishListScreen());
+        return MaterialPageRoute(builder: (_) =>const WishListScreen());
+      case ordersuccess:
+        return MaterialPageRoute(builder: (_) =>const OrderSuccessScreen());
+      case orderfailure:
+        return MaterialPageRoute(builder: (_) =>const OrderFailureScreen());
       default:
         throw const RouteException('Route not found!');
     }

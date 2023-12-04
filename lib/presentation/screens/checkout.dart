@@ -154,7 +154,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                               Expanded(
                                 child: Container(
                                     // width: AppDimensions.normalize(140),
-                                    padding:Space.all(.5,.5),
+                                    padding: Space.all(.5, .5),
                                     decoration: const BoxDecoration(
                                         color: Colors.white70),
                                     child: Row(
@@ -179,7 +179,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                               Space.xf(.8),
                               Expanded(
                                 child: Container(
-                                    padding: Space.all(.5,.5),
+                                    padding: Space.all(.5, .5),
                                     decoration: const BoxDecoration(
                                         color: Colors.white70),
                                     //  width: AppDimensions.normalize(140),
@@ -210,13 +210,13 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                     ),
                   ),
                   Space.yf(1.4),
-
                 ],
               ),
             ),
             const PaymentDetails(
               buttonText: 'Proceed To Payment',
-              isFromCheckout: true, isLogged: true,
+              isFromCheckout: true,
+              isLogged: true,
             )
           ],
         ),

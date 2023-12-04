@@ -31,6 +31,8 @@ sealed class AppAssets {
   static const String Trash = "assets/svg/trash.svg";
   static const String Knet = "assets/svg/knet.svg";
   static const String Visa = "assets/svg/visa.svg";
+  static const String OrderSuccess = "assets/svg/ordersuccess.svg";
+  static const String OrderError = "assets/svg/ordererror.svg";
 
   //png
   static const String Ads = "assets/images/ad.png";

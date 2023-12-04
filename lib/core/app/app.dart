@@ -9,6 +9,7 @@ import '../../application/cart_bloc/cart_bloc.dart';
 import '../../application/delivery_info_action_cubit/delivery_info_action_cubit.dart';
 import '../../application/delivery_info_fetch_cubit/delivery_info_fetch_cubit.dart';
 import '../../application/filter_cubit/filter_cubit.dart';
+import '../../application/order_add_cubit/order_add_cubit.dart';
 import '../../application/order_fetch_cubit/order_fetch_cubit.dart';
 import '../../application/products_bloc/product_bloc.dart';
 import '../../application/user_bloc/user_bloc.dart';
@@ -58,6 +59,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => di.sl<OrderFetchCubit>()..getOrders(),
+        ),
+        BlocProvider(
+          create: (context) => di.sl<OrderAddCubit>(),
         ),
         BlocProvider(
           create: (context) => di.sl<ShareCubit>(),

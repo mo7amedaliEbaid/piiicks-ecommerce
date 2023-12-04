@@ -44,7 +44,7 @@ class _CartScreenState extends State<CartScreen> {
                             //TODO
                             if (state.failure is ServerFailure)
                               //TODO
-                              // const Text("Cart is Empty!"),
+                               const Text("Cart is Empty!"),
                               const SizedBox.shrink()
                         ],
                       );
