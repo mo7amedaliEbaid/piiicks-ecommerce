@@ -101,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       Space.yf(.6),
                                       Text(
                                         "Congratulations,\nYou Have Been Successfully Logged In!",
-                                        style: AppText.b2,
+                                        style: AppText.b1?.copyWith(height: 1.5),
                                       ),
                                       Row(
                                         mainAxisAlignment:
@@ -245,9 +245,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: isLoading == true
                         ? Padding(
                             padding: Space.vf(.3),
-                            child: CircularProgressIndicator(
-                              color: Colors.white,
-                              strokeWidth: AppDimensions.normalize(2),
+                            child: SizedBox(
+                              height: AppDimensions.normalize(5),
+                              child: CircularProgressIndicator(
+                                color: Colors.white,
+                                strokeWidth: AppDimensions.normalize(2),
+                              ),
                             ),
                           )
                         : Text(

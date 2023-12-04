@@ -154,13 +154,13 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                               Expanded(
                                 child: Container(
                                     // width: AppDimensions.normalize(140),
-                                    padding: Space.all(),
+                                    padding:Space.all(.5,.5),
                                     decoration: const BoxDecoration(
                                         color: Colors.white70),
                                     child: Row(
                                       children: [
                                         SvgPicture.asset(Assets.Knet),
-                                        Space.xf(.5),
+                                        Space.xf(.3),
                                         const Text("KNET"),
                                         Radio(
                                           value: PaymentMethod.knet,
@@ -176,10 +176,10 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                                       ],
                                     )),
                               ),
-                              Space.xf(),
+                              Space.xf(.8),
                               Expanded(
                                 child: Container(
-                                    padding: Space.all(),
+                                    padding: Space.all(.5,.5),
                                     decoration: const BoxDecoration(
                                         color: Colors.white70),
                                     //  width: AppDimensions.normalize(140),

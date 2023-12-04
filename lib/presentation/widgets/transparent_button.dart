@@ -13,7 +13,7 @@ Widget TransparentButton({
     child: GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: Space.vf(.8),
+        padding: Space.vf(.77),
         decoration: BoxDecoration(
           border: Border.all(color: AppColors.CommonCyan),
         ),

@@ -5,6 +5,7 @@ import 'package:piiicks/configs/app_typography.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/colors.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
+import 'package:piiicks/presentation/widgets/transparent_button.dart';
 import '../../application/cart_bloc/cart_bloc.dart';
 import '../../application/delivery_info_fetch_cubit/delivery_info_fetch_cubit.dart';
 import '../../application/user_bloc/user_bloc.dart';
@@ -34,7 +35,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar("SIGNUP",context),
+      appBar: CustomAppBar("SIGNUP", context, automaticallyImplyLeading: true),
       body: SingleChildScrollView(
         child: Padding(
           padding: Space.all(1, 1.3),
@@ -72,15 +73,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   style: AppText.b1b,
                 ),
                 Space.y!,
-                buildTextFormField(_passwordController, "Password", isObscure: true),
+                buildTextFormField(_passwordController, "Password",
+                    isObscure: true),
                 Space.yf(1.5),
                 Text(
                   "Confirm Password*",
                   style: AppText.b1b,
                 ),
                 Space.y!,
-                buildTextFormField(
-                    _confirmPasswordController, "Password", isObscure: true),
+                buildTextFormField(_confirmPasswordController, "Password",
+                    isObscure: true),
                 Space.yf(1.5),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -140,7 +142,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       Space.yf(.6),
                                       Text(
                                         "Congratulations,\nYour Account Has Been Successfully Registered!",
-                                        style: AppText.b2,
+                                        style: AppText.b1?.copyWith(height: 1.5),
                                       ),
                                       Row(
                                         mainAxisAlignment:
@@ -148,8 +150,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                         children: [
                                           TextButton(
                                               onPressed: () {
-                                                context.read<CartBloc>().add(const GetCart());
-                                                context.read<DeliveryInfoFetchCubit>().fetchDeliveryInfo();
+                                                context
+                                                    .read<CartBloc>()
+                                                    .add(const GetCart());
+                                                context
+                                                    .read<
+                                                        DeliveryInfoFetchCubit>()
+                                                    .fetchDeliveryInfo();
                                                 Navigator.of(context)
                                                     .pushNamedAndRemoveUntil(
                                                   AppRouter.mainscreen,
@@ -308,20 +315,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   style: AppText.b1b,
                 )),
                 Space.y1!,
-                Container(
-                  height: AppDimensions.normalize(20),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      border:
-                          Border.all(width: 1, color: AppColors.CommonCyan)),
-                  child: Center(
-                    child: Text(
-                      "Login",
-                      style: AppText.h3b?.copyWith(color: AppColors.CommonCyan),
-                    ),
-                  ),
-                )
+                TransparentButton(
+                    context: context,
+                    onTap: () {
+                      Navigator.of(context).pushNamed(AppRouter.login);
+                    },
+                    buttonText: "Login")
+
               ],
             ),
           ),

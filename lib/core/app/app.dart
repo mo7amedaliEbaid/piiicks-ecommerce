@@ -80,10 +80,15 @@ class MyApp extends StatelessWidget {
               iconTheme:
                   const IconThemeData(color: AppColors.CommonCyan, size: 30)),
           elevatedButtonTheme: ElevatedButtonThemeData(
-              style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(AppColors.CommonCyan),
-            minimumSize: MaterialStateProperty.all(const Size(170, 50)),
-          )),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.CommonCyan,
+              minimumSize: const Size(170, 50),
+              elevation: 0,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.zero,
+              ),
+            ),
+          ),
           iconTheme: const IconThemeData(color: AppColors.CommonCyan, size: 30),
           floatingActionButtonTheme: const FloatingActionButtonThemeData(
             backgroundColor: AppColors.CommonCyan,

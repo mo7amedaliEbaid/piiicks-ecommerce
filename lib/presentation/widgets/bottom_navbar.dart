@@ -10,8 +10,13 @@ import '../../core/constant/assets.dart';
 import '../../core/enums/enums.dart';
 
 class BottomNavigation extends StatelessWidget {
+  const BottomNavigation({super.key});
+
   @override
   Widget build(BuildContext context) {
+    double height = AppDimensions.normalize(10);
+    double width = AppDimensions.normalize(10);
+    EdgeInsets padding = EdgeInsets.only(bottom: AppDimensions.normalize(2));
     return BlocBuilder<NavigationCubit, NavigationTab>(
       builder: (context, activeTab) {
         return SizedBox(
@@ -26,75 +31,85 @@ class BottomNavigation extends StatelessWidget {
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Padding(
-                  padding: EdgeInsets.only(bottom: AppDimensions.normalize(2)),
+                  padding: padding,
                   child: SvgPicture.asset(
                     Assets.Home,
-                    height: AppDimensions.normalize(10),
-                    width: AppDimensions.normalize(10),
+                    height: height,
+                    width: width,
                     fit: BoxFit.fill,
-                    color: activeTab == NavigationTab.homeTab
-                        ? Colors.black
-                        : Colors.white,
+                    colorFilter: ColorFilter.mode(
+                        activeTab == NavigationTab.homeTab
+                            ? Colors.black
+                            : Colors.white,
+                        BlendMode.srcIn),
                   ),
                 ),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
                 icon: Padding(
-                  padding: EdgeInsets.only(bottom: AppDimensions.normalize(2)),
+                  padding: padding,
                   child: SvgPicture.asset(
                     Assets.Categories,
-                    height: AppDimensions.normalize(10),
-                    width: AppDimensions.normalize(10),
+                    height: height,
+                    width: width,
                     fit: BoxFit.fill,
-                    color: activeTab == NavigationTab.categoriesTab
-                        ? Colors.black
-                        : Colors.white,
+                    colorFilter: ColorFilter.mode(
+                        activeTab == NavigationTab.categoriesTab
+                            ? Colors.black
+                            : Colors.white,
+                        BlendMode.srcIn),
                   ),
                 ),
                 label: 'Categories',
               ),
               BottomNavigationBarItem(
                 icon: Padding(
-                  padding: EdgeInsets.only(bottom: AppDimensions.normalize(2)),
+                  padding: padding,
                   child: SvgPicture.asset(
                     Assets.Products,
-                    height: AppDimensions.normalize(10),
-                    width: AppDimensions.normalize(10),
+                    height: height,
+                    width: width,
                     fit: BoxFit.fill,
-                    color: activeTab == NavigationTab.productsTap
-                        ? Colors.black
-                        : Colors.white,
+                    colorFilter: ColorFilter.mode(
+                        activeTab == NavigationTab.productsTap
+                            ? Colors.black
+                            : Colors.white,
+                        BlendMode.srcIn),
                   ),
                 ),
                 label: 'Products',
               ),
               BottomNavigationBarItem(
                 icon: Padding(
-                  padding: EdgeInsets.only(bottom: AppDimensions.normalize(2)),
+                  padding: padding,
                   child: SvgPicture.asset(
                     Assets.Cart,
-                    height: AppDimensions.normalize(10),
-                    width: AppDimensions.normalize(10),
+                    height: height,
+                    width: width,
                     fit: BoxFit.fill,
-                    color: activeTab == NavigationTab.cartTab
-                        ? Colors.black
-                        : Colors.white,
+                    colorFilter: ColorFilter.mode(
+                        activeTab == NavigationTab.cartTab
+                            ? Colors.black
+                            : Colors.white,
+                        BlendMode.srcIn),
                   ),
                 ),
                 label: 'Cart',
               ),
               BottomNavigationBarItem(
                 icon: Padding(
-                  padding: EdgeInsets.only(bottom: AppDimensions.normalize(2)),
+                  padding: padding,
                   child: SvgPicture.asset(
                     Assets.Profile,
-                    height: AppDimensions.normalize(10),
-                    width: AppDimensions.normalize(10),
+                    height: height,
+                    width: width,
                     fit: BoxFit.fill,
-                    color: activeTab == NavigationTab.profileTab
-                        ? Colors.black
-                        : Colors.white,
+                    colorFilter: ColorFilter.mode(
+                        activeTab == NavigationTab.profileTab
+                            ? Colors.black
+                            : Colors.white,
+                        BlendMode.srcIn),
                   ),
                 ),
                 label: 'Profile',
