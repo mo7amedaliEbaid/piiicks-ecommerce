@@ -137,9 +137,19 @@ class _HomeScreenState extends State<HomeScreen> {
                               itemBuilder: (context, index) =>
                                   (state is CategoryLoading)
                                       ? const SquareCategoryItem()
-                                      : SquareCategoryItem(
-                                          category: state.categories[index],
-                                        ),
+                                      : (state is CategoryError)
+                                          ? Center(
+                                              child: Padding(
+                                                padding: Space.hf(2),
+                                                child: Text(
+                                                  "Error Occured While Loading Categories",
+                                                  style: AppText.b1b,
+                                                ),
+                                              ),
+                                            )
+                                          : SquareCategoryItem(
+                                              category: state.categories[index],
+                                            ),
                             ),
                           );
                         },
@@ -184,15 +194,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           return SizedBox(
                             height: AppDimensions.normalize(100),
                             child: (state is ProductError)
-                                ? Text(
-                                    "Error occured While Loading Products",
-                                    style: AppText.b2b,
-                                    overflow: TextOverflow.ellipsis,
+                                ? Center(
+                                    child: Text(
+                                      "Error occured While Loading Products",
+                                      style: AppText.b1b,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   )
                                 : (state is ProductEmpty)
                                     ? Text(
                                         "No Featured Products Available",
-                                        style: AppText.b2b,
+                                        style: AppText.b1b,
                                         overflow: TextOverflow.ellipsis,
                                       )
                                     : ListView.builder(

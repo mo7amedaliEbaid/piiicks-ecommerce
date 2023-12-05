@@ -23,18 +23,25 @@ class CategoriesScreen extends StatelessWidget {
               Expanded(
                 child: BlocBuilder<CategoryBloc, CategoryState>(
                   builder: (context, state) {
-                    return ListView.builder(
-                      itemCount: (state is CategoryLoading)
-                          ? 7
-                          : state.categories.length,
-                      physics: const ClampingScrollPhysics(),
-                      itemBuilder: (context, index) =>
-                          (state is CategoryLoading)
-                              ? const RectangularCategoryItem()
-                              : RectangularCategoryItem(
-                                  category: state.categories[index],
-                                ),
-                    );
+                    return (state is CategoryError)
+                        ? Center(
+                            child: Text(
+                              "Error Loading Categries",
+                              style: AppText.b1b,
+                            ),
+                          )
+                        : ListView.builder(
+                            itemCount: (state is CategoryLoading)
+                                ? 7
+                                : state.categories.length,
+                            physics: const ClampingScrollPhysics(),
+                            itemBuilder: (context, index) =>
+                                (state is CategoryLoading)
+                                    ? const RectangularCategoryItem()
+                                    : RectangularCategoryItem(
+                                        category: state.categories[index],
+                                      ),
+                          );
                   },
                 ),
               ),

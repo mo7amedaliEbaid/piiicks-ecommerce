@@ -12,13 +12,16 @@ class NotificationsCubit extends Cubit<List<String>> {
   NotificationsCubit(this._flutterLocalNotificationsPlugin) : super([]);
 
   Future<void> init() async {
-    log("initiaiiiiiizing");
     const AndroidInitializationSettings initializationSettingsAndroid =
-    AndroidInitializationSettings('app_icon');
-    // TODO add icon in drawable folder
+        AndroidInitializationSettings('icon');
+
+    _flutterLocalNotificationsPlugin
+        .resolvePlatformSpecificImplementation<
+            AndroidFlutterLocalNotificationsPlugin>()
+        ?.requestNotificationsPermission();
 
     const InitializationSettings initializationSettings =
-    InitializationSettings(
+        InitializationSettings(
       android: initializationSettingsAndroid,
       iOS: null,
     );
@@ -45,23 +48,26 @@ class NotificationsCubit extends Cubit<List<String>> {
   }
 
   Future<void> showPlainNotification() async {
-    log("presssssssed");
-    const AndroidNotificationDetails androidNotificationDetails =
-    AndroidNotificationDetails('your channel id', 'your channel name',
-        channelDescription: 'your channel description',
-        importance: Importance.max,
-        priority: Priority.high,
-        ticker: 'ticker');
-    const NotificationDetails notificationDetails =
-    NotificationDetails(android: androidNotificationDetails);
-    await _flutterLocalNotificationsPlugin.show(
-        id++, 'plain title', 'plain body', notificationDetails,
-        payload: 'item x');
+    try {
+      const AndroidNotificationDetails androidNotificationDetails =
+          AndroidNotificationDetails('your channel id', 'your channel name',
+              channelDescription: 'your channel description',
+              importance: Importance.max,
+              priority: Priority.high,
+              ticker: 'ticker');
+      const NotificationDetails notificationDetails =
+          NotificationDetails(android: androidNotificationDetails);
+      await _flutterLocalNotificationsPlugin.show(
+          id++, 'plain title', 'plain body', notificationDetails,
+          payload: 'item x');
+    } catch (e) {
+      log("errrror$e");
+    }
   }
 
-  Future<void> showNotificationWithAudioAttributeAlarm() async {
+  /*Future<void> showNotificationWithAudioAttributeAlarm() async {
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
-    AndroidNotificationDetails(
+        AndroidNotificationDetails(
       'your alarm channel id',
       'your alarm channel name',
       channelDescription: 'your alarm channel description',
@@ -70,12 +76,12 @@ class NotificationsCubit extends Cubit<List<String>> {
       audioAttributesUsage: AudioAttributesUsage.alarm,
     );
     const NotificationDetails platformChannelSpecifics =
-    NotificationDetails(android: androidPlatformChannelSpecifics);
+        NotificationDetails(android: androidPlatformChannelSpecifics);
     await _flutterLocalNotificationsPlugin.show(
       0,
       'notification sound controlled by alarm volume',
       'alarm notification sound body',
       platformChannelSpecifics,
     );
-  }
+  }*/
 }

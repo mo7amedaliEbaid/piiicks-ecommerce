@@ -40,12 +40,7 @@ class _CartScreenState extends State<CartScreen> {
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          if (state.failure is NetworkFailure)
-                            //TODO
-                            if (state.failure is ServerFailure)
-                              //TODO
-                               const Text("Cart is Empty!"),
-                              const SizedBox.shrink()
+                           Text("Cart Is Empty")
                         ],
                       );
                     }

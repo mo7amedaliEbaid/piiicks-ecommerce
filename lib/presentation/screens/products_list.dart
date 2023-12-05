@@ -148,18 +148,20 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
             BlocBuilder<ProductBloc, ProductState>(builder: (context, state) {
           //Result Empty and No Error
           if (state is ProductLoaded && state.products.isEmpty) {
-            return const Center(
+            return Center(
               child: Text(
                 "Products not found!",
+                style: AppText.h3b,
               ),
             );
           }
           //Error and no preloaded data
           if (state is ProductError && state.products.isEmpty) {
             if (state.failure is NetworkFailure) {
-              return const Center(
+              return Center(
                 child: Text(
                   "Network failure\nTry again!",
+                  style: AppText.h3b,
                 ),
               );
             }
@@ -169,7 +171,11 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                 if (state.failure is ServerFailure)
                   const Text("Server Failure"),
                 if (state.failure is CacheFailure)
-                  const Text("Products not found!"),
+                  Center(
+                      child: Text(
+                    "Products not found!",
+                    style: AppText.h3b,
+                  )),
                 IconButton(onPressed: () {}, icon: const Icon(Icons.refresh)),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.1,
@@ -234,8 +240,7 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
                       children: [
                         GestureDetector(
                           onTap: () async {
-                            final sortOrder =
-                                await showSortingOptions(context);
+                            final sortOrder = await showSortingOptions(context);
                             if (sortOrder != null) {
                               setState(() {});
                               // Dispatch SortProducts event with the selected sorting order

@@ -20,7 +20,7 @@ void registerCubits() {
   //Wishlist
   sl.registerFactory(() => ShareCubit());
 
-/*  //Notiications
+  //Notiications
   sl.registerLazySingleton(() => FlutterLocalNotificationsPlugin());
-  sl.registerFactory(() => NotificationsCubit(sl()));*/
+  sl.registerFactory(() => NotificationsCubit(sl()));
 }

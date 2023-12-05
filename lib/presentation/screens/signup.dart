@@ -156,21 +156,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                     ),
-                    child: isLoading == true
-                        ? Padding(
-                            padding: Space.vf(.3),
-                            child: SizedBox(
-                           //   height: AppDimensions.normalize(5),
-                              child: CircularProgressIndicator(
-                                color: Colors.white,
-                                strokeWidth: AppDimensions.normalize(2),
-                              ),
-                            ),
-                          )
-                        : Text(
-                            "Signup",
-                            style: AppText.h3b?.copyWith(color: Colors.white),
-                          ),
+                    child:
+                        Text(
+                      isLoading == true ? "Wait..." : "Signup",
+                      style: AppText.h3b?.copyWith(color: Colors.white),
+                    ),
                   ),
                 ),
                 Space.yf(1.5),

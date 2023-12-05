@@ -114,29 +114,19 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    child: isLoading == true
-                        ? Padding(
-                            padding: Space.vf(.3),
-                            child: SizedBox(
-                            //  height: AppDimensions.normalize(5),
-                              child: CircularProgressIndicator(
-                                color: Colors.white,
-                                strokeWidth: AppDimensions.normalize(2),
-                              ),
-                            ),
-                          )
-                        : Text(
-                            "Login",
-                            style: AppText.h3b?.copyWith(color: Colors.white),
-                          ),
+                    child: Text(
+                      isLoading == true ? "Wait..." : "Login",
+                      style: AppText.h3b?.copyWith(color: Colors.white),
+                    ),
                   ),
                 ),
                 Space.yf(1.5),
                 Center(
-                    child: Text(
-                  "Don’t have an Account?",
-                  style: AppText.b1b,
-                )),
+                  child: Text(
+                    "Don’t have an Account?",
+                    style: AppText.b1b,
+                  ),
+                ),
                 Space.y1!,
                 TransparentButton(
                   context: context,

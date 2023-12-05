@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:piiicks/application/notifications_cubit/notifications_cubit.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/assets.dart';
-import 'package:piiicks/core/router/app_router.dart';
 import '../../configs/app.dart';
+import '../../core/router/app_router.dart';
 
 class AdsScreen extends StatelessWidget {
   const AdsScreen({Key? key}) : super(key: key);
@@ -16,11 +17,12 @@ class AdsScreen extends StatelessWidget {
         children: [
           Container(
             decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(
-                      AppAssets.Ads,
-                    ),
-                    fit: BoxFit.cover)),
+              image: DecorationImage(
+                  image: AssetImage(
+                    AppAssets.Ads,
+                  ),
+                  fit: BoxFit.cover),
+            ),
           ),
           Positioned(
               bottom: AppDimensions.normalize(10),
