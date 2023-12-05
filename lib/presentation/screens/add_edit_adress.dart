@@ -7,6 +7,7 @@ import 'package:piiicks/presentation/widgets/textfield_toptext.dart';
 
 import '../../application/delivery_info_action_cubit/delivery_info_action_cubit.dart';
 import '../../application/delivery_info_fetch_cubit/delivery_info_fetch_cubit.dart';
+import '../../core/router/app_router.dart';
 import '../../data/models/delivery/delivery_info_model.dart';
 import '../../domain/entities/delivery/delivery_info.dart';
 import '../widgets/custom_textfield.dart';
@@ -111,10 +112,10 @@ class _AddAdressScreenState extends State<AddAdressScreen> {
                                     zipCode: zipCode.text,
                                     contactNumber: contactNumber.text,
                                   ));
-                              /* Navigator.of(context).pushNamedAndRemoveUntil(
+                              Navigator.of(context).pushNamedAndRemoveUntil(
                                 AppRouter.mainscreen,
                                 ModalRoute.withName(''),
-                              );*/
+                              );
                             } else {
                               context
                                   .read<DeliveryInfoActionCubit>()
@@ -128,10 +129,10 @@ class _AddAdressScreenState extends State<AddAdressScreen> {
                                     zipCode: zipCode.text,
                                     contactNumber: contactNumber.text,
                                   ));
-                              /* Navigator.of(context).pushNamedAndRemoveUntil(
+                              Navigator.of(context).pushNamedAndRemoveUntil(
                                 AppRouter.mainscreen,
                                 ModalRoute.withName(''),
-                              );*/
+                              );
                             }
                           }
                         },

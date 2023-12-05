@@ -27,35 +27,38 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
           automaticallyImplyLeading: true),
       body: BlocBuilder<NotificationsCubit, List<String>>(
         builder: (context, notifications) {
-          return Padding(
-            padding: Space.all(1, 1),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                if (notifications.isEmpty)
-                  Center(
-                    child: Padding(
-                      padding: EdgeInsets.only(top: AppDimensions.normalize(110)),
-                      child: Text(
-                        'No Notifications',
-                        style: AppText.b1b,
-                      ),
-                    ),
-                  ),
-                for (var notification in notifications)
-                  Padding(
-                    padding: Space.v!,
-                    child: DottedBorder(
+          return SingleChildScrollView(
+            child: Padding(
+              padding: Space.all(1, 1),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  if (notifications.isEmpty)
+                    Center(
                       child: Padding(
-                        padding: Space.all(),
+                        padding:
+                            EdgeInsets.only(top: AppDimensions.normalize(110)),
                         child: Text(
-                          notification,
-                          style: AppText.b1b?.copyWith(height: 1.7),
+                          'No Notifications',
+                          style: AppText.b1b,
                         ),
                       ),
                     ),
-                  ),
-              ],
+                  for (var notification in notifications)
+                    Padding(
+                      padding: Space.v!,
+                      child: DottedBorder(
+                        child: Padding(
+                          padding: Space.all(),
+                          child: Text(
+                            notification,
+                            style: AppText.b1b?.copyWith(height: 1.7),
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
             ),
           );
         },

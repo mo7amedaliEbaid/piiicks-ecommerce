@@ -19,6 +19,10 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SvgPicture _arrowforward = SvgPicture.asset(
+      AppAssets.LeftArrow,
+      width: AppDimensions.normalize(6),
+    );
     return Scaffold(
       body: Padding(
         padding: Space.hf(1.1),
@@ -75,11 +79,7 @@ class ProfileScreen extends StatelessWidget {
                                         )
                                       ],
                                     ),
-                                    const Icon(
-                                      Icons.arrow_forward,
-                                      size: 20,
-                                      color: Colors.black,
-                                    )
+                                    _arrowforward
                                   ],
                                 ),
                               ),
@@ -103,11 +103,7 @@ class ProfileScreen extends StatelessWidget {
                                         )
                                       ],
                                     ),
-                                    const Icon(
-                                      Icons.arrow_forward,
-                                      size: 20,
-                                      color: Colors.black,
-                                    ),
+                                    _arrowforward
                                   ],
                                 ),
                               ),
@@ -132,11 +128,7 @@ class ProfileScreen extends StatelessWidget {
                                       )
                                     ],
                                   ),
-                                  const Icon(
-                                    Icons.arrow_forward,
-                                    size: 20,
-                                    color: Colors.black,
-                                  ),
+                                  _arrowforward
                                 ],
                               ),
                               Space.yf(1.1),
@@ -154,11 +146,7 @@ class ProfileScreen extends StatelessWidget {
                                       )
                                     ],
                                   ),
-                                  const Icon(
-                                    Icons.arrow_forward,
-                                    size: 20,
-                                    color: Colors.black,
-                                  ),
+                                  _arrowforward
                                 ],
                               ),
                             ],
@@ -227,11 +215,7 @@ class ProfileScreen extends StatelessWidget {
                                     ?.copyWith(color: AppColors.CommonCyan),
                               ),
                               Space.xf(.2),
-                              const Icon(
-                                Icons.arrow_forward,
-                                size: 20,
-                                color: Colors.black,
-                              )
+                              _arrowforward
                             ],
                           ),
                         ],
@@ -258,11 +242,7 @@ class ProfileScreen extends StatelessWidget {
                                     ?.copyWith(color: AppColors.CommonCyan),
                               ),
                               Space.xf(.2),
-                              const Icon(
-                                Icons.arrow_forward,
-                                size: 20,
-                                color: Colors.black,
-                              )
+                              _arrowforward
                             ],
                           ),
                         ],
@@ -292,11 +272,7 @@ class ProfileScreen extends StatelessWidget {
                                 )
                               ],
                             ),
-                            const Icon(
-                              Icons.arrow_forward,
-                              size: 20,
-                              color: Colors.black,
-                            )
+                            _arrowforward
                           ],
                         ),
                       ),
@@ -319,11 +295,7 @@ class ProfileScreen extends StatelessWidget {
                                 )
                               ],
                             ),
-                            const Icon(
-                              Icons.arrow_forward,
-                              size: 20,
-                              color: Colors.black,
-                            )
+                            _arrowforward
                           ],
                         ),
                       ),
@@ -345,11 +317,7 @@ class ProfileScreen extends StatelessWidget {
                                 )
                               ],
                             ),
-                            const Icon(
-                              Icons.arrow_forward,
-                              size: 20,
-                              color: Colors.black,
-                            )
+                            _arrowforward
                           ],
                         ),
                       ),
