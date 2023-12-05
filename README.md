@@ -38,22 +38,23 @@ Piiicks is a Flutter e-commerce app, meticulously crafted with clean architectur
 15. **Login/SignUp:** Secure user authentication for a personalized experience.
 16. **Shopping Cart:** Seamless and intuitive management of selected items before purchase.
 17. **User Profile:** Dedicated section for managing addresses, viewing order history, and personalizing preferences.
+18. **Orders Management:** Enable the user to make orders and show different order result screen based on the order status.
 
 ### Additional Features
-18. **Image Caching and Loading Optimization:** Utilize the `cached_network_image` package for efficient loading and caching of network images, enhancing performance.
-19. **SVG Support:** Leverage the `flutter_svg` package for supporting SVG images, providing a scalable and crisp user interface.
-20. **Data Caching:** Use the `shared_preferences` package for caching small amounts of data, improving the user experience by maintaining certain states.
-21. **Authentication and Secure Storage:** Implement secure user authentication with the `flutter_secure_storage` package, ensuring sensitive user data is stored securely.
-22. **Stateful UI with Shimmer Effect:** Enhance the user interface by incorporating the shimmering effect using the `shimmer` package, providing a polished loading experience.
-23. **Dynamic Page Indicators:** Implement dynamic page indicators using the `dots_indicator` package, providing visual cues for users when navigating through different screens.
-24. **HTTP Requests and API Integration:** Leverage the `http` package for making HTTP requests and seamlessly integrate with external APIs for fetching and updating data.
-25. **Network Connectivity Check:** Utilize the `internet_connection_checker` package to ensure a smooth user experience by checking and handling network connectivity.
-26. **Dependency Injection:** Leverage the `get_it` package for efficient dependency injection, improving code maintainability and managing dependencies effectively.
-27. **Functional Programming Principles:** Explore and implement functional programming principles from the `dartz` package, enhancing code clarity and error handling.
-28. **Share Products:** Enable users to share product details using the `share_plus` package for seamless sharing on social media and other platforms.
-29. **Contact Us Screen with URL Launcher:** Utilize the `url_launcher` package to open the contact us screen, allowing users to interact with external links such as emails or phone numbers.
-30. **Wishlist with Get Storage:** Implement a wishlist feature using the `get_storage` package to save and retrieve products, providing users with a personalized wishlist experience.
-31. **Product Sharing with Screenshot:** Allow users to share product details with a screenshot using the `screenshot` package, enhancing the sharing capabilities of your app.
+19. **Image Caching and Loading Optimization:** Utilize the `cached_network_image` package for efficient loading and caching of network images, enhancing performance.
+20. **SVG Support:** Leverage the `flutter_svg` package for supporting SVG images, providing a scalable and crisp user interface.
+21. **Data Caching:** Use the `shared_preferences` package for caching small amounts of data, improving the user experience by maintaining certain states.
+22. **Authentication and Secure Storage:** Implement secure user authentication with the `flutter_secure_storage` package, ensuring sensitive user data is stored securely.
+23. **Stateful UI with Shimmer Effect:** Enhance the user interface by incorporating the shimmering effect using the `shimmer` package, providing a polished loading experience.
+24. **Dynamic Page Indicators:** Implement dynamic page indicators using the `dots_indicator` package, providing visual cues for users when navigating through different screens.
+25. **HTTP Requests and API Integration:** Leverage the `http` package for making HTTP requests and seamlessly integrate with external APIs for fetching and updating data.
+27. **Network Connectivity Check:** Utilize the `internet_connection_checker` package to ensure a smooth user experience by checking and handling network connectivity.
+28. **Dependency Injection:** Leverage the `get_it` package for efficient dependency injection, improving code maintainability and managing dependencies effectively.
+29. **Functional Programming Principles:** Explore and implement functional programming principles from the `dartz` package, enhancing code clarity and error handling.
+30. **Share Products:** Enable users to share product details using the `share_plus` package for seamless sharing on social media and other platforms.
+31. **Contact Us Screen with URL Launcher:** Utilize the `url_launcher` package to open the contact us screen, allowing users to interact with external links such as emails or phone numbers.
+32. **Wishlist with Get Storage:** Implement a wishlist feature using the `get_storage` package to save and retrieve products, providing users with a personalized wishlist experience.
+33. **Product Sharing with Screenshot:** Allow users to share product details with a screenshot using the `screenshot` package, enhancing the sharing capabilities of your app.
 
 
 ## Dependencies
@@ -129,6 +130,8 @@ dependencies:
 - Wishlist.
 - Contact Us.
 - Checkout.
+- Order Success.
+- Order Failure.
 
 For more screen shots [Here](https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/ec474e822af055693058d0beb05a5e52411d8504/screenshots)
 
