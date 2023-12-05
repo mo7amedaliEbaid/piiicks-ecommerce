@@ -2,33 +2,27 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:photo_view/photo_view.dart';
-import 'package:photo_view/photo_view_gallery.dart';
 import 'package:piiicks/application/notifications_cubit/notifications_cubit.dart';
 import 'package:piiicks/application/share_cubit/share_cubit.dart';
 import 'package:piiicks/configs/app.dart';
-import 'package:piiicks/configs/app_dimensions.dart';
-import 'package:piiicks/configs/app_typography.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/assets.dart';
 import 'package:piiicks/core/constant/colors.dart';
-import 'package:piiicks/core/router/app_router.dart';
 
 import 'package:piiicks/domain/entities/product/product.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
+import 'package:piiicks/presentation/widgets/photo_view_dialog.dart';
 import 'package:piiicks/presentation/widgets/quantity_row.dart';
-import 'package:piiicks/presentation/widgets/transparent_button.dart';
 import 'package:screenshot/screenshot.dart';
 
-import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';
 import '../../application/cart_bloc/cart_bloc.dart';
 import '../../application/wishlist_cubit/wishlist_cubit.dart';
-import '../../core/enums/enums.dart';
 import '../../data/models/product/product_model.dart';
 import '../../domain/entities/cart/cart_item.dart';
 import '../../domain/entities/product/price_tag.dart';
 import '../widgets/dots_indicator.dart';
 import '../widgets/loading_shimmer.dart';
+import '../widgets/proceedtocart_modalsheet.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   const ProductDetailsScreen({super.key, required this.product});
@@ -122,70 +116,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                             itemBuilder: (context, index) {
                               return GestureDetector(
                                 onTap: () {
-                                  showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return Padding(
-                                        padding: EdgeInsets.only(
-                                            bottom:
-                                                AppDimensions.normalize(40)),
-                                        child: Dialog(
-                                          insetPadding: Space.hf(1.3),
-                                          child: Stack(
-                                            clipBehavior: Clip.none,
-                                            children: [
-                                              SizedBox(
-                                                height: AppDimensions.normalize(
-                                                    170),
-                                                width: double.maxFinite,
-                                                child: PhotoViewGallery(
-                                                  pageController:
-                                                      PageController(),
-                                                  scrollPhysics:
-                                                      const BouncingScrollPhysics(),
-                                                  backgroundDecoration:
-                                                      BoxDecoration(
-                                                    color: Colors.grey.shade400,
-                                                  ),
-                                                  pageOptions: [
-                                                    PhotoViewGalleryPageOptions(
-                                                      imageProvider:
-                                                          NetworkImage(widget
-                                                              .product
-                                                              .images[index]),
-                                                      minScale:
-                                                          PhotoViewComputedScale
-                                                              .covered,
-                                                      maxScale:
-                                                          PhotoViewComputedScale
-                                                                  .covered *
-                                                              2,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Positioned(
-                                                top: -AppDimensions.normalize(
-                                                    18),
-                                                right:
-                                                    -AppDimensions.normalize(4),
-                                                child: IconButton(
-                                                  onPressed: () {
-                                                    setState(() {
-                                                      Navigator.pop(context);
-                                                    });
-                                                  },
-                                                  icon: SvgPicture.asset(
-                                                    AppAssets.Close,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  );
+                                  showPhotoViewDialog(
+                                      widget.product.images[index], context);
                                 },
                                 child: Hero(
                                   tag: widget.product.id,
@@ -387,77 +319,17 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    context.read<CartBloc>().add(AddProduct(
-                        cartItem: CartItem(
-                            product: widget.product,
-                            priceTag: _selectedPriceTag)));
+                    context.read<CartBloc>().add(
+                          AddProduct(
+                            cartItem: CartItem(
+                                product: widget.product,
+                                priceTag: _selectedPriceTag),
+                          ),
+                        );
                     context.read<NotificationsCubit>().showAndSaveNotification(
                         "Cart Update",
                         "Congratulations, You have successfully added ${widget.product.name} to your cart.");
-                    showModalBottomSheet(
-                      context: context,
-                      backgroundColor: const Color(0xfff6f6f6),
-                      constraints: BoxConstraints(
-                          minHeight: AppDimensions.normalize(120),
-                          maxWidth: double.infinity),
-                      builder: (BuildContext context) {
-                        return SizedBox(
-                          width: double.infinity,
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                top: AppDimensions.normalize(12),
-                                left: AppDimensions.normalize(8),
-                                right: AppDimensions.normalize(8),
-                                bottom: AppDimensions.normalize(5)),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  "CONTINUE",
-                                  style: AppText.h3b,
-                                ),
-                                Space.yf(1),
-                                const Text(
-                                    "Lorem Ipsum is simply dummy text of the"),
-                                Space.yf(.2),
-                                const Text(
-                                    "printing and typesetting industry."),
-                                Space.yf(2),
-                                TransparentButton(
-                                    context: context,
-                                    onTap: () {
-                                      context
-                                          .read<NavigationCubit>()
-                                          .updateTab(NavigationTab.cartTab);
-                                      Navigator.popAndPushNamed(
-                                          context, AppRouter.mainscreen);
-                                    },
-                                    buttonText: "Proceed to Cart"),
-                                Space.yf(1.5),
-                                SizedBox(
-                                  width: double.infinity,
-                                  child: ElevatedButton(
-                                    onPressed: () {
-                                      context
-                                          .read<NavigationCubit>()
-                                          .updateTab(NavigationTab.productsTap);
-                                      Navigator.popAndPushNamed(
-                                          context, AppRouter.mainscreen);
-                                    },
-                                    child: Text(
-                                      "Continue Shopping",
-                                      style: AppText.h3b
-                                          ?.copyWith(color: Colors.white),
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                    );
+                    showPoceedtoCartBottomSheet(context);
                   },
                   child: Text(
                     "Add to cart",

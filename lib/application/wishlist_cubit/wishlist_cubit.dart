@@ -69,9 +69,9 @@ class WishlistCubit extends Cubit<WishlistState> {
         .map((map) => map['_id'].toString()) // Use '_id' instead of 'id'
         .toList();
 
-    log('mapWishlistData: $mapWishlistData');
+ //   log('mapWishlistData: $mapWishlistData');
 
-    log(stringWishlistIds.contains(productId).toString());
+ //   log(stringWishlistIds.contains(productId).toString());
     return stringWishlistIds.contains(productId);
   }
 }

@@ -15,6 +15,8 @@ import '../../data/models/product/filter_params_model.dart';
 import '../widgets/black_dot.dart';
 import '../widgets/rectangular_product_item.dart';
 
+//TODO refactor and minimize code of this screen
+
 class ProductsListScreen extends StatefulWidget {
   const ProductsListScreen({super.key});
 
