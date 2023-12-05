@@ -132,6 +132,8 @@ dependencies:
 - Checkout.
 - Order Success.
 - Order Failure.
+- Orders.
+- Notifications.
 
 For more screen shots [Here](https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/ec474e822af055693058d0beb05a5e52411d8504/screenshots)
 
@@ -164,7 +166,6 @@ For more screen shots [Here](https://github.com/mo7amedaliEbaid/piiicks-ecom/blo
 
 ### ToDo:
 
-- Orders.
 - Payment.
 
 
