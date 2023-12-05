@@ -11,3 +11,4 @@ class ReceivedNotification {
   final String? body;
   final String? payload;
 }
+

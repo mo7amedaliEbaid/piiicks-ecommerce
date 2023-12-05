@@ -1,5 +1,3 @@
-
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,7 +28,7 @@ import '../../data/models/product/product_model.dart';
 import '../../domain/entities/cart/cart_item.dart';
 import '../../domain/entities/product/price_tag.dart';
 import '../widgets/dots_indicator.dart';
-import '../widgets/lading_shimmer.dart';
+import '../widgets/loading_shimmer.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   const ProductDetailsScreen({super.key, required this.product});
@@ -393,6 +391,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         cartItem: CartItem(
                             product: widget.product,
                             priceTag: _selectedPriceTag)));
+                    context.read<NotificationsCubit>().showAndSaveNotification(
+                        "Cart Update",
+                        "Congratulations, You have successfully added ${widget.product.name} to your cart.");
                     showModalBottomSheet(
                       context: context,
                       backgroundColor: const Color(0xfff6f6f6),

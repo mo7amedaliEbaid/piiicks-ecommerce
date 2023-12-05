@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:get_storage/get_storage.dart';
 
 import '../../core/constant/notifications.dart';
 import '../../data/models/notification/recieved_notification.dart';
@@ -47,7 +48,7 @@ class NotificationsCubit extends Cubit<List<String>> {
     });
   }
 
-  Future<void> showPlainNotification() async {
+  Future<void> showAndSaveNotification(String title, String body) async {
     try {
       const AndroidNotificationDetails androidNotificationDetails =
           AndroidNotificationDetails('your channel id', 'your channel name',
@@ -57,15 +58,45 @@ class NotificationsCubit extends Cubit<List<String>> {
               ticker: 'ticker');
       const NotificationDetails notificationDetails =
           NotificationDetails(android: androidNotificationDetails);
-      await _flutterLocalNotificationsPlugin.show(
-          id++, 'plain title', 'plain body', notificationDetails,
-          payload: 'item x');
+      await _flutterLocalNotificationsPlugin
+          .show(id++, title, body, notificationDetails, payload: 'item x');
+
+      // Save Notification Body Locally
+      final box = GetStorage();
+      final List<dynamic>? notificationsData = box.read('notifications');
+
+      final List<String> updatedNotifications =
+          List<String>.from(notificationsData ?? []);
+
+      updatedNotifications.add(body);
+
+      box.write('notifications', updatedNotifications);
     } catch (e) {
-      log("errrror$e");
+      log("error$e");
     }
   }
 
-  /*Future<void> showNotificationWithAudioAttributeAlarm() async {
+  Future<void> getSavedNotifications() async {
+    final box = GetStorage();
+    final List<dynamic>? notificationsData = box.read('notifications');
+
+    if (notificationsData == null) {
+      emit([]);
+      return;
+    }
+
+    final List<String> notifications =
+        notificationsData.map((dynamic item) => item.toString()).toList();
+
+    emit(notifications);
+  }
+
+  Future<void> clearNotifications() async {
+    final box = GetStorage();
+    box.remove('notifications');
+    emit([]);
+  }
+/*Future<void> showNotificationWithAudioAttributeAlarm() async {
     const AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
       'your alarm channel id',

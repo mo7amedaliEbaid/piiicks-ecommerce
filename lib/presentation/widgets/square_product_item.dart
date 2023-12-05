@@ -4,7 +4,7 @@ import 'package:piiicks/configs/app.dart';
 import 'package:piiicks/configs/app_dimensions.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/domain/entities/product/product.dart';
-import 'package:piiicks/presentation/widgets/lading_shimmer.dart';
+import 'package:piiicks/presentation/widgets/loading_shimmer.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../core/constant/colors.dart';

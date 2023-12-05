@@ -8,8 +8,10 @@ import 'package:piiicks/presentation/screens/checkout.dart';
 import 'package:piiicks/presentation/screens/contact.dart';
 import 'package:piiicks/presentation/screens/filter.dart';
 import 'package:piiicks/presentation/screens/login.dart';
+import 'package:piiicks/presentation/screens/notifications.dart';
 import 'package:piiicks/presentation/screens/order_failure.dart';
 import 'package:piiicks/presentation/screens/order_success.dart';
+import 'package:piiicks/presentation/screens/orders.dart';
 import 'package:piiicks/presentation/screens/product_details.dart';
 import 'package:piiicks/presentation/screens/root.dart';
 import 'package:piiicks/presentation/screens/search.dart';
@@ -39,6 +41,8 @@ sealed class AppRouter {
   static const String wishlist = '/wishlist';
   static const String ordersuccess = '/ordersuccess';
   static const String orderfailure = '/orderfailure';
+  static const String orders = '/orders';
+  static const String notifications = '/notifications';
 
   static Route<dynamic> onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
@@ -61,7 +65,7 @@ sealed class AppRouter {
       case login:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case contact:
-        return MaterialPageRoute(builder: (_) =>  ContactScreen());
+        return MaterialPageRoute(builder: (_) => ContactScreen());
       case cart:
         return MaterialPageRoute(builder: (_) => const CartScreen());
       case adress:
@@ -85,11 +89,15 @@ sealed class AppRouter {
                   screenTitle: screenTitle,
                 ));
       case wishlist:
-        return MaterialPageRoute(builder: (_) =>const WishListScreen());
+        return MaterialPageRoute(builder: (_) => const WishListScreen());
       case ordersuccess:
-        return MaterialPageRoute(builder: (_) =>const OrderSuccessScreen());
+        return MaterialPageRoute(builder: (_) => const OrderSuccessScreen());
       case orderfailure:
-        return MaterialPageRoute(builder: (_) =>const OrderFailureScreen());
+        return MaterialPageRoute(builder: (_) => const OrderFailureScreen());
+      case orders:
+        return MaterialPageRoute(builder: (_) => const OrdersScreen());
+      case notifications:
+        return MaterialPageRoute(builder: (_) => const NotificationsScreen());
       default:
         throw const RouteException('Route not found!');
     }

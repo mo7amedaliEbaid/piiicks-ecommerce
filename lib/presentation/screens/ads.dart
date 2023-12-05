@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:piiicks/application/notifications_cubit/notifications_cubit.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/assets.dart';
 import '../../configs/app.dart';

@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:piiicks/configs/app.dart';
 import 'package:piiicks/configs/app_dimensions.dart';
 import 'package:piiicks/configs/configs.dart';
-import 'package:piiicks/presentation/widgets/lading_shimmer.dart';
+import 'package:piiicks/presentation/widgets/loading_shimmer.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../application/bottom_navbar_cubit/bottom_navbar_cubit.dart';

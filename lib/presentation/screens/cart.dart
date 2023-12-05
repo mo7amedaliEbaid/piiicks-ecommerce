@@ -4,6 +4,7 @@ import 'package:piiicks/configs/app_dimensions.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/colors.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
+import 'package:piiicks/presentation/widgets/empty_cart_container.dart';
 import 'package:piiicks/presentation/widgets/payment_details.dart';
 
 import '../../../../core/error/failures.dart';
@@ -37,58 +38,10 @@ class _CartScreenState extends State<CartScreen> {
                 BlocBuilder<CartBloc, CartState>(
                   builder: (context, state) {
                     if (state is CartError) {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                           Text("Cart Is Empty")
-                        ],
-                      );
+                      return emptyCartContainer(context);
                     }
                     if (state is CartLoaded && state.cart.isEmpty) {
-                      return Container(
-                        color: AppColors.LightGrey,
-                        margin:
-                            EdgeInsets.only(top: AppDimensions.normalize(60)),
-                        //  height: AppDimensions.normalize(45),
-                        padding: Space.all(1, 2.5),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "NO ITEMS IN CART",
-                                style: AppText.h3b
-                                    ?.copyWith(color: AppColors.CommonCyan),
-                              ),
-                              Space.yf(),
-                              Text(
-                                "We Have Found No Items Added",
-                                style: AppText.b1,
-                              ),
-                              Space.yf(),
-                              Text(
-                                "In Your Cart To Checkout",
-                                style: AppText.b1,
-                              ),
-                              Space.yf(1.5),
-                              SizedBox(
-                                width: AppDimensions.normalize(50),
-                                child: ElevatedButton(
-                                    onPressed: () {
-                                      context
-                                          .read<NavigationCubit>()
-                                          .updateTab(NavigationTab.productsTap);
-                                    },
-                                    child: Text(
-                                      "Add Items",
-                                      style: AppText.h3b
-                                          ?.copyWith(color: Colors.white),
-                                    )),
-                              )
-                            ],
-                          ),
-                        ),
-                      );
+                      return emptyCartContainer(context);
                     }
                     return Expanded(
                       child: ListView.builder(
@@ -134,20 +87,19 @@ class _CartScreenState extends State<CartScreen> {
           BlocBuilder<UserBloc, UserState>(
             builder: (context, state) {
               if (state is UserLogged) {
-                 return const PaymentDetails(
-                   buttonText: "Proceed To Checkout",
-                   isFromCheckout: false,
-                   isLogged: true,
-                 );
+                return const PaymentDetails(
+                  buttonText: "Proceed To Checkout",
+                  isFromCheckout: false,
+                  isLogged: true,
+                );
               } else {
-               return const PaymentDetails(
-                 buttonText: "Proceed To Checkout",
-                 isFromCheckout: false,
-                 isLogged: false,
-               );
+                return const PaymentDetails(
+                  buttonText: "Proceed To Checkout",
+                  isFromCheckout: false,
+                  isLogged: false,
+                );
               }
             },
-
           ),
         ],
       ),

@@ -5,7 +5,7 @@ import 'package:piiicks/configs/app_typography.dart';
 import 'package:piiicks/configs/space.dart';
 import 'package:piiicks/core/constant/colors.dart';
 import 'package:piiicks/presentation/widgets/dashed_separator.dart';
-import 'package:piiicks/presentation/widgets/lading_shimmer.dart';
+import 'package:piiicks/presentation/widgets/loading_shimmer.dart';
 import 'package:piiicks/presentation/widgets/quantity_row.dart';
 
 import '../../core/router/app_router.dart';

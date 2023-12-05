@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:piiicks/configs/app_dimensions.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/assets.dart';
-import 'package:piiicks/presentation/widgets/lading_shimmer.dart';
+import 'package:piiicks/presentation/widgets/loading_shimmer.dart';
 
 import '../../core/constant/colors.dart';
 import '../../domain/entities/product/product.dart';

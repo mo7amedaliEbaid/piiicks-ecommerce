@@ -7,7 +7,7 @@ import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/colors.dart';
 import 'package:piiicks/core/router/app_router.dart';
 import 'package:piiicks/presentation/widgets/adress_row.dart';
-import 'package:piiicks/presentation/widgets/lading_shimmer.dart';
+import 'package:piiicks/presentation/widgets/loading_shimmer.dart';
 
 import '../../application/delivery_info_action_cubit/delivery_info_action_cubit.dart';
 import '../../domain/entities/delivery/delivery_info.dart';

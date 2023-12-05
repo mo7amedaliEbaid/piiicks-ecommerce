@@ -57,7 +57,7 @@ class ProfileScreen extends StatelessWidget {
                                     children: [
                                       SvgPicture.asset(
                                         AppAssets.Profile,
-                                        colorFilter: ColorFilter.mode(
+                                        colorFilter: const ColorFilter.mode(
                                             AppColors.CommonCyan,
                                             BlendMode.srcIn),
                                         //    color: AppColors.CommonCyan,
@@ -196,26 +196,32 @@ class ProfileScreen extends StatelessWidget {
                                     ?.copyWith(color: AppColors.CommonCyan),
                               ),
                               Space.yf(.9),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      SvgPicture.asset(AppAssets.Archive),
-                                      Space.xf(),
-                                      Text(
-                                        "My Orders",
-                                        style: AppText.b1b,
-                                      )
-                                    ],
-                                  ),
-                                  const Icon(
-                                    Icons.arrow_forward,
-                                    size: 20,
-                                    color: Colors.black,
-                                  )
-                                ],
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .pushNamed(AppRouter.orders);
+                                },
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        SvgPicture.asset(AppAssets.Archive),
+                                        Space.xf(),
+                                        Text(
+                                          "My Orders",
+                                          style: AppText.b1b,
+                                        )
+                                      ],
+                                    ),
+                                    const Icon(
+                                      Icons.arrow_forward,
+                                      size: 20,
+                                      color: Colors.black,
+                                    )
+                                  ],
+                                ),
                               ),
                               Space.yf(1.1),
                               GestureDetector(
@@ -308,30 +314,36 @@ class ProfileScreen extends StatelessWidget {
                             AppText.h3b?.copyWith(color: AppColors.CommonCyan),
                       ),
                       Space.yf(.9),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              SvgPicture.asset(AppAssets.Bell),
-                              Space.xf(),
-                              Text(
-                                "Notifications",
-                                style: AppText.b1b,
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: AppDimensions.normalize(10),
-                            child: Switch(
-                              value: true,
-                              onChanged: null,
-                              activeTrackColor: AppColors.CommonCyan,
-                              thumbColor:
-                                  MaterialStateProperty.all(Colors.white),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(AppRouter.notifications);
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                SvgPicture.asset(AppAssets.Bell),
+                                Space.xf(),
+                                Text(
+                                  "Notifications",
+                                  style: AppText.b1b,
+                                )
+                              ],
                             ),
-                          )
-                        ],
+                            SizedBox(
+                              height: AppDimensions.normalize(10),
+                              child: Switch(
+                                value: true,
+                                onChanged: null,
+                                activeTrackColor: AppColors.CommonCyan,
+                                thumbColor:
+                                    MaterialStateProperty.all(Colors.white),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                       Space.yf(1.1),
                       Row(

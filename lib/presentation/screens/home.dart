@@ -6,7 +6,7 @@ import 'package:piiicks/application/products_bloc/product_bloc.dart';
 import 'package:piiicks/application/wishlist_cubit/wishlist_cubit.dart';
 import 'package:piiicks/configs/app.dart';
 import 'package:piiicks/configs/configs.dart';
-import 'package:piiicks/presentation/widgets/lading_shimmer.dart';
+import 'package:piiicks/presentation/widgets/loading_shimmer.dart';
 import 'package:piiicks/presentation/widgets/square_product_item.dart';
 import 'package:piiicks/presentation/widgets/top_row.dart';
 
