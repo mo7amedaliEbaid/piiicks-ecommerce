@@ -110,6 +110,8 @@ dependencies:
       # Easily restart your application from scratch, losing any previous state.
 ```
 
+## Download App
+<a href="https://github.com/mo7amedaliEbaid/piiicks-ecommerce/releases/download/v1.0.0/piiicks.apk"><img src="https://playerzon.com/asset/download.png" width="150"></img></a>
 
 ## Screens.
 ### Done:
@@ -171,6 +173,7 @@ For more screen shots [Here](https://github.com/mo7amedaliEbaid/piiicks-ecom/blo
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/3c2986dd16cb847ef9866cb9a861d3c6167edc41/screenshots/terms.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/5384c98e8609f0ca356917582dbd49e874e976b1/screenshots/wishlist.jpg" width="170" />
    <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/310a4875e42477e73444a4f2dd0a08989b267673/screenshots/shimmer.jpg" width="170" />
+   <img src="https://github.com/mo7amedaliEbaid/piiicks-ecom/blob/f21a82054980e7c09ad41277770f74e87a66f857/screenshots/noconnection.jpg" width="170" />
 </p>
 
 
