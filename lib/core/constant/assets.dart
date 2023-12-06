@@ -8,7 +8,7 @@ sealed class AppAssets {
   static const String Splash = "assets/svg/splash.svg";
   static const String Cart = "assets/svg/cart.svg";
   static const String Products = "assets/svg/products.svg";
-  static const String Profile = "assets/svg/profile.svg";
+  static const String Profile = "assets/svg/profile.svg";  // Svg Error
   static const String Categories = "assets/svg/categories.svg";
   static const String Home = "assets/svg/home.svg";
   static const String Plus = "assets/svg/plus.svg";
@@ -34,9 +34,12 @@ sealed class AppAssets {
   static const String OrderSuccess = "assets/svg/ordersuccess.svg";
   static const String OrderError = "assets/svg/ordererror.svg";
   static const String LeftArrow = "assets/svg/leftarrow.svg";
+  static const String BadConnection = "assets/svg/badconnection.svg";
+  static const String Curves = "assets/svg/curves.svg"; //Svg Error
 
   //png
   static const String Ads = "assets/images/ad.png";
   static const String HomePng = "assets/images/homepng.png";
   static const String Profile_bg_png = "assets/images/profile-bg.png";
+  static const String Curves_bg_png = "assets/images/curves-bg.png";
 }

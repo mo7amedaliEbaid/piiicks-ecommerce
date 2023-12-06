@@ -14,6 +14,7 @@ import '../../core/router/app_router.dart';
 import '../../data/models/product/filter_params_model.dart';
 import '../widgets/black_dot.dart';
 import '../widgets/rectangular_product_item.dart';
+import '../widgets/noconnection_column.dart';
 
 //TODO refactor and minimize code of this screen
 
@@ -168,20 +169,13 @@ class _ProductsListScreenState extends State<ProductsListScreen> {
               );
             }
             return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                if (state.failure is ServerFailure)
-                  const Text("Server Failure"),
-                if (state.failure is CacheFailure)
-                  Center(
-                      child: Text(
-                    "Products not found!",
-                    style: AppText.h3b,
-                  )),
-                IconButton(onPressed: () {}, icon: const Icon(Icons.refresh)),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.1,
-                )
+                if (state.failure is ServerFailure ||
+                    state.failure is CacheFailure)
+                  const NoConnectionColumn(
+                    isFromCategories: false,
+                  )
               ],
             );
           }

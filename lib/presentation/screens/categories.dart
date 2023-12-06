@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/categories_bloc/category_bloc.dart';
 import '../../configs/configs.dart';
+import '../widgets/noconnection_column.dart';
 import '../widgets/rectangular_category_item.dart';
 import '../widgets/top_row.dart';
 
@@ -20,17 +21,14 @@ class CategoriesScreen extends StatelessWidget {
             children: [
               TopRow(isFromHome: false, context: context),
               Space.yf(.2),
-              Expanded(
-                child: BlocBuilder<CategoryBloc, CategoryState>(
-                  builder: (context, state) {
-                    return (state is CategoryError)
-                        ? Center(
-                            child: Text(
-                              "Error Loading Categries",
-                              style: AppText.b1b,
-                            ),
-                          )
-                        : ListView.builder(
+              BlocBuilder<CategoryBloc, CategoryState>(
+                builder: (context, state) {
+                  return (state is CategoryError)
+                      ? const NoConnectionColumn(
+                          isFromCategories: true,
+                        )
+                      : Expanded(
+                          child: ListView.builder(
                             itemCount: (state is CategoryLoading)
                                 ? 7
                                 : state.categories.length,
@@ -41,9 +39,9 @@ class CategoriesScreen extends StatelessWidget {
                                     : RectangularCategoryItem(
                                         category: state.categories[index],
                                       ),
-                          );
-                  },
-                ),
+                          ),
+                        );
+                },
               ),
             ],
           ),

@@ -105,7 +105,9 @@ dependencies:
   path_provider:
       # Plugin for interacting with the file system, including getting the app's temporary and application support directories
   url_launcher:
-      # Flutter plugin for launching URLs, emails, making phone calls, and sending SMS
+      # Flutter plugin for launching URLs, emails, making phone calls, and sending SMS.
+  flutter_phoenix:
+      # Easily restart your application from scratch, losing any previous state.
 ```
 
 

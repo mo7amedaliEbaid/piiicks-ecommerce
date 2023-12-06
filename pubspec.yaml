@@ -37,6 +37,7 @@ dependencies:
   screenshot:
   path_provider:
   url_launcher:
+  flutter_phoenix:
 
 dev_dependencies:
   flutter_test:
