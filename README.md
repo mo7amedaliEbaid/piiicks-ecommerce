@@ -207,6 +207,10 @@ https://github.com/mo7amedaliEbaid/piiicks-ecommerce/assets/131966482/0f01f13b-a
 https://github.com/mo7amedaliEbaid/piiicks-ecommerce/assets/131966482/6dfb61d2-221a-4a9a-9589-c659217099f3
 
 
+- Usually this Case will Occur if you open the app for the first time without internet connection. If its not the first time the app will use cached data.
+
+https://github.com/mo7amedaliEbaid/piiicks-ecommerce/assets/131966482/4d83307e-2e4b-4427-bf6b-10e3f39ca835
+
 
 
 
