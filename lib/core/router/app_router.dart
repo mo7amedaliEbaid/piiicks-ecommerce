@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:piiicks/domain/entities/delivery/delivery_info.dart';
-import 'package:piiicks/presentation/screens/add_edit_adress.dart';
+import 'package:piiicks/presentation/screens/add_edit_address.dart';
 import 'package:piiicks/presentation/screens/ads.dart';
 import 'package:piiicks/presentation/screens/app_info.dart';
 import 'package:piiicks/presentation/screens/cart.dart';
@@ -20,7 +20,7 @@ import 'package:piiicks/presentation/screens/splash.dart';
 import 'package:piiicks/presentation/screens/wishlist.dart';
 import '../../domain/entities/cart/cart_item.dart';
 import '../../domain/entities/product/product.dart';
-import '../../presentation/screens/adress.dart';
+import '../../presentation/screens/addresses.dart';
 import '../error/exceptions.dart';
 
 sealed class AppRouter {

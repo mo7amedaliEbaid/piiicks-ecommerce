@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:piiicks/configs/app_dimensions.dart';
 import 'package:piiicks/configs/configs.dart';
 import 'package:piiicks/core/constant/colors.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
 import 'package:piiicks/presentation/widgets/empty_cart_container.dart';
+import 'package:piiicks/presentation/widgets/error_container.dart';
 import 'package:piiicks/presentation/widgets/payment_details.dart';
 
 import '../../../../core/error/failures.dart';
@@ -24,6 +26,7 @@ class CartScreen extends StatefulWidget {
 
 class _CartScreenState extends State<CartScreen> {
   List<CartItem> selectedCartItems = [];
+  bool isCartError = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +38,15 @@ class _CartScreenState extends State<CartScreen> {
             padding: Space.all(1, 0),
             child: Column(
               children: [
-                BlocBuilder<CartBloc, CartState>(
+                BlocConsumer<CartBloc, CartState>(
+                  listener: (context, state) {
+                    /*setState(() {
+                      isCartError = true;
+                    });*/
+                  },
                   builder: (context, state) {
                     if (state is CartError) {
-                      return emptyCartContainer(context);
+                      return errorContainer(context, true);
                     }
                     if (state is CartLoaded && state.cart.isEmpty) {
                       return emptyCartContainer(context);
@@ -50,7 +58,7 @@ class _CartScreenState extends State<CartScreen> {
                             : (state.cart.length +
                                 ((state is CartLoading) ? 10 : 0)),
                         padding: EdgeInsets.only(
-                            bottom: AppDimensions.normalize(120)),
+                            bottom: AppDimensions.normalize(127)),
                         physics: const BouncingScrollPhysics(),
                         shrinkWrap: true,
                         itemBuilder: (BuildContext context, int index) {
@@ -84,6 +92,9 @@ class _CartScreenState extends State<CartScreen> {
               ],
             ),
           ),
+          /*  isCartError
+              ? const SizedBox.shrink()
+              :*/
           BlocBuilder<UserBloc, UserState>(
             builder: (context, state) {
               if (state is UserLogged) {

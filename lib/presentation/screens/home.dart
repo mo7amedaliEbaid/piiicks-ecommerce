@@ -6,6 +6,7 @@ import 'package:piiicks/application/products_bloc/product_bloc.dart';
 import 'package:piiicks/application/wishlist_cubit/wishlist_cubit.dart';
 import 'package:piiicks/configs/app.dart';
 import 'package:piiicks/configs/configs.dart';
+import 'package:piiicks/presentation/widgets/error_container.dart';
 import 'package:piiicks/presentation/widgets/loading_shimmer.dart';
 import 'package:piiicks/presentation/widgets/square_product_item.dart';
 import 'package:piiicks/presentation/widgets/top_row.dart';
@@ -140,12 +141,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       : (state is CategoryError)
                                           ? Center(
                                               child: Padding(
-                                                padding: Space.hf(2),
-                                                child: Text(
-                                                  "Error Occured While Loading Categories",
-                                                  style: AppText.b1b,
-                                                ),
-                                              ),
+                                                  padding: Space.hf(2),
+                                                  child: errorContainer(
+                                                      context, false)),
                                             )
                                           : SquareCategoryItem(
                                               category: state.categories[index],
@@ -194,13 +192,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           return SizedBox(
                             height: AppDimensions.normalize(100),
                             child: (state is ProductError)
-                                ? Center(
-                                    child: Text(
-                                      "Error occured While Loading Products",
-                                      style: AppText.b1b,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  )
+                                ? Center(child: errorContainer(context, false))
                                 : (state is ProductEmpty)
                                     ? Text(
                                         "No Featured Products Available",

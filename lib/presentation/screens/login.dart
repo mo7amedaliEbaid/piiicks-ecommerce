@@ -29,7 +29,17 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
 
   bool isLoading = false;
+  void _startLoading() {
+    setState(() {
+      isLoading = true;
+    });
 
+    Future.delayed(const Duration(seconds: 10), () {
+      setState(() {
+        isLoading = false;
+      });
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   listener: (context, state) {
                     if (state is UserLoading) {
                       setState(() {
-                        isLoading = true;
+                        _startLoading();
                       });
                     } else if (state is UserLogged) {
                       showSuccessfulAuthDialog(context, "logged in");
