@@ -28,7 +28,7 @@ class AdsScreen extends StatelessWidget {
               child: ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pushNamedAndRemoveUntil(
-                      AppRouter.mainscreen,
+                      AppRouter.root,
                       (route) => false,
                     );
                   },

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../configs/configs.dart';
 import '../../core/constant/colors.dart';
 
-Widget TransparentButton({
+Widget transparentButton({
   required BuildContext context,
   required void Function() onTap,
   required String buttonText,
@@ -27,3 +27,21 @@ Widget TransparentButton({
     ),
   );
 }
+
+/*Widget transparentButton({
+  required BuildContext context,
+  required void Function() onTap,
+  required String buttonText,
+}) {
+  return SizedBox(
+    width: double.infinity,
+    child: OutlinedButton(
+      onPressed: onTap,
+      style: OutlinedButton.styleFrom(shape: const RoundedRectangleBorder()),
+      child: Text(
+        buttonText,
+        style: AppText.h3b?.copyWith(color: AppColors.CommonCyan),
+      ),
+    ),
+  );
+}*/

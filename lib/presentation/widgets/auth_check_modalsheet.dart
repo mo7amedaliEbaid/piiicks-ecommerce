@@ -56,7 +56,7 @@ Future<void> showAuthCheckModalSheet(BuildContext context) {
                     )),
               ),
               Space.yf(),
-              TransparentButton(
+              transparentButton(
                   context: context,
                   onTap: () {},
                   buttonText: "Continue as a Guest")

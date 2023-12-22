@@ -35,13 +35,13 @@ Future<void> showPoceedtoCartBottomSheet(BuildContext context) async {
               Space.yf(.2),
               const Text("printing and typesetting industry."),
               Space.yf(2),
-              TransparentButton(
+              transparentButton(
                   context: context,
                   onTap: () {
                     context
                         .read<NavigationCubit>()
                         .updateTab(NavigationTab.cartTab);
-                    Navigator.popAndPushNamed(context, AppRouter.mainscreen);
+                    Navigator.popAndPushNamed(context, AppRouter.root);
                   },
                   buttonText: "Proceed to Cart"),
               Space.yf(1.5),
@@ -52,7 +52,7 @@ Future<void> showPoceedtoCartBottomSheet(BuildContext context) async {
                     context
                         .read<NavigationCubit>()
                         .updateTab(NavigationTab.productsTap);
-                    Navigator.popAndPushNamed(context, AppRouter.mainscreen);
+                    Navigator.popAndPushNamed(context, AppRouter.root);
                   },
                   child: Text(
                     "Continue Shopping",

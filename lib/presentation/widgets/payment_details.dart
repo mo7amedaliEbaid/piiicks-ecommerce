@@ -99,7 +99,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                       },
                       child: Padding(
                         padding: Space.vf(1.5),
-                        child: TransparentButton(
+                        child: transparentButton(
                             context: context,
                             onTap: () {
                               if (context

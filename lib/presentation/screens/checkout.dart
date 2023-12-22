@@ -68,7 +68,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                                 style: TextStyle(height: 1.6),
                               ),
                               Space.yf(1.8),
-                              TransparentButton(
+                              transparentButton(
                                   context: context,
                                   onTap: () {
                                     Navigator.of(context)

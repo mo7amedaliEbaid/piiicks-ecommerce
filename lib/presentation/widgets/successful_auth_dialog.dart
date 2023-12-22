@@ -38,7 +38,7 @@ Future<void> showSuccessfulAuthDialog(BuildContext context, String text) async {
                             .read<DeliveryInfoFetchCubit>()
                             .fetchDeliveryInfo();
                         Navigator.of(context).pushNamedAndRemoveUntil(
-                          AppRouter.mainscreen,
+                          AppRouter.root,
                           ModalRoute.withName(''),
                         );
                       },

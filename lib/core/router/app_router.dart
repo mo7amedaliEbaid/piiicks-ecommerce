@@ -26,7 +26,7 @@ import '../error/exceptions.dart';
 sealed class AppRouter {
   static const String splash = '/';
   static const String ads = '/ads';
-  static const String mainscreen = '/mainscreen';
+  static const String root = '/root';
   static const String productDetails = '/product-details';
   static const String search = '/search';
   static const String filter = '/filter';
@@ -50,7 +50,7 @@ sealed class AppRouter {
         return MaterialPageRoute(builder: (_) => const SplashScreen());
       case ads:
         return MaterialPageRoute(builder: (_) => const AdsScreen());
-      case mainscreen:
+      case root:
         return MaterialPageRoute(builder: (_) => const RootScreen());
       case search:
         return MaterialPageRoute(builder: (_) => const SearchScreen());

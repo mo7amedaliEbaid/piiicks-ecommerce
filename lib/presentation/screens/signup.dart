@@ -181,7 +181,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   style: AppText.b1b,
                 )),
                 Space.y1!,
-                TransparentButton(
+                transparentButton(
                     context: context,
                     onTap: () {
                       Navigator.of(context).pushNamed(AppRouter.login);

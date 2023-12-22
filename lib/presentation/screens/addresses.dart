@@ -38,7 +38,7 @@ class _AdressScreenState extends State<AdressScreen> {
           padding: Space.all(1.2, 1),
           child: Column(
             children: [
-              TransparentButton(
+              transparentButton(
                   context: context,
                   onTap: () {
                     Navigator.of(context).pushNamed(AppRouter.addadress);

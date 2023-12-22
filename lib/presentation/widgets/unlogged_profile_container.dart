@@ -2,23 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:piiicks/configs/configs.dart';
+import 'package:piiicks/presentation/widgets/transparent_button.dart';
 
 import '../../core/constant/assets.dart';
 import '../../core/constant/colors.dart';
 import '../../core/router/app_router.dart';
 
-Widget unloggedProfileContainer(BuildContext context){
+Widget unloggedProfileContainer(BuildContext context) {
   return Container(
     padding: Space.all(1.3, .7),
     width: double.infinity,
     decoration: BoxDecoration(
       image: DecorationImage(
-        image: const AssetImage(
-            AppAssets.Profile_bg_png),
+        image: const AssetImage(AppAssets.Profile_bg_png),
         fit: BoxFit.fill,
-        colorFilter: ColorFilter.mode(
-            Colors.grey.shade700,
-            BlendMode.colorBurn),
+        colorFilter:
+            ColorFilter.mode(Colors.grey.shade700, BlendMode.colorBurn),
       ),
     ),
     child: Column(
@@ -27,8 +26,8 @@ Widget unloggedProfileContainer(BuildContext context){
         Space.y1!,
         SvgPicture.asset(
           AppAssets.Profile,
-          colorFilter: const ColorFilter.mode(
-              AppColors.CommonCyan, BlendMode.srcIn),
+          colorFilter:
+              const ColorFilter.mode(AppColors.CommonCyan, BlendMode.srcIn),
           height: AppDimensions.normalize(19),
         ),
         Space.y1!,
@@ -46,17 +45,23 @@ Widget unloggedProfileContainer(BuildContext context){
           width: double.infinity,
           child: ElevatedButton(
             onPressed: () {
-              Navigator.of(context)
-                  .pushNamed(AppRouter.login);
+              Navigator.of(context).pushNamed(AppRouter.login);
             },
             child: Text(
               "Login",
-              style: AppText.h3b
-                  ?.copyWith(color: Colors.white),
+              style: AppText.h3b?.copyWith(color: Colors.white),
             ),
           ),
         ),
-        GestureDetector(
+        Space.yf(1.1),
+        transparentButton(
+          context: context,
+          onTap: () {
+            Navigator.of(context).pushNamed(AppRouter.signup);
+          },
+          buttonText: "Signup",
+        ),
+        /* GestureDetector(
           onTap: () {
             Navigator.of(context)
                 .pushNamed(AppRouter.signup);
@@ -78,7 +83,7 @@ Widget unloggedProfileContainer(BuildContext context){
               ),
             ),
           ),
-        ),
+        ),*/
         Space.yf(.6)
       ],
     ),

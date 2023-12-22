@@ -139,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Space.y1!,
-                TransparentButton(
+                transparentButton(
                   context: context,
                   onTap: () {
                     Navigator.of(context).pushNamed(AppRouter.signup);

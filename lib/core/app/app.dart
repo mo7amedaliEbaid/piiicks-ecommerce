@@ -68,6 +68,7 @@ class MyApp extends StatelessWidget {
           create: (context) => di.sl<ShareCubit>(),
         ),
              BlocProvider(
+               lazy: false,
           create: (context) => di.sl<NotificationsCubit>()..init(),
         ),
       ],
@@ -93,6 +94,13 @@ class MyApp extends StatelessWidget {
                 borderRadius: BorderRadius.zero,
               ),
             ),
+          ),
+          outlinedButtonTheme: OutlinedButtonThemeData(
+            style: OutlinedButton.styleFrom(
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.zero,
+              ),
+            )
           ),
           iconTheme: const IconThemeData(color: AppColors.CommonCyan, size: 30),
           floatingActionButtonTheme: const FloatingActionButtonThemeData(

@@ -59,7 +59,7 @@ class _OrderSuccessScreenState extends State<OrderSuccessScreen> {
                               .updateTab(NavigationTab.homeTab);*/
                         context.read<CartBloc>().add(const ClearCart());
                         Navigator.of(context).pushNamedAndRemoveUntil(
-                          AppRouter.mainscreen,
+                          AppRouter.root,
                           (route) => false,
                         );
                       },
