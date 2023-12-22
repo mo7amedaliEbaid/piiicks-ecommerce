@@ -111,7 +111,7 @@ dependencies:
 ```
 
 ## Download App
-<a href="https://github.com/mo7amedaliEbaid/piiicks-ecommerce/releases/download/v2.0.0/piiicks-v2.apk"><img src="https://playerzon.com/asset/download.png" width="150"></img></a>
+<a href="https://github.com/mo7amedaliEbaid/piiicks-ecommerce/releases/download/v3.0.0/piiicks-v3.apk"><img src="https://playerzon.com/asset/download.png" width="150"></img></a>
 
 ## Screens.
 ### Done:
