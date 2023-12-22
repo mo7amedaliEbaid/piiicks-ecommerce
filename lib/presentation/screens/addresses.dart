@@ -10,14 +10,20 @@ import '../../application/delivery_info_action_cubit/delivery_info_action_cubit.
 import '../../application/delivery_info_fetch_cubit/delivery_info_fetch_cubit.dart';
 import '../widgets/adress_card.dart';
 
-class AdressScreen extends StatefulWidget {
-  const AdressScreen({Key? key}) : super(key: key);
+class AddressesScreen extends StatefulWidget {
+  const AddressesScreen({Key? key}) : super(key: key);
 
   @override
-  State<AdressScreen> createState() => _AdressScreenState();
+  State<AddressesScreen> createState() => _AddressesScreenState();
 }
 
-class _AdressScreenState extends State<AdressScreen> {
+class _AddressesScreenState extends State<AddressesScreen> {
+  @override
+  void initState() {
+    context.read<DeliveryInfoFetchCubit>().fetchDeliveryInfo();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocListener<DeliveryInfoActionCubit, DeliveryInfoActionState>(
@@ -33,7 +39,8 @@ class _AdressScreenState extends State<AdressScreen> {
         }
       },
       child: Scaffold(
-        appBar: CustomAppBar("ADD ADDRESS", context,automaticallyImplyLeading: true),
+        appBar: CustomAppBar("ADD ADDRESS", context,
+            automaticallyImplyLeading: true),
         body: Padding(
           padding: Space.all(1.2, 1),
           child: Column(

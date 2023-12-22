@@ -32,7 +32,7 @@ sealed class AppRouter {
   static const String filter = '/filter';
   static const String signup = '/signup';
   static const String login = '/login';
-  static const String adress = '/adress';
+  static const String addresses = '/addresses';
   static const String addadress = '/addadress';
   static const String checkout = '/checkout';
   static const String contact = '/contact';
@@ -68,12 +68,12 @@ sealed class AppRouter {
         return MaterialPageRoute(builder: (_) => ContactScreen());
       case cart:
         return MaterialPageRoute(builder: (_) => const CartScreen());
-      case adress:
-        return MaterialPageRoute(builder: (_) => const AdressScreen());
+      case addresses:
+        return MaterialPageRoute(builder: (_) => const AddressesScreen());
       case addadress:
         DeliveryInfo? deliveryInfo = routeSettings.arguments as DeliveryInfo?;
         return MaterialPageRoute(
-            builder: (_) => AddAdressScreen(
+            builder: (_) => AddAddressScreen(
                   deliveryInfo: deliveryInfo,
                 ));
       case checkout:

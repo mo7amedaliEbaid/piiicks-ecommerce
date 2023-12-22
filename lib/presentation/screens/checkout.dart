@@ -72,7 +72,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                                   context: context,
                                   onTap: () {
                                     Navigator.of(context)
-                                        .pushNamed(AppRouter.adress);
+                                        .pushNamed(AppRouter.addresses);
                                   },
                                   buttonText: "Add Address")
                             ],

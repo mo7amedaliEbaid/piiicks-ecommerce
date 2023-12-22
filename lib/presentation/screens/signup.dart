@@ -31,10 +31,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
       TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
-  bool isLoading = false;
+//  bool isLoading = false;
   bool isChecked = false;
 
-  void _startLoading() {
+  /* void _startLoading() {
     setState(() {
       isLoading = true;
     });
@@ -44,7 +44,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
         isLoading = false;
       });
     });
+  }*/
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,13 +137,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ],
                 ),
                 Space.yf(1.5),
-                BlocListener<UserBloc, UserState>(
+                BlocConsumer<UserBloc, UserState>(
                   listener: (context, state) {
-                    if (state is UserLoading) {
-                      setState(() {
-                        _startLoading();
-                      });
-                    } else if (state is UserLogged) {
+                    if (state is UserLogged) {
                       showSuccessfulAuthDialog(context, "Registered");
                     } else if (state is UserLoggedFail) {
                       if (state.failure is CredentialFailure) {
@@ -144,35 +149,40 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       }
                     }
                   },
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        if (_passwordController.text !=
-                            _confirmPasswordController.text) {
-                        } else {
-                          context.read<UserBloc>().add(SignUpUser(SignUpParams(
-                                firstName: _nameController.text,
-                                lastName: _nameController.text,
-                                email: _emailController.text,
-                                password: _passwordController.text,
-                              )));
+                  builder: (context, state) {
+                    return ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          if (_passwordController.text !=
+                              _confirmPasswordController.text) {
+                          } else {
+                            context.read<UserBloc>().add(
+                                  SignUpUser(
+                                    SignUpParams(
+                                      firstName: _nameController.text,
+                                      lastName: _nameController.text,
+                                      email: _emailController.text,
+                                      password: _passwordController.text,
+                                    ),
+                                  ),
+                                );
+                          }
                         }
-                      }
-                    },
-                    style: ButtonStyle(
-                      minimumSize: MaterialStatePropertyAll(
-                        Size(
-                          double.infinity,
-                          AppDimensions.normalize(20),
+                      },
+                      style: ButtonStyle(
+                        minimumSize: MaterialStatePropertyAll(
+                          Size(
+                            double.infinity,
+                            AppDimensions.normalize(20),
+                          ),
                         ),
                       ),
-                    ),
-                    child:
-                        Text(
-                      isLoading == true ? "Wait..." : "Signup",
-                      style: AppText.h3b?.copyWith(color: Colors.white),
-                    ),
-                  ),
+                      child: Text(
+                        (state is UserLoading) ? "Wait..." : "Signup",
+                        style: AppText.h3b?.copyWith(color: Colors.white),
+                      ),
+                    );
+                  },
                 ),
                 Space.yf(1.5),
                 Center(

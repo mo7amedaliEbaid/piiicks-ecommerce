@@ -87,7 +87,7 @@ class ProfileScreen extends StatelessWidget {
                               GestureDetector(
                                 onTap: () {
                                   Navigator.of(context)
-                                      .pushNamed(AppRouter.adress);
+                                      .pushNamed(AppRouter.addresses);
                                 },
                                 child: Row(
                                   mainAxisAlignment:

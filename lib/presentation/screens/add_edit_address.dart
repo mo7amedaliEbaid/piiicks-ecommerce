@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:piiicks/configs/configs.dart';
+import 'package:piiicks/core/router/app_router.dart';
 import 'package:piiicks/presentation/widgets/custom_appbar.dart';
 import 'package:piiicks/presentation/widgets/mobile_number_textfield.dart';
 import 'package:piiicks/presentation/widgets/textfield_toptext.dart';
@@ -9,47 +9,58 @@ import 'package:piiicks/presentation/widgets/textfield_toptext.dart';
 import '../../application/delivery_info_action_cubit/delivery_info_action_cubit.dart';
 import '../../application/delivery_info_fetch_cubit/delivery_info_fetch_cubit.dart';
 import '../../application/notifications_cubit/notifications_cubit.dart';
-import '../../core/router/app_router.dart';
 import '../../data/models/delivery/delivery_info_model.dart';
 import '../../domain/entities/delivery/delivery_info.dart';
 import '../widgets/custom_textfield.dart';
 
-class AddAdressScreen extends StatefulWidget {
+class AddAddressScreen extends StatefulWidget {
   final DeliveryInfo? deliveryInfo;
 
-  const AddAdressScreen({
+  const AddAddressScreen({
     super.key,
     this.deliveryInfo,
   });
 
   @override
-  State<AddAdressScreen> createState() => _AddAdressScreenState();
+  State<AddAddressScreen> createState() => _AddAddressScreenState();
 }
 
-class _AddAdressScreenState extends State<AddAdressScreen> {
+class _AddAddressScreenState extends State<AddAddressScreen> {
   String? id;
-  final TextEditingController firstName = TextEditingController();
-  final TextEditingController lastName = TextEditingController();
-  final TextEditingController addressLineOne = TextEditingController();
-  final TextEditingController addressLineTwo = TextEditingController();
-  final TextEditingController city = TextEditingController();
-  final TextEditingController zipCode = TextEditingController();
-  final TextEditingController contactNumber = TextEditingController();
+  final TextEditingController _firstName = TextEditingController();
+  final TextEditingController _lastName = TextEditingController();
+  final TextEditingController _addressLineOne = TextEditingController();
+  final TextEditingController _addressLineTwo = TextEditingController();
+  final TextEditingController _city = TextEditingController();
+  final TextEditingController _zipCode = TextEditingController();
+  final TextEditingController _contactNumber = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     if (widget.deliveryInfo != null) {
       id = widget.deliveryInfo!.id;
-      firstName.text = widget.deliveryInfo!.firstName;
-      lastName.text = widget.deliveryInfo!.lastName;
-      addressLineOne.text = widget.deliveryInfo!.addressLineOne;
-      addressLineTwo.text = widget.deliveryInfo!.addressLineTwo;
-      city.text = widget.deliveryInfo!.city;
-      zipCode.text = widget.deliveryInfo!.zipCode;
-      contactNumber.text = widget.deliveryInfo!.contactNumber;
+      _firstName.text = widget.deliveryInfo!.firstName;
+      _lastName.text = widget.deliveryInfo!.lastName;
+      _addressLineOne.text = widget.deliveryInfo!.addressLineOne;
+      _addressLineTwo.text = widget.deliveryInfo!.addressLineTwo;
+      _city.text = widget.deliveryInfo!.city;
+      _zipCode.text = widget.deliveryInfo!.zipCode;
+      _contactNumber.text = widget.deliveryInfo!.contactNumber;
     }
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _firstName.dispose();
+    _lastName.dispose();
+    _addressLineOne.dispose();
+    _addressLineTwo.dispose();
+    _city.dispose();
+    _zipCode.dispose();
+    _contactNumber.dispose();
+    super.dispose();
   }
 
   @override
@@ -81,19 +92,19 @@ class _AddAdressScreenState extends State<AddAdressScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   TextFieldTopText("First Name*"),
-                  buildTextFormField(firstName, 'First name'),
+                  buildTextFormField(_firstName, 'First name'),
                   TextFieldTopText("Last name*"),
-                  buildTextFormField(lastName, 'Last name'),
+                  buildTextFormField(_lastName, 'Last name'),
                   TextFieldTopText("Line One*"),
-                  buildTextFormField(addressLineOne, 'Address line one'),
+                  buildTextFormField(_addressLineOne, 'Address line one'),
                   TextFieldTopText("Line Two*"),
-                  buildTextFormField(addressLineTwo, 'Address line two'),
+                  buildTextFormField(_addressLineTwo, 'Address line two'),
                   TextFieldTopText("City*"),
-                  buildTextFormField(city, 'City'),
+                  buildTextFormField(_city, 'City'),
                   TextFieldTopText("Zip Code*"),
-                  buildTextFormField(zipCode, 'Zip code'),
+                  buildTextFormField(_zipCode, 'Zip code'),
                   TextFieldTopText("Contact number*"),
-                  MobileNumberTextField(contactNumber, 'Contact number'),
+                  MobileNumberTextField(_contactNumber, 'Contact number'),
                   Space.yf(2),
                   SizedBox(
                     width: double.infinity,
@@ -105,37 +116,49 @@ class _AddAdressScreenState extends State<AddAdressScreen> {
                                 .read<DeliveryInfoActionCubit>()
                                 .addDeliveryInfo(DeliveryInfoModel(
                                   id: '',
-                                  firstName: firstName.text,
-                                  lastName: lastName.text,
-                                  addressLineOne: addressLineOne.text,
-                                  addressLineTwo: addressLineTwo.text,
-                                  city: city.text,
-                                  zipCode: zipCode.text,
-                                  contactNumber: contactNumber.text,
+                                  firstName: _firstName.text,
+                                  lastName: _lastName.text,
+                                  addressLineOne: _addressLineOne.text,
+                                  addressLineTwo: _addressLineTwo.text,
+                                  city: _city.text,
+                                  zipCode: _zipCode.text,
+                                  contactNumber: _contactNumber.text,
                                 ));
                             context
                                 .read<NotificationsCubit>()
                                 .showAndSaveNotification("Addresses Update",
                                     "Congratulations, You have successfully updated your Address Book.");
-                            Phoenix.rebirth(context);
+                            // Phoenix.rebirth(context);
+                            context
+                                .read<DeliveryInfoFetchCubit>()
+                                .fetchDeliveryInfo();
+                            Navigator.pop(context);
+
+                            Navigator.of(context)
+                                .popAndPushNamed(AppRouter.addresses);
                           } else {
                             context
                                 .read<DeliveryInfoActionCubit>()
                                 .editDeliveryInfo(DeliveryInfoModel(
                                   id: id!,
-                                  firstName: firstName.text,
-                                  lastName: lastName.text,
-                                  addressLineOne: addressLineOne.text,
-                                  addressLineTwo: addressLineTwo.text,
-                                  city: city.text,
-                                  zipCode: zipCode.text,
-                                  contactNumber: contactNumber.text,
+                                  firstName: _firstName.text,
+                                  lastName: _lastName.text,
+                                  addressLineOne: _addressLineOne.text,
+                                  addressLineTwo: _addressLineTwo.text,
+                                  city: _city.text,
+                                  zipCode: _zipCode.text,
+                                  contactNumber: _contactNumber.text,
                                 ));
                             context
                                 .read<NotificationsCubit>()
                                 .showAndSaveNotification("Addresses Update",
                                     "Congratulations, You have successfully updated your Address Book.");
-                            Phoenix.rebirth(context);
+                            // Phoenix.rebirth(context);
+                            context
+                                .read<DeliveryInfoFetchCubit>()
+                                .fetchDeliveryInfo();
+                            Navigator.pop(context);
+                            //   Navigator.of(context).popAndPushNamed(AppRouter.addresses);
                           }
                         }
                       },

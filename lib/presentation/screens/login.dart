@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
-  bool isLoading = false;
+/*  bool isLoading = false;
   void _startLoading() {
     setState(() {
       isLoading = true;
@@ -39,10 +39,16 @@ class _LoginScreenState extends State<LoginScreen> {
         isLoading = false;
       });
     });
+  }*/
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: CustomAppBar("LOGIN", context, automaticallyImplyLeading: true),
       body: SingleChildScrollView(
@@ -88,13 +94,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 Space.yf(1.7),
-                BlocListener<UserBloc, UserState>(
+                BlocConsumer<UserBloc, UserState>(
                   listener: (context, state) {
-                    if (state is UserLoading) {
-                      setState(() {
-                        _startLoading();
-                      });
-                    } else if (state is UserLogged) {
+                    if (state is UserLogged) {
                       showSuccessfulAuthDialog(context, "logged in");
                     } else if (state is UserLoggedFail) {
                       if (state.failure is CredentialFailure) {
@@ -104,32 +106,34 @@ class _LoginScreenState extends State<LoginScreen> {
                       }
                     }
                   },
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        context.read<UserBloc>().add(
-                              SignInUser(
-                                SignInParams(
-                                  username: _emailController.text,
-                                  password: _passwordController.text,
+                  builder: (context, state) {
+                    return ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          context.read<UserBloc>().add(
+                                SignInUser(
+                                  SignInParams(
+                                    username: _emailController.text,
+                                    password: _passwordController.text,
+                                  ),
                                 ),
-                              ),
-                            );
-                      }
-                    },
-                    style: ButtonStyle(
-                      minimumSize: MaterialStatePropertyAll(
-                        Size(
-                          double.infinity,
-                          AppDimensions.normalize(20),
+                              );
+                        }
+                      },
+                      style: ButtonStyle(
+                        minimumSize: MaterialStatePropertyAll(
+                          Size(
+                            double.infinity,
+                            AppDimensions.normalize(20),
+                          ),
                         ),
                       ),
-                    ),
-                    child: Text(
-                      isLoading == true ? "Wait..." : "Login",
-                      style: AppText.h3b?.copyWith(color: Colors.white),
-                    ),
-                  ),
+                      child: Text(
+                        (state is UserLoading) ? "Wait..." : "Login",
+                        style: AppText.h3b?.copyWith(color: Colors.white),
+                      ),
+                    );
+                  },
                 ),
                 Space.yf(1.5),
                 Center(

@@ -55,6 +55,7 @@ class MyApp extends StatelessWidget {
           create: (context) => di.sl<DeliveryInfoActionCubit>(),
         ),
         BlocProvider(
+          lazy: false,
           create: (context) =>
               di.sl<DeliveryInfoFetchCubit>()..fetchDeliveryInfo(),
         ),
@@ -67,8 +68,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => di.sl<ShareCubit>(),
         ),
-             BlocProvider(
-               lazy: false,
+        BlocProvider(
+          lazy: false,
           create: (context) => di.sl<NotificationsCubit>()..init(),
         ),
       ],
@@ -96,12 +97,11 @@ class MyApp extends StatelessWidget {
             ),
           ),
           outlinedButtonTheme: OutlinedButtonThemeData(
-            style: OutlinedButton.styleFrom(
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.zero,
-              ),
-            )
-          ),
+              style: OutlinedButton.styleFrom(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.zero,
+            ),
+          )),
           iconTheme: const IconThemeData(color: AppColors.CommonCyan, size: 30),
           floatingActionButtonTheme: const FloatingActionButtonThemeData(
             backgroundColor: AppColors.CommonCyan,
