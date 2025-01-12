@@ -1,5 +1,6 @@
 [![Android CI](https://github.com/mo7amedaliEbaid/piiicks-ecommerce/actions/workflows/android.yml/badge.svg)](https://github.com/mo7amedaliEbaid/piiicks-ecommerce/actions/workflows/android.yml)
 
+
 # Piiicks
 Piiicks is a Flutter e-commerce app, meticulously crafted with clean architecture and powered by the efficient BLoC state management ensuring scalability, maintainability, and optimal performance. Dive into a seamless coding experience with a sleek interface and robust features designed to elevate the online shopping journey.
 
@@ -218,6 +219,13 @@ https://github.com/mo7amedaliEbaid/piiicks-ecommerce/assets/131966482/4d83307e-2
 
 
 
+#### ⚠️ API Usage Warning
+##### The APIs included in this project might not work as intended, as they haven't been tested for a while. If you wish to work with this repository:
+
+- Replace the API URLs and endpoints with your own.
+- Use this project to study the architecture, understand the use cases, and gain insights into implementing API integrations, handling data flow, managing state, and designing scalable and maintainable codebases.
+- If you encounter any issues or have updates, contributions are welcome!
+- Let me know if you'd like further refinements or additional sections for clarity!
 
 ## Getting Started
 1. Clone the repository.
